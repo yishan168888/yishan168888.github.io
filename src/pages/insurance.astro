@@ -1,0 +1,938 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<MainLayout title="富邦保險諮詢 | LuLu" bodyClass="insurance-page">
+  <Fragment slot="head">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  </Fragment>
+
+  <Header />
+
+  <main class="main">
+
+    <!-- ═══ HERO ═══ -->
+    <section class="ins-hero">
+      <div class="ins-pixel-bg"></div>
+      <div class="ins-sparkles" aria-hidden="true">
+        <span class="sp sp-1">✦</span>
+        <span class="sp sp-2">✧</span>
+        <span class="sp sp-3">✦</span>
+        <span class="sp sp-4">✸</span>
+        <span class="sp sp-5">✧</span>
+        <span class="sp sp-6">✦</span>
+        <span class="sp sp-7">✸</span>
+        <span class="sp sp-8">✧</span>
+      </div>
+      <div class="container position-relative">
+        <div class="ins-hero-inner">
+          <div class="ins-pixel-badge">FUBON INSURANCE</div>
+          <h1 class="ins-hero-title">富邦保險<br /><span>專屬顧問服務</span></h1>
+          <p class="ins-hero-sub">用護理人的溫柔，為你的未來<br />量身打造最適合的保障藍圖</p>
+          <div class="ins-hero-btns">
+            <a href="https://line.me/ti/p/w7U_i0Dc0k" target="_blank" class="ins-btn-primary">✦ 立即預約諮詢</a>
+            <a href="#ins-products" class="ins-btn-outline">了解商品 ↓</a>
+          </div>
+          <div class="ins-hero-stats">
+            <div class="ins-stat">
+              <span class="ins-stat-num">300<span class="ins-stat-plus">+</span></span>
+              <span class="ins-stat-label">服務個案</span>
+            </div>
+            <div class="ins-stat-divider"></div>
+            <div class="ins-stat">
+              <span class="ins-stat-num">5<span class="ins-stat-plus">+</span></span>
+              <span class="ins-stat-label">年資歷</span>
+            </div>
+            <div class="ins-stat-divider"></div>
+            <div class="ins-stat">
+              <span class="ins-stat-num">98<span class="ins-stat-plus">%</span></span>
+              <span class="ins-stat-label">客戶好評</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ PIXEL DIVIDER ═══ -->
+    <div class="ins-divider" aria-hidden="true"></div>
+
+    <!-- ═══ PRODUCTS ═══ -->
+    <section id="ins-products" class="ins-section">
+      <div class="container">
+        <div class="ins-section-header" data-aos="fade-up">
+          <div class="ins-section-label">PRODUCTS</div>
+          <h2 class="ins-section-title">保險商品介紹</h2>
+          <p class="ins-section-sub">每一份保單，都是對未來自己最溫柔的承諾</p>
+        </div>
+
+        <div class="row g-4 mt-2">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="ins-card">
+              <div class="ins-card-icon">🛡️</div>
+              <div class="ins-card-tag">LIFE</div>
+              <h3 class="ins-card-title">壽險</h3>
+              <p class="ins-card-text">人生中最重要的保障基石。當意外或疾病導致身故或全殘，給付保險金守護摯愛的生活，讓你安心走，讓家人有依靠。</p>
+              <ul class="ins-feature-list">
+                <li>✦ 身故保障</li>
+                <li>✦ 全殘保障</li>
+                <li>✦ 彈性繳費期間</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="ins-card ins-card-featured">
+              <div class="ins-card-featured-badge">推薦</div>
+              <div class="ins-card-icon">🏥</div>
+              <div class="ins-card-tag">MEDICAL</div>
+              <h3 class="ins-card-title">醫療險</h3>
+              <p class="ins-card-text">護理出身的魯魯最了解住院的費用與壓力。醫療險幫你補足健保缺口，讓你專心養病，不必擔心帳單。</p>
+              <ul class="ins-feature-list">
+                <li>✦ 住院日額給付</li>
+                <li>✦ 手術費用補償</li>
+                <li>✦ 雜費實支實付</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="ins-card">
+              <div class="ins-card-icon">⚡</div>
+              <div class="ins-card-tag">ACCIDENT</div>
+              <h3 class="ins-card-title">意外險</h3>
+              <p class="ins-card-text">意外無法預測，但保障可以。從日常通勤到戶外活動，全面守護你的生活每一刻，保費親民、保障實在。</p>
+              <ul class="ins-feature-list">
+                <li>✦ 意外身故保障</li>
+                <li>✦ 意外失能給付</li>
+                <li>✦ 急診醫療補助</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="ins-card">
+              <div class="ins-card-icon">💊</div>
+              <div class="ins-card-tag">CRITICAL</div>
+              <h3 class="ins-card-title">重大疾病險</h3>
+              <p class="ins-card-text">癌症、心肌梗塞、腦中風等重大疾病一旦發生，治療費用往往超乎想像。這份保障讓你專注治療，無後顧之憂。</p>
+              <ul class="ins-feature-list">
+                <li>✦ 七大重症一次給付</li>
+                <li>✦ 癌症分期保障</li>
+                <li>✦ 提前確診給付</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="ins-card">
+              <div class="ins-card-icon">🌙</div>
+              <div class="ins-card-tag">ANNUITY</div>
+              <h3 class="ins-card-title">年金險</h3>
+              <p class="ins-card-text">提早為退休生活做準備，讓自己老有所依。透過定期繳費累積年金，退休後定期領取，成為自己的薪水。</p>
+              <ul class="ins-feature-list">
+                <li>✦ 退休現金流規劃</li>
+                <li>✦ 保本機制</li>
+                <li>✦ 彈性領取方式</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="ins-card">
+              <div class="ins-card-icon">📈</div>
+              <div class="ins-card-tag">INVEST</div>
+              <h3 class="ins-card-title">投資型保單</h3>
+              <p class="ins-card-text">保障與資產增值兼得。透過連結基金帳戶，在擁有人身保障的同時，參與市場成長，讓資產為你工作。</p>
+              <ul class="ins-feature-list">
+                <li>✦ 多元基金連結</li>
+                <li>✦ 保障額度彈性</li>
+                <li>✦ 定期檢視調整</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ PIXEL DIVIDER ═══ -->
+    <div class="ins-divider" aria-hidden="true"></div>
+
+    <!-- ═══ WHY LULU ═══ -->
+    <section class="ins-section ins-section-tinted">
+      <div class="container">
+        <div class="ins-section-header" data-aos="fade-up">
+          <div class="ins-section-label">WHY LULU</div>
+          <h2 class="ins-section-title">為什麼找魯魯諮詢</h2>
+          <p class="ins-section-sub">不只是業務員，更是你生命旅途上的陪伴者</p>
+        </div>
+
+        <div class="row g-4 mt-2 align-items-center">
+          <div class="col-lg-5" data-aos="fade-right">
+            <div class="ins-lulu-img-wrap">
+              <img src="/img/lulu/lu01.png" alt="LuLu" class="ins-lulu-img" />
+              <div class="ins-lulu-badge">
+                <span class="ins-pixel-text">ADVISOR</span>
+                <span>MMT 認證分析師</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7" data-aos="fade-left" data-aos-delay="100">
+            <div class="row g-3">
+
+              <div class="col-sm-6">
+                <div class="ins-why-card">
+                  <div class="ins-why-icon">🩺</div>
+                  <h4 class="ins-why-title">護理專業背景</h4>
+                  <p>臨床護理經驗讓我深刻理解醫療費用結構，能精準評估你真正需要的保障缺口，而非過度保險。</p>
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="ins-why-card">
+                  <div class="ins-why-icon">🧩</div>
+                  <h4 class="ins-why-title">MMT 天賦分析</h4>
+                  <p>透過 MMT 系統了解你的人格特質與風險承受度，為你設計最符合個性的保險組合，而非標準版。</p>
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="ins-why-card">
+                  <div class="ins-why-icon">💛</div>
+                  <h4 class="ins-why-title">高敏感同理心</h4>
+                  <p>擅長傾聽，能讀懂你說不出口的擔憂。不用業績數字壓你，只想真正幫你找到安心的保障。</p>
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="ins-why-card">
+                  <div class="ins-why-icon">🌿</div>
+                  <h4 class="ins-why-title">全人陪伴視角</h4>
+                  <p>結合靈性覺察與保險規劃，從身心靈整體出發，讓保險不只是數字，更是對自己全面的關愛。</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ PIXEL DIVIDER ═══ -->
+    <div class="ins-divider" aria-hidden="true"></div>
+
+    <!-- ═══ PROCESS ═══ -->
+    <section class="ins-section">
+      <div class="container">
+        <div class="ins-section-header" data-aos="fade-up">
+          <div class="ins-section-label">PROCESS</div>
+          <h2 class="ins-section-title">諮詢流程</h2>
+          <p class="ins-section-sub">從陌生到安心，每一步都有魯魯陪著你</p>
+        </div>
+
+        <div class="ins-steps" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="ins-step">
+            <div class="ins-step-num">01</div>
+            <div class="ins-step-content">
+              <h4>初次接觸</h4>
+              <p>透過 Line 或 Instagram 聯繫，簡單說明你的需求與疑惑，預約 30 分鐘免費初談。</p>
+            </div>
+          </div>
+
+          <div class="ins-step-arrow">▶</div>
+
+          <div class="ins-step">
+            <div class="ins-step-num">02</div>
+            <div class="ins-step-content">
+              <h4>需求診斷</h4>
+              <p>深度了解你的生命階段、家庭狀況與財務目標，結合 MMT 天賦分析找出最真實的保障需求。</p>
+            </div>
+          </div>
+
+          <div class="ins-step-arrow">▶</div>
+
+          <div class="ins-step">
+            <div class="ins-step-num">03</div>
+            <div class="ins-step-content">
+              <h4>方案規劃</h4>
+              <p>根據預算與需求量身設計 2-3 套方案，清楚說明每份保單的優缺點，讓你充分比較。</p>
+            </div>
+          </div>
+
+          <div class="ins-step-arrow">▶</div>
+
+          <div class="ins-step">
+            <div class="ins-step-num">04</div>
+            <div class="ins-step-content">
+              <h4>保單說明</h4>
+              <p>用最白話的方式解讀保單條款，確認你真正理解每一項保障內容，不留任何疑問。</p>
+            </div>
+          </div>
+
+          <div class="ins-step-arrow">▶</div>
+
+          <div class="ins-step">
+            <div class="ins-step-num">05</div>
+            <div class="ins-step-content">
+              <h4>長期關懷</h4>
+              <p>成交後的服務才是開始。定期回顧保障是否仍符合你的人生狀態，隨時調整更新。</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ PIXEL DIVIDER ═══ -->
+    <div class="ins-divider" aria-hidden="true"></div>
+
+    <!-- ═══ TESTIMONIALS ═══ -->
+    <section class="ins-section ins-section-tinted">
+      <div class="container">
+        <div class="ins-section-header" data-aos="fade-up">
+          <div class="ins-section-label">TESTIMONIALS</div>
+          <h2 class="ins-section-title">客戶見證</h2>
+          <p class="ins-section-sub">真實回饋，來自每一段陪伴的旅程</p>
+        </div>
+
+        <div class="row g-4 mt-2">
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="ins-testi-card">
+              <div class="ins-testi-stars">✦ ✦ ✦ ✦ ✦</div>
+              <p class="ins-testi-text">「原本對保險一點興趣都沒有，但魯魯用我能理解的方式說明，讓我感覺被聆聽。現在有了醫療險真的安心很多。」</p>
+              <div class="ins-testi-author">
+                <div class="ins-testi-avatar">A</div>
+                <div>
+                  <div class="ins-testi-name">Annie C.</div>
+                  <div class="ins-testi-role">上班族 · 醫療險</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="ins-testi-card ins-testi-featured">
+              <div class="ins-testi-stars">✦ ✦ ✦ ✦ ✦</div>
+              <p class="ins-testi-text">「做完 MMT 分析再規劃保單，感覺完全不一樣！魯魯看到我真正在意的東西，幫我找到最適合的組合。」</p>
+              <div class="ins-testi-author">
+                <div class="ins-testi-avatar">M</div>
+                <div>
+                  <div class="ins-testi-name">Mark L.</div>
+                  <div class="ins-testi-role">自由業 · 壽險 + 重疾</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="ins-testi-card">
+              <div class="ins-testi-stars">✦ ✦ ✦ ✦ ✦</div>
+              <p class="ins-testi-text">「媽媽生病後才驚覺保障缺口有多大。魯魯很有耐心地陪我重新規劃，護理背景讓她真的懂我的擔憂。」</p>
+              <div class="ins-testi-author">
+                <div class="ins-testi-avatar">S</div>
+                <div>
+                  <div class="ins-testi-name">Sophia W.</div>
+                  <div class="ins-testi-role">教師 · 全家保障規劃</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CTA ═══ -->
+    <section class="ins-cta">
+      <div class="ins-sparkles ins-sparkles-cta" aria-hidden="true">
+        <span class="sp sp-1">✦</span>
+        <span class="sp sp-3">✸</span>
+        <span class="sp sp-5">✧</span>
+        <span class="sp sp-7">✦</span>
+      </div>
+      <div class="container position-relative">
+        <div class="ins-cta-inner" data-aos="zoom-in">
+          <div class="ins-pixel-badge">START YOUR JOURNEY</div>
+          <h2 class="ins-cta-title">準備好守護你的未來了嗎？</h2>
+          <p class="ins-cta-sub">現在預約免費諮詢，讓魯魯陪你找到最適合的保障</p>
+          <div class="ins-cta-btns">
+            <a href="https://line.me/ti/p/w7U_i0Dc0k" target="_blank" class="ins-btn-primary">✦ Line 預約諮詢</a>
+            <a href="https://www.instagram.com/yishan168/" target="_blank" class="ins-btn-outline">Instagram 聯絡</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</MainLayout>
+
+<style is:global>
+/* ══════════════════════════════════════════
+   MUJI × PIXEL MAGIC — Insurance Page
+   全域作用範圍限 .insurance-page
+══════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* ── Variables ── */
+.insurance-page {
+  --m-bg:        #f7f4ef;
+  --m-surface:   #ede8e0;
+  --m-tinted:    #e6ddd2;
+  --m-border:    #c4b8a8;
+  --m-shadow:    #a09080;
+  --m-deep:      #6b5240;
+  --m-text:      #3d3530;
+  --m-muted:     #7a6e64;
+  --m-gold:      #b5956a;
+  --m-gold-lt:   #d4c4b0;
+  --m-gold-dk:   #8a6840;
+  --px: 'Press Start 2P', monospace;
+
+  background-color: var(--m-bg) !important;
+  color: var(--m-text);
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+/* ── Override main.css header colors for this page ── */
+.insurance-page #header {
+  background: var(--m-bg);
+  border-bottom: 3px solid var(--m-border);
+  box-shadow: 0 3px 0 var(--m-shadow);
+}
+.insurance-page .header .sitename,
+.insurance-page .navmenu a {
+  color: var(--m-text) !important;
+}
+.insurance-page .navmenu a:hover {
+  color: var(--m-gold) !important;
+}
+
+/* ═════════════════════════════
+   PIXEL UTILITIES
+═════════════════════════════ */
+.ins-pixel-text {
+  font-family: var(--px);
+  font-size: 0.55rem;
+  letter-spacing: 0.05em;
+}
+
+/* Pixel border box */
+.ins-px-box {
+  outline: 2px solid var(--m-border);
+  box-shadow: 3px 3px 0 var(--m-shadow);
+}
+
+/* Floating sparkle animation */
+@keyframes sp-float {
+  0%,100% { transform: translateY(0)   rotate(0deg);   opacity: .5; }
+  33%      { transform: translateY(-12px) rotate(120deg); opacity: 1;  }
+  66%      { transform: translateY(6px)  rotate(240deg); opacity: .3; }
+}
+.ins-sparkles { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.sp {
+  position: absolute;
+  font-size: 1rem;
+  color: var(--m-gold);
+  animation: sp-float 4s infinite;
+}
+.sp-1 { top: 12%; left: 8%;  animation-delay: 0s;    font-size: 1.2rem; }
+.sp-2 { top: 25%; left: 20%; animation-delay: 0.7s;  font-size: .8rem;  }
+.sp-3 { top: 55%; left: 5%;  animation-delay: 1.4s;  }
+.sp-4 { top: 75%; left: 15%; animation-delay: 0.3s;  font-size: .7rem;  }
+.sp-5 { top: 10%; right: 8%; animation-delay: 0.9s;  font-size: 1.1rem; }
+.sp-6 { top: 40%; right: 5%; animation-delay: 1.8s;  }
+.sp-7 { top: 65%; right: 12%;animation-delay: 0.5s;  font-size: .75rem; }
+.sp-8 { top: 85%; right: 20%;animation-delay: 2.2s;  font-size: .9rem;  }
+
+/* Pixel grid background */
+.ins-pixel-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 7px, rgba(181,149,106,.08) 7px, rgba(181,149,106,.08) 8px),
+    repeating-linear-gradient(90deg, transparent, transparent 7px, rgba(181,149,106,.08) 7px, rgba(181,149,106,.08) 8px);
+  pointer-events: none;
+}
+
+/* Section label */
+.ins-section-label {
+  font-family: var(--px);
+  font-size: .55rem;
+  color: var(--m-gold);
+  letter-spacing: .2em;
+  margin-bottom: .75rem;
+}
+
+/* Pixel badge */
+.ins-pixel-badge {
+  display: inline-block;
+  font-family: var(--px);
+  font-size: .5rem;
+  color: var(--m-bg);
+  background: var(--m-gold-dk);
+  padding: .5rem .9rem;
+  margin-bottom: 1.25rem;
+  outline: 2px solid var(--m-deep);
+  box-shadow: 3px 3px 0 var(--m-deep);
+  letter-spacing: .1em;
+}
+
+/* Pixel divider */
+.ins-divider {
+  height: 12px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--m-border)    0px,
+    var(--m-border)    12px,
+    var(--m-gold-lt)   12px,
+    var(--m-gold-lt)   24px
+  );
+  outline: 2px solid var(--m-shadow);
+}
+
+/* ═════════════════════════════
+   HERO
+═════════════════════════════ */
+.ins-hero {
+  position: relative;
+  padding: 140px 0 80px;
+  background: var(--m-surface);
+  overflow: hidden;
+}
+
+.ins-hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ins-hero-title {
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: var(--m-text);
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+  text-shadow: 3px 3px 0 var(--m-gold-lt);
+}
+.ins-hero-title span {
+  color: var(--m-gold-dk);
+  display: block;
+}
+
+.ins-hero-sub {
+  font-size: 1.1rem;
+  color: var(--m-muted);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+/* Buttons */
+.ins-btn-primary,
+.ins-btn-outline {
+  display: inline-block;
+  padding: .75rem 1.75rem;
+  font-size: .85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform .1s, box-shadow .1s;
+  cursor: pointer;
+}
+.ins-btn-primary {
+  background: var(--m-gold-dk);
+  color: var(--m-bg);
+  outline: 2px solid var(--m-deep);
+  box-shadow: 4px 4px 0 var(--m-deep);
+}
+.ins-btn-primary:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--m-deep);
+  color: var(--m-bg);
+}
+.ins-btn-outline {
+  background: transparent;
+  color: var(--m-gold-dk);
+  outline: 2px solid var(--m-gold-dk);
+  box-shadow: 4px 4px 0 var(--m-border);
+  margin-left: 1rem;
+}
+.ins-btn-outline:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--m-border);
+  color: var(--m-deep);
+}
+
+.ins-hero-btns { margin-bottom: 2.5rem; }
+
+/* Stats bar */
+.ins-hero-stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  background: var(--m-bg);
+  outline: 2px solid var(--m-border);
+  box-shadow: 4px 4px 0 var(--m-shadow);
+  max-width: 480px;
+  margin: 0 auto;
+}
+.ins-stat {
+  flex: 1;
+  padding: 1.1rem .5rem;
+  text-align: center;
+}
+.ins-stat-num {
+  display: block;
+  font-family: var(--px);
+  font-size: 1rem;
+  color: var(--m-gold-dk);
+  line-height: 1;
+  margin-bottom: .4rem;
+}
+.ins-stat-plus { font-size: .7rem; }
+.ins-stat-label {
+  font-size: .7rem;
+  color: var(--m-muted);
+  letter-spacing: .05em;
+}
+.ins-stat-divider {
+  width: 2px;
+  height: 40px;
+  background: var(--m-border);
+  flex-shrink: 0;
+}
+
+/* ═════════════════════════════
+   SECTIONS
+═════════════════════════════ */
+.ins-section { padding: 80px 0; }
+.ins-section-tinted { background: var(--m-surface); }
+
+.ins-section-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.ins-section-title {
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: var(--m-text);
+  margin-bottom: .5rem;
+  position: relative;
+  display: inline-block;
+}
+.ins-section-title::after {
+  content: '';
+  display: block;
+  height: 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--m-gold) 0, var(--m-gold) 6px,
+    transparent   6px, transparent  10px
+  );
+  margin-top: .4rem;
+}
+.ins-section-sub {
+  color: var(--m-muted);
+  font-size: .95rem;
+  margin-top: .5rem;
+}
+
+/* ═════════════════════════════
+   PRODUCT CARDS
+═════════════════════════════ */
+.ins-card {
+  background: var(--m-bg);
+  padding: 1.75rem;
+  height: 100%;
+  position: relative;
+  outline: 2px solid var(--m-border);
+  box-shadow: 5px 5px 0 var(--m-shadow);
+  transition: transform .15s, box-shadow .15s;
+}
+.ins-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 8px 8px 0 var(--m-shadow);
+}
+.ins-card-featured {
+  background: var(--m-surface);
+  outline-color: var(--m-gold);
+  box-shadow: 5px 5px 0 var(--m-gold-dk);
+}
+.ins-card-featured:hover {
+  box-shadow: 8px 8px 0 var(--m-gold-dk);
+}
+.ins-card-featured-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  font-family: var(--px);
+  font-size: .45rem;
+  background: var(--m-gold-dk);
+  color: var(--m-bg);
+  padding: .35rem .6rem;
+  outline: 2px solid var(--m-deep);
+}
+.ins-card-icon {
+  font-size: 2rem;
+  margin-bottom: .5rem;
+  line-height: 1;
+}
+.ins-card-tag {
+  font-family: var(--px);
+  font-size: .45rem;
+  color: var(--m-gold);
+  letter-spacing: .15em;
+  margin-bottom: .6rem;
+}
+.ins-card-title {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--m-text);
+  margin-bottom: .75rem;
+}
+.ins-card-text {
+  font-size: .9rem;
+  color: var(--m-muted);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+.ins-feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: .85rem;
+  color: var(--m-gold-dk);
+  border-top: 2px dashed var(--m-border);
+  padding-top: .75rem;
+}
+.ins-feature-list li {
+  padding: .2rem 0;
+  font-weight: 600;
+}
+
+/* ═════════════════════════════
+   WHY LULU
+═════════════════════════════ */
+.ins-lulu-img-wrap {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.ins-lulu-img {
+  width: 100%;
+  max-width: 380px;
+  display: block;
+  margin: 0 auto;
+  outline: 4px solid var(--m-border);
+  box-shadow: 8px 8px 0 var(--m-shadow);
+  image-rendering: auto;
+}
+.ins-lulu-badge {
+  position: absolute;
+  bottom: -8px;
+  right: calc(50% - 190px + 8px);
+  background: var(--m-gold-dk);
+  color: var(--m-bg);
+  padding: .6rem 1rem;
+  outline: 2px solid var(--m-deep);
+  box-shadow: 3px 3px 0 var(--m-deep);
+  text-align: center;
+  min-width: 140px;
+}
+.ins-lulu-badge span:last-child {
+  display: block;
+  font-size: .75rem;
+  margin-top: .25rem;
+}
+
+.ins-why-card {
+  background: var(--m-bg);
+  padding: 1.25rem;
+  height: 100%;
+  outline: 2px solid var(--m-border);
+  box-shadow: 4px 4px 0 var(--m-shadow);
+  transition: transform .15s;
+}
+.ins-why-card:hover { transform: translate(-2px, -2px); }
+.ins-why-icon { font-size: 1.5rem; margin-bottom: .5rem; }
+.ins-why-title {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--m-text);
+  margin-bottom: .4rem;
+}
+.ins-why-card p {
+  font-size: .85rem;
+  color: var(--m-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ═════════════════════════════
+   PROCESS STEPS
+═════════════════════════════ */
+.ins-steps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+}
+.ins-step {
+  flex: 0 0 auto;
+  width: 160px;
+  text-align: center;
+  padding: 0 .5rem;
+}
+.ins-step-num {
+  font-family: var(--px);
+  font-size: 1.1rem;
+  color: var(--m-bg);
+  background: var(--m-gold-dk);
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto .75rem;
+  outline: 2px solid var(--m-deep);
+  box-shadow: 3px 3px 0 var(--m-deep);
+}
+.ins-step-content h4 {
+  font-family: 'Raleway', sans-serif;
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--m-text);
+  margin-bottom: .4rem;
+}
+.ins-step-content p {
+  font-size: .8rem;
+  color: var(--m-muted);
+  line-height: 1.6;
+}
+.ins-step-arrow {
+  font-family: var(--px);
+  font-size: .8rem;
+  color: var(--m-gold);
+  align-self: flex-start;
+  margin-top: 1rem;
+  padding: 0 .25rem;
+}
+@media (max-width: 768px) {
+  .ins-step { width: 130px; }
+  .ins-step-arrow { display: none; }
+  .ins-steps { gap: 1.5rem; }
+}
+
+/* ═════════════════════════════
+   TESTIMONIALS
+═════════════════════════════ */
+.ins-testi-card {
+  background: var(--m-bg);
+  padding: 1.75rem;
+  height: 100%;
+  outline: 2px solid var(--m-border);
+  box-shadow: 5px 5px 0 var(--m-shadow);
+  transition: transform .15s;
+}
+.ins-testi-card:hover { transform: translate(-2px, -2px); }
+.ins-testi-featured {
+  background: var(--m-surface);
+  outline-color: var(--m-gold);
+  box-shadow: 5px 5px 0 var(--m-gold-dk);
+}
+.ins-testi-stars {
+  font-family: var(--px);
+  font-size: .45rem;
+  color: var(--m-gold);
+  letter-spacing: .3em;
+  margin-bottom: 1rem;
+}
+.ins-testi-text {
+  font-size: .9rem;
+  color: var(--m-muted);
+  line-height: 1.8;
+  font-style: italic;
+  margin-bottom: 1.25rem;
+}
+.ins-testi-author {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  border-top: 2px dashed var(--m-border);
+  padding-top: 1rem;
+}
+.ins-testi-avatar {
+  width: 40px;
+  height: 40px;
+  background: var(--m-gold-dk);
+  color: var(--m-bg);
+  font-family: var(--px);
+  font-size: .8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  outline: 2px solid var(--m-deep);
+  box-shadow: 2px 2px 0 var(--m-deep);
+}
+.ins-testi-name {
+  font-weight: 700;
+  font-size: .9rem;
+  color: var(--m-text);
+}
+.ins-testi-role {
+  font-size: .78rem;
+  color: var(--m-muted);
+}
+
+/* ═════════════════════════════
+   CTA
+═════════════════════════════ */
+.ins-cta {
+  position: relative;
+  padding: 80px 0;
+  background: var(--m-tinted);
+  overflow: hidden;
+}
+.ins-sparkles-cta .sp-1 { top: 15%; left: 5%; }
+.ins-sparkles-cta .sp-3 { top: 60%; left: 8%; }
+.ins-sparkles-cta .sp-5 { top: 20%; right: 6%; }
+.ins-sparkles-cta .sp-7 { top: 70%; right: 4%; }
+
+.ins-cta-inner {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  margin: 0 auto;
+  background: var(--m-surface);
+  padding: 3rem 2rem;
+  outline: 2px solid var(--m-gold);
+  box-shadow: 8px 8px 0 var(--m-gold-dk);
+}
+.ins-cta-title {
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-weight: 800;
+  color: var(--m-text);
+  margin-bottom: .75rem;
+}
+.ins-cta-sub {
+  color: var(--m-muted);
+  margin-bottom: 1.75rem;
+}
+.ins-cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+</style>
