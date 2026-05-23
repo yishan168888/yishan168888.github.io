@@ -252,6 +252,116 @@ body.cyber-page.mobile-nav-active .header {
   background: rgba(140,110,80,0.06);
 }
 
+/* ── Wizard hover zone ─────────────────────────────── */
+.wizard-hover-zone {
+  position: absolute;
+  pointer-events: all;
+  z-index: 5;
+  cursor: default;
+}
+.wizard-hover-zone--left {
+  /* covers left wizard at top:78%;left:27% (scale 6 ≈ 50×90px) */
+  top: 72%;
+  left: 24%;
+  width: 120px;
+  height: 150px;
+}
+
+/* ── CTA floating above left wizard ───────────────── */
+.cyber-cta--wizard {
+  position: absolute;
+  top: 68%;
+  left: 23%;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+}
+/* Centered ghost button row (stays inside hero-cyber-inner) */
+.cyber-cta--center {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+/* ── CTA mmt-wrap: mini bubble ↔ full button ──────── */
+.cta-mmt-wrap {
+  position: relative;
+  display: inline-grid;
+  place-items: center start;
+}
+.cta-bubble-mini,
+.cta-full-btn {
+  grid-area: 1 / 1;
+}
+
+/* Mini speech bubble (default visible) */
+.cta-bubble-mini {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 20px;
+  background: rgba(242,234,220,0.96);
+  border: 1.5px solid rgba(100,65,35,0.46);
+  border-radius: 24px;
+  font-size: 0.85rem;
+  color: #3e2d1c;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  box-shadow: 0 4px 18px rgba(100,65,35,0.14), inset 0 0 10px rgba(242,234,220,0.2);
+  white-space: nowrap;
+  position: relative;
+  transition: opacity 0.36s ease, transform 0.36s ease;
+  z-index: 2;
+  pointer-events: all;
+  cursor: pointer;
+}
+/* downward tail pointing toward wizard head below */
+.cta-bubble-mini::before {
+  content: '';
+  position: absolute;
+  left: 22px;
+  top: 100%;
+  border: 8px solid transparent;
+  border-top-color: rgba(100,65,35,0.46);
+  border-bottom: none;
+}
+.cta-bubble-mini::after {
+  content: '';
+  position: absolute;
+  left: 23px;
+  top: calc(100% - 1.5px);
+  border: 7px solid transparent;
+  border-top-color: rgba(242,234,220,0.96);
+  border-bottom: none;
+}
+
+/* Full button (hidden by default) */
+.cta-full-btn {
+  opacity: 0;
+  transform: scale(0.82);
+  pointer-events: none;
+  white-space: nowrap;
+  transition: opacity 0.38s ease, transform 0.38s ease;
+  z-index: 1;
+}
+
+/* Wizard hover OR bubble hover → collapse bubble, reveal full button */
+.hero-cyber:has(.wizard-hover-zone--left:hover) .cta-bubble-mini,
+.cta-mmt-wrap:hover .cta-bubble-mini {
+  opacity: 0;
+  transform: scale(0.72);
+  pointer-events: none;
+}
+.hero-cyber:has(.wizard-hover-zone--left:hover) .cta-full-btn,
+.cta-mmt-wrap:hover .cta-full-btn {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: all;
+  z-index: 2;
+}
+
 /* Stats HUD */
 .cyber-stats-hud {
   display: flex; align-items: stretch; justify-content: center;
@@ -759,6 +869,15 @@ body.cyber-page .scroll-top:hover {
 .iconic-has-dropdown:hover .iconic-dropdown,
 .iconic-has-dropdown.open .iconic-dropdown {
   display: block;
+}
+
+/* 透明橋接：填滿 icon 與清單之間的空隙，避免 hover 中斷 */
+.iconic-dropdown::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 0; right: 0;
+  height: 16px;
 }
 
 .iconic-dropdown li a {

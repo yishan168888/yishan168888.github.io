@@ -43,6 +43,15 @@
 @keyframes mc-cw  { to { transform: translate(-50%,-50%) rotate(360deg); } }
 @keyframes mc-ccw { to { transform: translate(-50%,-50%) rotate(-360deg); } }
 
+/* 手機版：魔法陣 + 六芒星同比例縮小 */
+@media (max-width: 576px) {
+  .mc-ring-1 { width: 160px; height: 160px; }
+  .mc-ring-2 { width: 260px; height: 260px; }
+  .mc-ring-3 { width: 370px; height: 370px; }
+  .mc-ring-4 { width: 480px; height: 480px; }
+  .mc-hexagram { width: 110px; height: 110px; }
+}
+
 /* ── Shooting Stars ──────────────────────────────────────── */
 .shooting-stars {
   position: absolute;

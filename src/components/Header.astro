@@ -116,6 +116,7 @@
   const selector = document.getElementById('iconicSelector');
 
   let ignoreScroll = false;
+  let currentActiveItem = null;
 
   function moveSelector(itemEl) {
     const nr  = nav.getBoundingClientRect();
@@ -129,15 +130,31 @@
     const radio = document.getElementById(forId);
     if (radio) radio.checked = true;
     moveSelector(itemEl);
+    currentActiveItem = itemEl;
   }
 
   // 初始定位（等 layout 完成再算）
   requestAnimationFrame(() => {
     const home = nav.querySelector('.iconic-item[data-for="n-home"]');
-    if (home) moveSelector(home);
+    if (home) {
+      moveSelector(home);
+      currentActiveItem = home;
+    }
   });
 
-  // 點擊只負責 selector 移動和頁面跳轉，下拉改由 CSS hover 處理
+  // Hover：圓泡跟著游標 icon 移動
+  nav.querySelectorAll('.iconic-item').forEach(item => {
+    item.addEventListener('mouseenter', () => {
+      moveSelector(item);
+    });
+  });
+
+  // 游標離開整個 nav：圓泡回到目前 active item
+  nav.addEventListener('mouseleave', () => {
+    if (currentActiveItem) moveSelector(currentActiveItem);
+  });
+
+  // 點擊：正式更新 active state + 頁面跳轉
   nav.querySelectorAll('.iconic-item').forEach(item => {
     const lbl = item.querySelector('label');
     if (!lbl) return;
