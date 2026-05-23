@@ -1,0 +1,47 @@
+/* ── Rune Ring (SVG textPath orbiting magic circle) ───────────
+   兩層反向旋轉：外圈古北歐符文、內圈英文咒語
+   與 .magic-circle 共用同一個錨點 top:46% left:50%
+──────────────────────────────────────────────────────────── */
+
+.rune-ring-wrap {
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.rune-ring-svg {
+  position: absolute;
+}
+
+.rr-spin-cw  { animation: rr-cw  58s linear infinite; }
+.rr-spin-ccw { animation: rr-ccw 85s linear infinite; }
+
+/* 外圈：古北歐符文 */
+.rune-glyph {
+  font-size: 12px;
+  fill: rgba(118, 84, 42, 0.68);
+  letter-spacing: 4px;
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+/* 內圈：英文咒語 */
+.rune-word {
+  font-size: 10px;
+  fill: rgba(100, 72, 36, 0.52);
+  letter-spacing: 5.5px;
+  font-family: 'Raleway', sans-serif;
+  text-transform: uppercase;
+}
+
+@keyframes rr-cw  {
+  from { transform: translate(-50%, -50%) rotate(0deg);    }
+  to   { transform: translate(-50%, -50%) rotate(360deg);  }
+}
+@keyframes rr-ccw {
+  from { transform: translate(-50%, -50%) rotate(0deg);    }
+  to   { transform: translate(-50%, -50%) rotate(-360deg); }
+}

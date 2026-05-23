@@ -1,0 +1,80 @@
+/* ── Corner Ornament (角落小魔法陣) ──────────────────────────
+   position: absolute; width:0; height:0 的錨點
+   三個同心環 + 中心點 + 十字線，opacity 超低作為背景裝飾
+──────────────────────────────────────────────────────────── */
+
+.corner-ornament {
+  position: absolute;
+  width: 0; height: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 四個角落的定位 */
+.corner-ornament--tl { top: 50px;    left: 50px;  }
+.corner-ornament--tr { top: 50px;    right: 50px; }
+.corner-ornament--bl { bottom: 50px; left: 50px;  }
+.corner-ornament--br { bottom: 50px; right: 50px; }
+
+/* 三層同心環 */
+.co-ring {
+  position: absolute;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.co-ring-1 {
+  width: 38px; height: 38px;
+  border: 1px solid rgba(138, 110, 86, 0.30);
+  animation: co-cw 15s linear infinite;
+}
+
+.co-ring-2 {
+  width: 64px; height: 64px;
+  border: 1px dashed rgba(138, 110, 86, 0.19);
+  animation: co-ccw 25s linear infinite;
+}
+
+.co-ring-3 {
+  width: 90px; height: 90px;
+  border: 1px dotted rgba(138, 110, 86, 0.11);
+  animation: co-cw 40s linear infinite;
+}
+
+/* 中心點 */
+.co-dot {
+  position: absolute;
+  width: 4px; height: 4px;
+  background: rgba(138, 110, 86, 0.48);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 8px rgba(138, 110, 86, 0.38);
+  animation: co-dot-pulse 3.2s ease-in-out infinite;
+}
+
+/* 十字定位線 */
+.co-cross-h {
+  position: absolute;
+  width: 22px; height: 1px;
+  background: rgba(138, 110, 86, 0.22);
+  transform: translate(-50%, -50%);
+}
+.co-cross-v {
+  position: absolute;
+  width: 1px; height: 22px;
+  background: rgba(138, 110, 86, 0.22);
+  transform: translate(-50%, -50%);
+}
+
+@keyframes co-cw  { to { transform: translate(-50%, -50%) rotate( 360deg); } }
+@keyframes co-ccw { to { transform: translate(-50%, -50%) rotate(-360deg); } }
+
+@keyframes co-dot-pulse {
+  0%, 100% { box-shadow: 0 0 5px  rgba(138, 110, 86, 0.28); }
+  50%       { box-shadow: 0 0 14px rgba(138, 110, 86, 0.62); }
+}
+
+/* 手機隱藏角落裝飾，避免 overflow 問題 */
+@media (max-width: 768px) {
+  .corner-ornament { display: none; }
+}

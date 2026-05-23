@@ -9,19 +9,81 @@
     <div class="aurora-3"></div>
   </div>
 
+  <!-- Magic Circle + Hexagram -->
+  <div class="magic-circle" aria-hidden="true">
+    <div class="mc-ring mc-ring-1"></div>
+    <div class="mc-ring mc-ring-2"></div>
+    <div class="mc-ring mc-ring-3"></div>
+    <div class="mc-ring mc-ring-4"></div>
+    <svg class="mc-hexagram" viewBox="-1.1 -1.1 2.2 2.2">
+      <polygon points="0,-1 0.866,0.5 -0.866,0.5"/>
+      <polygon points="0,1 0.866,-0.5 -0.866,-0.5"/>
+      <circle cx="0"      cy="-1"   r="0.07"/>
+      <circle cx="0.866"  cy="0.5"  r="0.07"/>
+      <circle cx="-0.866" cy="0.5"  r="0.07"/>
+      <circle cx="0"      cy="1"    r="0.07"/>
+      <circle cx="0.866"  cy="-0.5" r="0.07"/>
+      <circle cx="-0.866" cy="-0.5" r="0.07"/>
+    </svg>
+  </div>
+
+  <!-- Rune Ring SVG (符文文字環繞) -->
+  <div class="rune-ring-wrap" aria-hidden="true">
+    <!-- 外圈：古北歐符文，順時針 (r=255，介於 ring-2 210px 和 ring-3 300px 之間) -->
+    <svg class="rune-ring-svg rr-spin-cw" width="530" height="530" viewBox="0 0 530 530">
+      <defs>
+        <path id="rr-outer" d="M265,265 m-255,0 a255,255 0 1,1 510,0 a255,255 0 1,1 -510,0"/>
+      </defs>
+      <text class="rune-glyph">
+        <textPath href="#rr-outer">ᚠ · ᚢ · ᚦ · ᚨ · ᚱ · ᚲ · ᚷ · ᚹ · ᚺ · ᚾ · ᛁ · ᛃ · ᛇ · ᛈ · ᛉ · ᛊ · ᛏ · ᛒ · ᛖ · ᛗ · ᛚ · ᛜ · ᛞ · ᛟ · ᚠ · ᚢ · ᚦ · ᚨ · ᚱ · ᚲ · </textPath>
+      </text>
+    </svg>
+    <!-- 內圈：英文咒語，逆時針 (r=168，介於 ring-1 130px 和 ring-2 210px 之間) -->
+    <svg class="rune-ring-svg rr-spin-ccw" width="356" height="356" viewBox="0 0 356 356">
+      <defs>
+        <path id="rr-inner" d="M178,178 m-168,0 a168,168 0 1,1 336,0 a168,168 0 1,1 -336,0"/>
+      </defs>
+      <text class="rune-word">
+        <textPath href="#rr-inner">✦ SOUL · FLOW · LIGHT · HEAL · GUIDE · LOVE · GROW · CARE · SOUL · FLOW · </textPath>
+      </text>
+    </svg>
+  </div>
+
+  <!-- Shooting Stars (流星) -->
+  <div class="shooting-stars" aria-hidden="true">
+    <div class="shooting-star" style="--ss-top:10%;--ss-d:22s;--ss-dl:0s;"></div>
+    <div class="shooting-star" style="--ss-top:28%;--ss-d:19s;--ss-dl:-7s;"></div>
+    <div class="shooting-star" style="--ss-top:50%;--ss-d:26s;--ss-dl:-13s;"></div>
+    <div class="shooting-star" style="--ss-top:68%;--ss-d:21s;--ss-dl:-4s;"></div>
+    <div class="shooting-star" style="--ss-top:84%;--ss-d:17s;--ss-dl:-10s;"></div>
+  </div>
+
   <!-- Floating magic particles -->
   <div class="magic-particles" aria-hidden="true">
-    <span class="mp" style="top:12%;left:6%;--sz:1.1rem;--d:7s;--dl:0s;--op:0.6;">✦</span>
-    <span class="mp" style="top:22%;right:8%;--sz:0.7rem;--d:9s;--dl:-2s;--op:0.45;">✧</span>
-    <span class="mp" style="top:55%;left:4%;--sz:0.9rem;--d:11s;--dl:-4s;--op:0.5;">✸</span>
-    <span class="mp" style="top:70%;right:6%;--sz:1.2rem;--d:8s;--dl:-1s;--op:0.55;">✦</span>
-    <span class="mp" style="top:35%;left:15%;--sz:0.55rem;--d:13s;--dl:-6s;--op:0.35;">✧</span>
-    <span class="mp" style="top:80%;left:20%;--sz:0.75rem;--d:10s;--dl:-3s;--op:0.4;">✸</span>
-    <span class="mp" style="top:18%;right:22%;--sz:0.65rem;--d:12s;--dl:-5s;--op:0.38;">✦</span>
-    <span class="mp" style="top:65%;right:18%;--sz:0.85rem;--d:8.5s;--dl:-7s;--op:0.48;">✧</span>
-    <span class="mp" style="top:45%;left:88%;--sz:0.6rem;--d:14s;--dl:-2.5s;--op:0.32;">✸</span>
-    <span class="mp" style="top:88%;right:30%;--sz:0.9rem;--d:9.5s;--dl:-4.5s;--op:0.42;">✦</span>
+    <span class="mp" style="top:12%;left:6%;--sz:1.1rem;--d:7s;--dl:0s;--op:0.55;">✦</span>
+    <span class="mp" style="top:22%;right:8%;--sz:0.7rem;--d:9s;--dl:-2s;--op:0.42;">✧</span>
+    <span class="mp" style="top:55%;left:4%;--sz:0.9rem;--d:11s;--dl:-4s;--op:0.48;">✸</span>
+    <span class="mp" style="top:70%;right:6%;--sz:1.2rem;--d:8s;--dl:-1s;--op:0.50;">✦</span>
+    <span class="mp" style="top:35%;left:15%;--sz:0.55rem;--d:13s;--dl:-6s;--op:0.32;">✧</span>
+    <span class="mp" style="top:80%;left:20%;--sz:0.75rem;--d:10s;--dl:-3s;--op:0.38;">✸</span>
+    <span class="mp" style="top:18%;right:22%;--sz:0.65rem;--d:12s;--dl:-5s;--op:0.35;">✦</span>
+    <span class="mp" style="top:65%;right:18%;--sz:0.85rem;--d:8.5s;--dl:-7s;--op:0.44;">✧</span>
+    <span class="mp" style="top:45%;left:88%;--sz:0.6rem;--d:14s;--dl:-2.5s;--op:0.30;">✸</span>
+    <span class="mp" style="top:88%;right:30%;--sz:0.9rem;--d:9.5s;--dl:-4.5s;--op:0.40;">✦</span>
+    <span class="mp" style="top:30%;left:50%;--sz:0.5rem;--d:15s;--dl:-8s;--op:0.28;">✺</span>
+    <span class="mp" style="top:50%;left:35%;--sz:0.6rem;--d:11.5s;--dl:-3.5s;--op:0.32;">✧</span>
+    <span class="mp" style="top:8%;left:40%;--sz:0.5rem;--d:16s;--dl:-1.5s;--op:0.25;">✸</span>
+    <span class="mp" style="top:75%;left:60%;--sz:0.7rem;--d:12.5s;--dl:-9s;--op:0.34;">✦</span>
+    <span class="mp" style="top:42%;right:35%;--sz:0.55rem;--d:10.5s;--dl:-5.5s;--op:0.30;">✺</span>
+    <span class="mp" style="top:92%;left:75%;--sz:0.65rem;--d:13.5s;--dl:-2s;--op:0.36;">✧</span>
+    <span class="mp" style="top:60%;left:72%;--sz:0.5rem;--d:9s;--dl:-6.5s;--op:0.27;">✸</span>
+    <span class="mp" style="top:15%;left:78%;--sz:0.8rem;--d:14.5s;--dl:-4s;--op:0.38;">✦</span>
   </div>
+
+  <!-- Pixel Wizards -->
+  <div class="pixel-wizard mirror" style="top:78%;left:7%;--wz-s:6;--wz-op:0.72;--wz-cd:0s;--wz-fd:-1s;" aria-hidden="true"></div>
+  <div class="pixel-wizard" style="top:72%;right:9%;--wz-s:6;--wz-op:0.68;--wz-cd:-0.8s;--wz-fd:-3s;" aria-hidden="true"></div>
+  <div class="pixel-wizard cast-up" style="top:83%;left:48%;--wz-s:5;--wz-op:0.60;--wz-cd:-1.2s;--wz-fd:-5s;" aria-hidden="true"></div>
 
   <!-- Corner angle marks -->
   <div class="cyber-corner cyber-corner-tl"></div>
