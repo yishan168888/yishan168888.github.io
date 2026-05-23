@@ -137,34 +137,19 @@
     if (home) moveSelector(home);
   });
 
-  // 點擊處理
+  // 點擊只負責 selector 移動和頁面跳轉，下拉改由 CSS hover 處理
   nav.querySelectorAll('.iconic-item').forEach(item => {
     const lbl = item.querySelector('label');
     if (!lbl) return;
 
     lbl.addEventListener('click', () => {
       setActive(item.dataset.for, item);
-
       if (item.dataset.href) {
         window.location.href = item.dataset.href;
-        return;
       }
-
-      if (item.classList.contains('iconic-has-dropdown')) {
-        const isOpen = item.classList.contains('open');
-        nav.querySelectorAll('.iconic-has-dropdown').forEach(d => d.classList.remove('open'));
-        if (!isOpen) item.classList.add('open');
-        ignoreScroll = true;
-        setTimeout(() => { ignoreScroll = false; }, 1200);
-      }
+      ignoreScroll = true;
+      setTimeout(() => { ignoreScroll = false; }, 800);
     });
-  });
-
-  // 點外關閉
-  document.addEventListener('click', e => {
-    if (!nav.contains(e.target)) {
-      nav.querySelectorAll('.iconic-has-dropdown').forEach(d => d.classList.remove('open'));
-    }
   });
 
   // 捲動時自動跟隨

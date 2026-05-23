@@ -699,12 +699,12 @@ body.cyber-page .scroll-top:hover {
   color: #c8783a;
 }
 
-/* 選中：圖示變白 + 往上浮 */
+/* 選中：圖示變深棕 + 往上浮 */
 #n-home:checked    ~ .iconic-item[data-for="n-home"]    label,
 #n-about:checked   ~ .iconic-item[data-for="n-about"]   label,
 #n-work:checked    ~ .iconic-item[data-for="n-work"]     label,
 #n-contact:checked ~ .iconic-item[data-for="n-contact"] label {
-  color: #fff;
+  color: #3e2d1c;
   transform: translateY(-6px) scale(1.12);
 }
 
@@ -755,6 +755,8 @@ body.cyber-page .scroll-top:hover {
   z-index: 9999;
 }
 
+/* hover 或 JS open class 都能觸發下拉 */
+.iconic-has-dropdown:hover .iconic-dropdown,
 .iconic-has-dropdown.open .iconic-dropdown {
   display: block;
 }

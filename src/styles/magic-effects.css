@@ -52,6 +52,15 @@
   z-index: 0;
 }
 
+/* 全域流星：fixed 覆蓋整個視口，捲動頁面時持續出現 */
+.shooting-stars--global {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
 .shooting-star {
   position: absolute;
   top: var(--ss-top, 20%);

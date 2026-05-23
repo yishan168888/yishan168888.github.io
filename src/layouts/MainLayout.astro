@@ -59,6 +59,17 @@ const { title = 'LuLu | Personal Advisor for Life & Soul', bodyClass = 'index-pa
   </head>
 
   <body class={bodyClass}>
+
+    <!-- 全域流星（fixed，捲動整個網站都看得到） -->
+    <div class="shooting-stars shooting-stars--global" aria-hidden="true">
+      <div class="shooting-star" style="--ss-top:6%;--ss-d:24s;--ss-dl:-3s;"></div>
+      <div class="shooting-star" style="--ss-top:19%;--ss-d:31s;--ss-dl:-11s;"></div>
+      <div class="shooting-star" style="--ss-top:35%;--ss-d:20s;--ss-dl:-18s;"></div>
+      <div class="shooting-star" style="--ss-top:53%;--ss-d:27s;--ss-dl:-6s;"></div>
+      <div class="shooting-star" style="--ss-top:70%;--ss-d:22s;--ss-dl:-14s;"></div>
+      <div class="shooting-star" style="--ss-top:87%;--ss-d:29s;--ss-dl:-9s;"></div>
+    </div>
+
     <slot />
 
     <!-- Vendor JS（body 尾端依序載入，is:inline 防止 Astro 打包） -->
