@@ -7,15 +7,71 @@
       <h1 class="sitename">LuLuBOSS</h1>
     </a>
 
-    <nav id="navmenu" class="navmenu">
+    <!-- 桌面版 Iconic Magic Nav (≥ xl) -->
+    <nav class="iconic-nav d-none d-xl-flex" id="magicNav">
+      <!-- 隱藏 radio inputs，供 CSS :checked 驅動 -->
+      <input type="radio" name="nav-item" id="n-home" checked>
+      <input type="radio" name="nav-item" id="n-about">
+      <input type="radio" name="nav-item" id="n-work">
+      <input type="radio" name="nav-item" id="n-contact">
+
+      <div class="iconic-item" data-for="n-home" data-href="/">
+        <label for="n-home"><i class="bi bi-house-heart-fill"></i></label>
+      </div>
+
+      <div class="iconic-item iconic-has-dropdown" data-for="n-about">
+        <label for="n-about"><i class="bi bi-person-circle"></i></label>
+        <ul class="iconic-dropdown">
+          <li><a href="/#about-me">我是誰</a></li>
+          <li><a href="/#about">MMT天賦系統</a></li>
+          <li><a href="/#featured-programs">精選方案</a></li>
+        </ul>
+      </div>
+
+      <div class="iconic-item iconic-has-dropdown" data-for="n-work">
+        <label for="n-work"><i class="bi bi-stars"></i></label>
+        <ul class="iconic-dropdown">
+          <li><a href="https://one-mercury.com/" target="_blank">MMT</a></li>
+          <li><a href="event-details.html">長期照護服務</a></li>
+          <li><a href="privacy.html">護理照護</a></li>
+          <li><a href="/insurance">富邦保險</a></li>
+        </ul>
+      </div>
+
+      <div class="iconic-item iconic-has-dropdown" data-for="n-contact">
+        <label for="n-contact"><i class="bi bi-chat-heart-fill"></i></label>
+        <ul class="iconic-dropdown">
+          <li>
+            <a href="https://line.me/ti/p/w7U_i0Dc0k" target="_blank">
+              <i class="bi bi-linkedin me-1"></i>LinkedIn
+            </a>
+          </li>
+          <li>
+            <a href="https://one-mercury.com/%e5%8d%94%e6%9c%83%e8%aa%8d%e8%ad%89%e5%b8%ab%e8%b3%87/?team_category=&team_gender=&searchName=%E9%AD%AF%E9%AD%AF" target="_blank">
+              <i class="fas fa-heart me-1"></i>MMT一對一諮詢
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/yishan168/" target="_blank">
+              <i class="bi bi-instagram me-1"></i>Instagram
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="iconic-selector" id="iconicSelector"></div>
+    </nav>
+
+    <!-- 行動版選單 (< xl) -->
+    <nav id="navmenu" class="navmenu d-xl-none">
       <ul>
         <li><a href="/" class="active">Home</a></li>
         <li class="dropdown">
           <a href="#"><span>關於我</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
           <ul>
-            <li><a href="#about-me">關於我</a></li>
+            <li><a href="#about-me">我是誰</a></li>
             <li><a href="#about">MMT天賦系統</a></li>
-            <li><a href="#featured-programs">專長介紹</a></li>
+            <li><a href="#featured-programs">精選方案</a></li>
           </ul>
         </li>
         <li class="dropdown">
@@ -48,7 +104,86 @@
           </ul>
         </li>
       </ul>
-      <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      <i class="mobile-nav-toggle bi bi-list"></i>
     </nav>
   </div>
 </header>
+
+<script>
+(function () {
+  const nav = document.getElementById('magicNav');
+  if (!nav) return;
+  const selector = document.getElementById('iconicSelector');
+
+  let ignoreScroll = false;
+
+  function moveSelector(itemEl) {
+    const nr  = nav.getBoundingClientRect();
+    const lbl = itemEl.querySelector('label') || itemEl;
+    const er  = lbl.getBoundingClientRect();
+    const cx  = er.left - nr.left + er.width / 2 - selector.offsetWidth / 2;
+    selector.style.transform = `translateY(-50%) translateX(${cx}px)`;
+  }
+
+  function setActive(forId, itemEl) {
+    const radio = document.getElementById(forId);
+    if (radio) radio.checked = true;
+    moveSelector(itemEl);
+  }
+
+  // 初始定位（等 layout 完成再算）
+  requestAnimationFrame(() => {
+    const home = nav.querySelector('.iconic-item[data-for="n-home"]');
+    if (home) moveSelector(home);
+  });
+
+  // 點擊處理
+  nav.querySelectorAll('.iconic-item').forEach(item => {
+    const lbl = item.querySelector('label');
+    if (!lbl) return;
+
+    lbl.addEventListener('click', () => {
+      setActive(item.dataset.for, item);
+
+      if (item.dataset.href) {
+        window.location.href = item.dataset.href;
+        return;
+      }
+
+      if (item.classList.contains('iconic-has-dropdown')) {
+        const isOpen = item.classList.contains('open');
+        nav.querySelectorAll('.iconic-has-dropdown').forEach(d => d.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+        ignoreScroll = true;
+        setTimeout(() => { ignoreScroll = false; }, 1200);
+      }
+    });
+  });
+
+  // 點外關閉
+  document.addEventListener('click', e => {
+    if (!nav.contains(e.target)) {
+      nav.querySelectorAll('.iconic-has-dropdown').forEach(d => d.classList.remove('open'));
+    }
+  });
+
+  // 捲動時自動跟隨
+  const sectionMap = {
+    'hero':             'n-home',
+    'about-me':         'n-about',
+    'about':            'n-about',
+    'featured-programs':'n-about',
+  };
+
+  Object.entries(sectionMap).forEach(([id, forId]) => {
+    const sec  = document.getElementById(id);
+    const item = nav.querySelector(`.iconic-item[data-for="${forId}"]`);
+    if (!sec || !item) return;
+    new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting && !ignoreScroll) setActive(forId, item);
+      });
+    }, { threshold: 0.4 }).observe(sec);
+  });
+})();
+</script>
