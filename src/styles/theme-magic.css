@@ -588,11 +588,11 @@ body.cyber-page.mobile-nav-active .header {
 /* 圖片堆疊：比例縮小並保持響應式 */
 .mmt-cyber .image-stack {
   position: relative;
-  height: 360px;
+  height: 290px;
 }
 .mmt-cyber .image-stack .image-stack-item {
   position: absolute;
-  width: 62%;
+  width: 54%;
   height: auto;
   transition: transform 0.5s ease;
 }
@@ -605,12 +605,12 @@ body.cyber-page.mobile-nav-active .header {
 .mmt-cyber .image-stack .image-stack-item:hover   { transform: translateY(-8px) scale(1.03); }
 
 @media (max-width: 992px) {
-  .mmt-cyber .image-stack { height: 280px; margin-top: 2rem; }
-  .mmt-cyber .image-stack .image-stack-item { width: 68%; }
+  .mmt-cyber .image-stack { height: 220px; margin-top: 2rem; }
+  .mmt-cyber .image-stack .image-stack-item { width: 60%; }
 }
 @media (max-width: 576px) {
-  .mmt-cyber .image-stack { height: 220px; }
-  .mmt-cyber .image-stack .image-stack-item { width: 72%; }
+  .mmt-cyber .image-stack { height: 170px; }
+  .mmt-cyber .image-stack .image-stack-item { width: 66%; }
 }
 
 .mmt-cyber-eyebrow {
