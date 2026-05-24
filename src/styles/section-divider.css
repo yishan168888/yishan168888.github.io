@@ -1,5 +1,6 @@
-/* ── Magic Section Divider ───────────────────────────────────
-   放在兩個 section 之間，一條漸變光線 + 浮動魔法符號
+/* ── Magic Section Divider — Film Strip Edition ──────────────
+   膠捲帶橫貫全寬，齒孔重複排列，兩端 mask 漸隱（響應式）
+   中央符號視窗「嵌」在膠捲上，原符號浮動動畫保留
 ──────────────────────────────────────────────────────────── */
 
 .magic-divider {
@@ -7,45 +8,65 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px 0;
+  padding: 28px 0;
   z-index: 2;
   pointer-events: none;
 }
 
+/* ── 膠捲帶本體 ── */
 .magic-divider-line {
   position: absolute;
   left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(
+  height: 14px;
+  /* 深棕底色 + 重複齒孔 */
+  background-color: rgba(20,12,4,0.86);
+  background-image: repeating-linear-gradient(
     90deg,
-    transparent 0%,
-    rgba(26, 16, 8, 0.12)  10%,
-    rgba(26, 16, 8, 0.45)  50%,
-    rgba(26, 16, 8, 0.12)  90%,
-    transparent 100%
+    transparent          0px,
+    transparent          3px,
+    rgba(240,215,160,0.26) 3px,
+    rgba(240,215,160,0.26) 10px,
+    transparent          10px,
+    transparent          22px
   );
-  box-shadow: 0 0 10px rgba(26, 16, 8, 0.14);
+  /* 兩端百分比漸隱，任何螢幕寬度都自然消失 */
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%, black 7%, black 93%, transparent 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%, black 7%, black 93%, transparent 100%
+  );
+  box-shadow: 0 0 18px rgba(20,12,4,0.18);
 }
 
+/* ── 符號視窗（切穿膠捲帶，嵌入感） ── */
 .magic-divider-symbols {
   position: relative;
   z-index: 1;
   display: flex;
-  gap: 1.3rem;
+  gap: 1.2rem;
   align-items: center;
-  padding: 0 2rem;
-  /* 用背景色遮住線，讓符號「浮在」線上 */
+  /* 上下 padding 讓符號比膠捲帶略高，視窗感 */
+  padding: 5px 1.8rem;
   background: var(--background-color, #ede4d5);
-  color: rgba(26, 16, 8, 0.55);
+  color: rgba(26,16,8,0.55);
   font-size: 0.9rem;
+  /* 左右膠捲邊框線 */
+  border-left:  2px solid rgba(26,16,8,0.28);
+  border-right: 2px solid rgba(26,16,8,0.28);
+  /* 上下細琥珀邊線暗示膠捲邊緣 */
+  outline: 1px solid rgba(160,92,20,0.18);
+  outline-offset: 2px;
 }
 
+/* ── 符號浮動動畫（原版保留） ── */
 .magic-divider-symbols span {
   display: inline-block;
   animation: mdiv-float 3.6s ease-in-out infinite;
 }
 
-/* 每個符號錯開時間，形成波浪感 */
 .magic-divider-symbols span:nth-child(1) { animation-delay: 0s;    font-size: 0.95rem; }
 .magic-divider-symbols span:nth-child(2) { animation-delay: 0.55s; font-size: 0.72rem; opacity: 0.72; }
 .magic-divider-symbols span:nth-child(3) { animation-delay: 1.1s;  font-size: 0.85rem; }
@@ -55,11 +76,20 @@
 .magic-divider-symbols span:nth-child(7) { animation-delay: 1.38s; font-size: 0.85rem; }
 
 @keyframes mdiv-float {
-  0%, 100% { opacity: 0.32; transform: translateY(0);     }
-  50%       { opacity: 0.88; transform: translateY(-4px);  }
+  0%, 100% { opacity: 0.32; transform: translateY(0);    }
+  50%       { opacity: 0.88; transform: translateY(-4px); }
 }
 
-/* Section 之間背景過渡時符號色也跟著調 */
+/* ── on-dark：MMT section 背景色不同 ── */
 .magic-divider.on-dark .magic-divider-symbols {
   background: #ddd4c2;
+}
+
+/* ── 手機：符號間距縮小 ── */
+@media (max-width: 576px) {
+  .magic-divider-symbols {
+    gap: 0.8rem;
+    padding: 5px 1rem;
+    font-size: 0.8rem;
+  }
 }

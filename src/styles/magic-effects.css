@@ -17,29 +17,8 @@
 }
 .mc-hexagram { will-change: transform; }
 
-.mc-ring-1 {
-  width: 260px; height: 260px;
-  border: 5px solid rgba(160, 92, 20, 0.75);
-  box-shadow: 0 0 36px rgba(200,122,48,0.40), inset 0 0 28px rgba(200,122,48,0.16), 0 0 10px rgba(26,16,8,0.22);
-  animation: mc-cw 42s linear infinite;
-}
-
-.mc-ring-2 {
-  width: 420px; height: 420px;
-  border: 5px dashed rgba(26, 16, 8, 0.55);
-  box-shadow: 0 0 16px rgba(26,16,8,0.10);
-  animation: mc-ccw 68s linear infinite;
-}
-
-.mc-ring-3 {
-  width: 600px; height: 600px;
-  border: 5px solid rgba(160, 92, 20, 0.40);
-  box-shadow: 0 0 28px rgba(200,122,48,0.20), inset 0 0 20px rgba(200,122,48,0.08);
-  animation: mc-cw 95s linear infinite;
-}
-
 .mc-ring-4 {
-  width: 780px; height: 780px;
+  width: 380px; height: 380px;
   border: 5px solid rgba(26, 16, 8, 0.55);
   box-shadow: 0 0 44px rgba(26,16,8,0.30), inset 0 0 32px rgba(26,16,8,0.12);
   animation: mc-ccw 130s linear infinite;
@@ -55,37 +34,21 @@
     inset 0 0 55px rgba(26,16,8,0.28) !important;
 }
 
-/* 手機版：移除 pulse（border-color/box-shadow 動畫會 repaint，手機扛不住） */
+/* 手機版：移除 transition（border-color/box-shadow 動畫會 repaint） */
 @media (pointer: coarse) {
   .mc-ring-4 {
     animation: mc-ccw 150s linear infinite;
     transition: none;
   }
 }
-@keyframes ring4-pulse {
-  0%, 100% {
-    border-color: rgba(26, 16, 8, 0.55);
-    box-shadow: 0 0 44px rgba(26,16,8,0.30), inset 0 0 32px rgba(26,16,8,0.12);
-  }
-  50% {
-    border-color: rgba(26, 16, 8, 0.88);
-    box-shadow:
-      0 0 70px rgba(26,16,8,0.55),
-      0 0 130px rgba(26,16,8,0.25),
-      inset 0 0 55px rgba(26,16,8,0.28);
-  }
-}
 
 @keyframes mc-cw  { to { transform: translate(-50%,-50%) rotate(360deg); } }
 @keyframes mc-ccw { to { transform: translate(-50%,-50%) rotate(-360deg); } }
 
-/* 手機版：魔法陣 + 六芒星同比例縮小 */
+/* 手機版：縮小黑環與六芒星 */
 @media (max-width: 576px) {
-  .mc-ring-1 { width: 160px; height: 160px; }
-  .mc-ring-2 { width: 260px; height: 260px; }
-  .mc-ring-3 { width: 370px; height: 370px; }
-  .mc-ring-4 { width: 480px; height: 480px; }
-  .mc-hexagram { width: 110px; height: 110px; }
+  .mc-ring-4 { width: 200px; height: 200px; }
+  .mc-hexagram { width: 80px; height: 80px; }
 }
 
 /* ── Shooting Stars ──────────────────────────────────────── */
@@ -110,14 +73,18 @@
   position: absolute;
   top: var(--ss-top, 20%);
   left: 0;
-  width: 150px;
-  height: 1px;
+  width: 260px;
+  height: 5px;
+  /* 漸層：尾部透明 → 中段暖橘 → 頭部亮白金 */
   background: linear-gradient(90deg,
     transparent 0%,
-    rgba(190,150,75,0.65) 45%,
-    rgba(230,200,130,0.85) 50%,
-    rgba(190,150,75,0.65) 55%,
-    transparent 100%);
+    rgba(190,150,75,0.12) 30%,
+    rgba(215,175,95,0.55) 65%,
+    rgba(245,215,145,0.90) 86%,
+    rgba(255,238,170,1.00) 100%
+  );
+  /* clip-path：左尖（尾）→ 右寬（頭），82% 以後為矩形頭部 */
+  clip-path: polygon(0 50%, 82% 0%, 100% 0%, 100% 100%, 82% 100%);
   opacity: 0;
   animation: shoot var(--ss-d, 20s) ease-in infinite var(--ss-dl, 0s);
 }
@@ -149,14 +116,7 @@
 
 /* ── 手機效能優化 ────────────────────────────────────────── */
 @media (pointer: coarse) {
-  /* 流星：關閉（5 個動畫元素） */
   .shooting-star { display: none; }
-  /* 符文環：關閉（2 個 SVG 旋轉） */
-  .rune-ring-wrap { display: none; }
-  /* 魔法圓環：放慢速度，減少 GPU 每幀工作量 */
-  .mc-ring-1 { animation-duration: 80s; }
-  .mc-ring-2 { animation-duration: 120s; }
-  .mc-ring-3 { animation-duration: 160s; }
 }
 
 /* ── Card Shimmer ────────────────────────────────────────── */

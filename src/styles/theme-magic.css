@@ -62,52 +62,79 @@ body.cyber-page footer {
 
 /* == HEADER == */
 body.cyber-page .header {
-  background: transparent;
+  display: flex;
+  flex-direction: column;
+  background: #1a1008;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
-  border-bottom: 1px solid rgba(100,65,35,0.2);
-  box-shadow: 0 0 50px rgba(100,65,35,0.06);
+  border-bottom: 1px solid rgba(160,92,20,0.25);
+  box-shadow: 0 2px 24px rgba(8,4,1,0.5);
+}
+
+/* 頂部跑馬燈 */
+.header-marquee {
+  width: 100%;
+  height: 22px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(160,92,20,0.15);
+  background: rgba(8,4,1,0.30);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.header-marquee-track {
+  display: flex;
+  gap: 24px;
+  white-space: nowrap;
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  color: rgba(220,185,130,0.45);
+  text-transform: uppercase;
+  animation: marquee-scroll 22s linear infinite;
+}
+.hm-dot { color: rgba(160,92,20,0.75); margin: 0 4px; }
+@keyframes marquee-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 body.cyber-page .header.sticked {
-  background: transparent !important;
-  border-bottom-color: transparent;
-  box-shadow: 0 0 60px rgba(100,65,35,0.1);
-  --background-color: rgba(253,246,234,0.98);
-  --heading-color: #3e2d1c;
+  background: #1a1008 !important;
+  border-bottom-color: rgba(160,92,20,0.25);
+  box-shadow: 0 2px 24px rgba(8,4,1,0.6);
 }
 body.cyber-page .header .logo h1 {
-  color: #3e2d1c;
-  text-shadow: 0 0 22px rgba(140,110,80,0.4), 0 0 44px rgba(140,110,80,0.15);
+  color: #e8d8b8;
+  text-shadow: 0 0 22px rgba(160,92,20,0.5), 0 0 44px rgba(160,92,20,0.2);
   font-size: 1.35rem; letter-spacing: 0.1em;
 }
 body.cyber-page .header .logo i {
-  color: #3e2d1c;
-  text-shadow: 0 0 14px rgba(140,110,80,0.4);
+  color: #e8d8b8;
+  text-shadow: 0 0 14px rgba(160,92,20,0.5);
 }
 body.cyber-page .header .logo h1::before { content: '[ '; opacity: 0.45; }
 body.cyber-page .header .logo h1::after  { content: ' ]'; opacity: 0.45; }
 body.cyber-page .navmenu a,
 body.cyber-page .navmenu a:focus {
-  color: rgba(44,26,8,0.82) !important;
+  color: rgba(220,185,130,0.80) !important;
   font-size: 0.88rem; letter-spacing: 0.07em; font-weight: 500;
 }
 body.cyber-page .navmenu li:hover > a,
 body.cyber-page .navmenu .active,
 body.cyber-page .navmenu .active:focus {
-  color: #3e2d1c !important;
-  text-shadow: 0 0 16px rgba(140,110,80,0.4);
+  color: #e8d8b8 !important;
+  text-shadow: 0 0 16px rgba(160,92,20,0.5);
 }
 body.cyber-page .navmenu .dropdown ul {
-  background: rgba(255, 252, 245, 0.98) !important;
-  border: 1px solid rgba(100,65,35,0.2) !important;
-  box-shadow: 0 12px 44px rgba(100,65,35,0.12), 0 0 24px rgba(140,110,80,0.06) !important;
+  background: rgba(26,16,8,0.97) !important;
+  border: 1px solid rgba(160,92,20,0.25) !important;
+  box-shadow: 0 12px 44px rgba(8,4,1,0.5) !important;
   border-radius: 2px;
 }
-body.cyber-page .navmenu .dropdown ul a { color: rgba(44,26,8,0.75) !important; }
+body.cyber-page .navmenu .dropdown ul a { color: rgba(220,185,130,0.72) !important; }
 body.cyber-page .navmenu .dropdown ul a:hover {
-  color: #3e2d1c !important; background: rgba(140,110,80,0.08) !important;
+  color: #e8d8b8 !important; background: rgba(160,92,20,0.12) !important;
 }
-body.cyber-page .mobile-nav-toggle { color: #3e2d1c !important; }
+body.cyber-page .mobile-nav-toggle { color: #e8d8b8 !important; }
 
 /* backdrop-filter creates a containing block, which confines position:fixed children
    to the header bounds. Remove it when mobile nav is open so the overlay covers full viewport. */
@@ -118,10 +145,24 @@ body.cyber-page.mobile-nav-active .header {
 
 /* == HERO == */
 .hero-cyber {
-  min-height: 100vh; padding-top: 80px;
+  min-height: 100vh; padding-top: 102px;
   background: #ede4d5;
   position: relative; overflow: hidden;
   display: flex; align-items: center; justify-content: center;
+}
+.hero-vignette {
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 50% 50%,
+    transparent 0%,
+    transparent 32%,
+    rgba(180,120,50,0.12) 48%,
+    rgba(160,92,20,0.42) 63%,
+    rgba(160,92,20,0.65) 74%,
+    rgba(26,16,8,0.82) 86%,
+    rgba(8,4,1,0.94) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
 }
 .hero-cyber::before {
   content: '';
@@ -410,6 +451,37 @@ body.cyber-page.mobile-nav-active .header {
   box-shadow: 0 0 10px rgba(160,92,20,0.4);
 }
 
+/* == 各 Section 矩形聚光燈暗邊 == */
+.about-cyber::after,
+.mmt-cyber::after,
+.programs-cyber::after,
+.tarot-cyber::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right,
+      rgba(8,4,1,0.78) 0%,
+      rgba(160,92,20,0.30) 10%,
+      rgba(180,130,60,0.05) 22%,
+      transparent 32%,
+      transparent 68%,
+      rgba(180,130,60,0.05) 78%,
+      rgba(160,92,20,0.30) 90%,
+      rgba(8,4,1,0.78) 100%
+    ),
+    linear-gradient(to bottom,
+      rgba(8,4,1,0.48) 0%,
+      rgba(160,92,20,0.12) 8%,
+      transparent 18%,
+      transparent 82%,
+      rgba(160,92,20,0.12) 92%,
+      rgba(8,4,1,0.48) 100%
+    );
+  pointer-events: none;
+  z-index: 2;
+}
+
 /* == ABOUT ME — Cyber Bento == */
 .about-cyber { padding: 100px 0; background: #ede4d5; position: relative; overflow: hidden; }
 
@@ -616,7 +688,7 @@ body.cyber-page.mobile-nav-active .header {
 .value-cyber-card p { font-size: 0.88rem; color: rgba(26,16,8,0.68); line-height: 1.82; margin: 0; }
 
 /* == Featured Programs == */
-.programs-cyber { padding: 100px 0; background: #ede4d5; }
+.programs-cyber { padding: 100px 0; background: #ede4d5; position: relative; overflow: hidden; }
 
 .cyber-filter-bar {
   display: flex; gap: 8px; flex-wrap: wrap;
