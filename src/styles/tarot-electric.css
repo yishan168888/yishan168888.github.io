@@ -563,10 +563,13 @@
 }
 .tarot-cyber .tarot-card-body      { color: rgba(26,16,8,0.62); }
 
-/* ── 手機效能：關閉 SVG feTurbulence（純 CPU，手機跑不動） */
-@media (pointer: coarse) {
-  .tarot-electric-main { filter: none; }
-}
+/* ── 全站關閉電氣特效（視覺效果不明顯、GPU 負擔大） */
+.tarot-overlay-1,
+.tarot-overlay-2   { display: none; }
+.tarot-bg-glow     { display: none; }
+.tarot-glow-1,
+.tarot-glow-2      { filter: none; }
+.tarot-electric-main { filter: none; }
 
 /* ── Responsive ─────────────────────────────────────── */
 @media (max-width: 992px) {

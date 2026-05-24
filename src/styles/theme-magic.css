@@ -198,7 +198,7 @@ body.cyber-page.mobile-nav-active .header {
 .hero-cyber-inner {
   position: relative; z-index: 2;
   text-align: center;
-  padding: 40px 24px 0;
+  padding: 8px 24px 0;
   max-width: 880px; width: 100%;
 }
 
@@ -861,7 +861,7 @@ body.cyber-page .scroll-top:hover {
   .cyber-stat-num  { font-size: 1.4rem; }
   .cyber-cta       { flex-direction: column; align-items: center; }
   .cyber-stats-hud { clip-path: none; }
-  .hero-cyber-inner { padding: 40px 16px 60px; }
+  .hero-cyber-inner { padding: 8px 16px 60px; }
   .about-cyber     { padding: 60px 0; }
   .mmt-cyber       { padding: 60px 0; }
   .programs-cyber  { padding: 60px 0; }
