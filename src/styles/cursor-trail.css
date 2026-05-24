@@ -1,44 +1,27 @@
-/* ── Cursor Trail Particles ──────────────────────────────────
-   JS (cursor-trail.js) 動態建立 .cursor-dot 元素，
-   此檔負責動畫與外觀定義
+/* ── Flashlight Cursor Overlay ────────────────────────────────
+   滑鼠附近的暖光光暈，外圍完全透明不變暗
 ──────────────────────────────────────────────────────────── */
 
-.cursor-dot {
+.flashlight-overlay {
   position: fixed;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: rgba(138, 110, 86, 0.72);
+  inset: 0;
   pointer-events: none;
-  z-index: 99999;
-  transform: translate(-50%, -50%);
-  animation: ct-fade 0.7s ease-out forwards;
+  z-index: 9990;
+  background: radial-gradient(
+    circle 200px at var(--cx, -9999px) var(--cy, -9999px),
+    rgba(255,255,255,0.22)  0%,
+    rgba(255,255,255,0.10) 40%,
+    transparent             70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
-/* 每隔幾個 dot 換成魔法符號 */
-.cursor-dot.is-symbol {
-  background: transparent;
-  color: rgba(138, 110, 86, 0.78);
-  font-size: 0.55rem;
-  width: auto;
-  height: auto;
-  border-radius: 0;
-  line-height: 1;
-  animation: ct-symbol-fade 0.95s ease-out forwards;
+.flashlight-overlay.is-active {
+  opacity: 1;
 }
 
-@keyframes ct-fade {
-  0%   { opacity: 0.75; transform: translate(-50%, -50%) scale(1);    }
-  100% { opacity: 0;    transform: translate(-50%, -50%) scale(0.12); }
-}
-
-@keyframes ct-symbol-fade {
-  0%   {
-    opacity: 0.82;
-    transform: translate(-50%, -60%) scale(1) rotate(0deg);
-  }
-  100% {
-    opacity: 0;
-    transform: translate(-50%, -110%) scale(0.35) rotate(55deg);
-  }
+/* 觸控裝置沒有滑鼠，隱藏 */
+@media (pointer: coarse) {
+  .flashlight-overlay { display: none; }
 }

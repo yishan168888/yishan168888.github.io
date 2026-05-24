@@ -585,6 +585,34 @@ body.cyber-page.mobile-nav-active .header {
 /* == MMT — Cyber Data Panel == */
 .mmt-cyber { padding: 100px 0; background: #ddd4c2; position: relative; overflow: hidden; }
 
+/* 圖片堆疊：比例縮小並保持響應式 */
+.mmt-cyber .image-stack {
+  position: relative;
+  height: 360px;
+}
+.mmt-cyber .image-stack .image-stack-item {
+  position: absolute;
+  width: 62%;
+  height: auto;
+  transition: transform 0.5s ease;
+}
+.mmt-cyber .image-stack .image-stack-item img {
+  width: 100%;
+  object-fit: cover;
+}
+.mmt-cyber .image-stack .image-stack-item-top    { top: 0; left: 0; z-index: 1; }
+.mmt-cyber .image-stack .image-stack-item-bottom  { bottom: 0; right: 0; z-index: 2; }
+.mmt-cyber .image-stack .image-stack-item:hover   { transform: translateY(-8px) scale(1.03); }
+
+@media (max-width: 992px) {
+  .mmt-cyber .image-stack { height: 280px; margin-top: 2rem; }
+  .mmt-cyber .image-stack .image-stack-item { width: 68%; }
+}
+@media (max-width: 576px) {
+  .mmt-cyber .image-stack { height: 220px; }
+  .mmt-cyber .image-stack .image-stack-item { width: 72%; }
+}
+
 .mmt-cyber-eyebrow {
   font-size: 0.64rem; letter-spacing: 0.28em; color: #a05c14;
   opacity: 0.95; text-transform: uppercase; display: block; margin-bottom: 14px;
