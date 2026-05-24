@@ -17,26 +17,28 @@
 
 .mc-ring-1 {
   width: 260px; height: 260px;
-  border: 2px solid rgba(138, 98, 48, 0.45);
-  box-shadow: 0 0 18px rgba(138,98,48,0.14), inset 0 0 18px rgba(138,98,48,0.06);
+  border: 3px solid rgba(200, 122, 48, 0.70);
+  box-shadow: 0 0 32px rgba(200,122,48,0.32), inset 0 0 24px rgba(200,122,48,0.12), 0 0 8px rgba(26,16,8,0.20);
   animation: mc-cw 42s linear infinite;
 }
 
 .mc-ring-2 {
   width: 420px; height: 420px;
-  border: 2px dashed rgba(128, 90, 44, 0.35);
+  border: 2.5px dashed rgba(26, 16, 8, 0.52);
+  box-shadow: 0 0 14px rgba(26,16,8,0.08);
   animation: mc-ccw 68s linear infinite;
 }
 
 .mc-ring-3 {
   width: 600px; height: 600px;
-  border: 2px solid rgba(118, 84, 40, 0.24);
+  border: 2.5px solid rgba(200, 122, 48, 0.34);
+  box-shadow: 0 0 20px rgba(200,122,48,0.12);
   animation: mc-cw 95s linear infinite;
 }
 
 .mc-ring-4 {
   width: 780px; height: 780px;
-  border: 1.5px dotted rgba(108, 78, 36, 0.15);
+  border: 2px dotted rgba(26, 16, 8, 0.22);
   animation: mc-ccw 130s linear infinite;
 }
 
@@ -103,12 +105,12 @@
 }
 .mc-hexagram polygon {
   fill: none;
-  stroke: rgba(128, 90, 44, 0.34);
-  stroke-width: 1;
+  stroke: rgba(200, 122, 48, 0.52);
+  stroke-width: 1.5;
   vector-effect: non-scaling-stroke;
 }
 .mc-hexagram circle {
-  fill: rgba(128, 90, 44, 0.48);
+  fill: rgba(200, 122, 48, 0.68);
 }
 
 /* ── Card Shimmer ────────────────────────────────────────── */
