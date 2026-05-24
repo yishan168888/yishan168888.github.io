@@ -165,12 +165,12 @@ body.cyber-page.mobile-nav-active .header {
 .cyber-sys-label {
   display: inline-flex; align-items: center; gap: 10px;
   padding: 7px 24px;
-  border: 1px solid rgba(200,122,48,0.5);
-  color: #c87a30; font-size: 0.68rem;
+  border: 1px solid rgba(160,92,20,0.5);
+  color: #a05c14; font-size: 0.68rem;
   letter-spacing: 0.24em; text-transform: uppercase;
   margin-bottom: 44px;
-  background: rgba(200,122,48,0.07);
-  box-shadow: 0 0 20px rgba(200,122,48,0.15), inset 0 0 20px rgba(200,122,48,0.04);
+  background: rgba(160,92,20,0.07);
+  box-shadow: 0 0 20px rgba(160,92,20,0.15), inset 0 0 20px rgba(160,92,20,0.04);
   clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
 }
 .cyber-sys-label::before {
@@ -224,18 +224,18 @@ body.cyber-page.mobile-nav-active .header {
 .btn-cyber-primary {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 13px 32px;
-  background: #c87a30;
-  border: 1px solid #c87a30;
+  background: #a05c14;
+  border: 1px solid #a05c14;
   color: #f7f2ea !important; font-size: 0.88rem; font-weight: 700; letter-spacing: 0.07em;
   text-decoration: none;
   clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
   transition: all 0.3s;
-  box-shadow: 0 0 28px rgba(200,122,48,0.35);
+  box-shadow: 0 0 28px rgba(160,92,20,0.35);
 }
 .btn-cyber-primary:hover {
-  background: #e8943a;
-  border-color: #e8943a;
-  box-shadow: 0 0 44px rgba(200,122,48,0.5);
+  background: #c07030;
+  border-color: #c07030;
+  box-shadow: 0 0 44px rgba(160,92,20,0.5);
   color: #fff !important; transform: translateY(-2px);
 }
 .btn-cyber-ghost {
@@ -388,7 +388,7 @@ body.cyber-page.mobile-nav-active .header {
 .cyber-section-header { margin-bottom: 52px; }
 .cyber-section-tag {
   display: inline-block; font-size: 0.65rem;
-  letter-spacing: 0.28em; color: #c87a30;
+  letter-spacing: 0.28em; color: #a05c14;
   text-transform: uppercase; margin-bottom: 14px; opacity: 0.9;
 }
 .cyber-section-tag::before { content: '[ '; }
@@ -398,16 +398,16 @@ body.cyber-page.mobile-nav-active .header {
   color: #2c1a08; margin: 0; line-height: 1.1;
 }
 .cyber-section-title em {
-  font-style: normal; color: #c87a30;
-  text-shadow: 0 0 28px rgba(200,122,48,0.4), 0 0 56px rgba(200,122,48,0.15);
+  font-style: normal; color: #a05c14;
+  text-shadow: 0 0 28px rgba(160,92,20,0.4), 0 0 56px rgba(160,92,20,0.15);
 }
 /* Magic underline on section title */
 .cyber-section-title::after {
   content: '';
   display: block; margin-top: 14px;
   width: 80px; height: 2px;
-  background: linear-gradient(to right, #c87a30, rgba(200,122,48,0.3), transparent);
-  box-shadow: 0 0 10px rgba(200,122,48,0.4);
+  background: linear-gradient(to right, #a05c14, rgba(160,92,20,0.3), transparent);
+  box-shadow: 0 0 10px rgba(160,92,20,0.4);
 }
 
 /* == ABOUT ME — Cyber Bento == */
@@ -471,17 +471,17 @@ body.cyber-page.mobile-nav-active .header {
 .cyber-statement {
   grid-column: span 8;
   background: #1a1008;
-  border-color: rgba(200,122,48,0.25);
+  border-color: rgba(160,92,20,0.25);
   display: flex; flex-direction: column; justify-content: center; gap: 16px; padding: 36px;
 }
-.cyber-statement::before { width: 60%; background: linear-gradient(to right, #c87a30, rgba(200,122,48,0)); }
+.cyber-statement::before { width: 60%; background: linear-gradient(to right, #a05c14, rgba(160,92,20,0)); }
 .cyber-statement-quote {
   font-size: clamp(1rem, 2vw, 1.32rem); color: #f7f2ea;
   line-height: 1.65; margin: 0;
   padding-left: 16px;
-  border-left: 2px solid #c87a30;
-  box-shadow: -8px 0 24px rgba(200,122,48,0.15);
-  text-shadow: 0 0 30px rgba(200,122,48,0.2);
+  border-left: 2px solid #a05c14;
+  box-shadow: -8px 0 24px rgba(160,92,20,0.15);
+  text-shadow: 0 0 30px rgba(160,92,20,0.2);
 }
 .cyber-statement-body {
   color: rgba(247,242,234,0.58); font-size: 0.91rem; line-height: 1.9; margin: 0;
@@ -492,7 +492,7 @@ body.cyber-page.mobile-nav-active .header {
 .cyber-feature-wide { grid-column: span 6; display: flex; flex-direction: column; gap: 10px; }
 .cyber-feature-icon {
   font-size: 1.6rem; line-height: 1;
-  filter: drop-shadow(0 0 8px rgba(200,122,48,0.4));
+  filter: drop-shadow(0 0 8px rgba(160,92,20,0.4));
 }
 .cyber-feature h4, .cyber-feature-wide h4 {
   font-size: 1.02rem; font-weight: 700; color: #3e2d1c; margin: 0;
@@ -502,19 +502,19 @@ body.cyber-page.mobile-nav-active .header {
   font-size: 0.88rem; color: rgba(26,16,8,0.68); line-height: 1.82; margin: 0; flex: 1;
 }
 .cyber-feature a, .cyber-feature-wide a {
-  font-size: 0.77rem; color: #c87a30; font-weight: 700;
+  font-size: 0.77rem; color: #a05c14; font-weight: 700;
   text-decoration: none; letter-spacing: 0.07em;
   margin-top: auto; opacity: 0.9; transition: all 0.2s;
 }
 .cyber-feature a:hover, .cyber-feature-wide a:hover {
-  opacity: 1; color: #e8943a; text-shadow: 0 0 12px rgba(200,122,48,0.4);
+  opacity: 1; color: #c07030; text-shadow: 0 0 12px rgba(160,92,20,0.4);
 }
 
 /* == MMT — Cyber Data Panel == */
 .mmt-cyber { padding: 100px 0; background: #ddd4c2; position: relative; overflow: hidden; }
 
 .mmt-cyber-eyebrow {
-  font-size: 0.64rem; letter-spacing: 0.28em; color: #c87a30;
+  font-size: 0.64rem; letter-spacing: 0.28em; color: #a05c14;
   opacity: 0.95; text-transform: uppercase; display: block; margin-bottom: 14px;
 }
 .mmt-cyber-eyebrow::before { content: '[ '; }
@@ -533,9 +533,9 @@ body.cyber-page.mobile-nav-active .header {
   font-size: 0.91rem; line-height: 1.5;
 }
 .mmt-ability-list li::before {
-  content: '◈'; color: #c87a30; font-size: 0.65rem;
+  content: '◈'; color: #a05c14; font-size: 0.65rem;
   margin-top: 4px; flex-shrink: 0;
-  text-shadow: 0 0 8px rgba(200,122,48,0.6);
+  text-shadow: 0 0 8px rgba(160,92,20,0.6);
 }
 
 /* Stat panels */
@@ -549,13 +549,13 @@ body.cyber-page.mobile-nav-active .header {
   transition: all 0.3s;
 }
 .mmt-cyber-stat:hover {
-  border-color: rgba(200,122,48,0.6);
-  background: rgba(200,122,48,0.06);
-  box-shadow: 0 0 28px rgba(200,122,48,0.12);
+  border-color: rgba(160,92,20,0.6);
+  background: rgba(160,92,20,0.06);
+  box-shadow: 0 0 28px rgba(160,92,20,0.12);
 }
 .mmt-cyber-stat-num {
-  display: block; font-size: 1.8rem; font-weight: 700; color: #c87a30;
-  text-shadow: 0 0 18px rgba(200,122,48,0.5), 0 0 36px rgba(200,122,48,0.2);
+  display: block; font-size: 1.8rem; font-weight: 700; color: #a05c14;
+  text-shadow: 0 0 18px rgba(160,92,20,0.5), 0 0 36px rgba(160,92,20,0.2);
   line-height: 1.2;
 }
 .mmt-cyber-stat-label {
@@ -604,11 +604,11 @@ body.cyber-page.mobile-nav-active .header {
 .value-cyber-card:hover::after  { opacity: 1; }
 .value-cyber-card .cyber-card-icon {
   width: 44px; height: 44px;
-  background: rgba(200,122,48,0.12);
-  border: 1px solid rgba(200,122,48,0.35); border-radius: 2px;
+  background: rgba(160,92,20,0.12);
+  border: 1px solid rgba(160,92,20,0.35); border-radius: 2px;
   display: flex; align-items: center; justify-content: center;
-  margin-bottom: 18px; color: #c87a30; font-size: 1.2rem;
-  box-shadow: 0 0 16px rgba(200,122,48,0.18);
+  margin-bottom: 18px; color: #a05c14; font-size: 1.2rem;
+  box-shadow: 0 0 16px rgba(160,92,20,0.18);
 }
 .value-cyber-card h3 {
   font-size: 1.02rem; font-weight: 700; color: #3e2d1c; margin-bottom: 12px; letter-spacing: 0.03em;
@@ -632,9 +632,9 @@ body.cyber-page.mobile-nav-active .header {
 }
 .cyber-filter-bar li.filter-active,
 .cyber-filter-bar li:hover {
-  background: #c87a30;
-  border-color: #c87a30; color: #f7f2ea;
-  box-shadow: 0 0 24px rgba(200,122,48,0.35);
+  background: #a05c14;
+  border-color: #a05c14; color: #f7f2ea;
+  box-shadow: 0 0 24px rgba(160,92,20,0.35);
   text-shadow: none;
 }
 
@@ -659,7 +659,7 @@ body.cyber-page.mobile-nav-active .header {
 .program-cyber-card:hover::before { opacity: 1; width: 60%; }
 .program-cyber-card .program-badge {
   display: inline-block;
-  background: #c87a30;
+  background: #a05c14;
   color: #f7f2ea; font-size: 0.62rem; font-weight: 700;
   letter-spacing: 0.2em; padding: 5px 14px; border-radius: 0;
   border-bottom: none;
@@ -689,13 +689,13 @@ body.cyber-page.mobile-nav-active .header {
 }
 .program-cyber-card .program-btn {
   display: inline-flex; align-items: center; gap: 6px;
-  font-size: 0.74rem; font-weight: 700; color: #c87a30;
+  font-size: 0.74rem; font-weight: 700; color: #a05c14;
   text-decoration: none; letter-spacing: 0.07em;
   opacity: 0.9; transition: all 0.2s;
 }
 .program-cyber-card .program-btn:hover {
-  opacity: 1; gap: 10px; color: #e8943a;
-  text-shadow: 0 0 10px rgba(200,122,48,0.4);
+  opacity: 1; gap: 10px; color: #c07030;
+  text-shadow: 0 0 10px rgba(160,92,20,0.4);
 }
 
 /* == FOOTER == */
@@ -910,6 +910,6 @@ body.cyber-page .scroll-top:hover {
 
 .iconic-dropdown li a:hover {
   background: rgba(200, 149, 106, 0.15);
-  color: #c87a30;
+  color: #a05c14;
 }
 
