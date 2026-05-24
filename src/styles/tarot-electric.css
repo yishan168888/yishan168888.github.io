@@ -591,4 +591,6 @@
   .tarot-section-header { margin-bottom: 28px; }
   .tarot-booking-btns .btn-tarot-line,
   .tarot-booking-btns .btn-tarot-ig { width: 100%; justify-content: center; }
+  /* E. 塔羅 g-5 gap 在手機上太大（48px → 24px） */
+  .tarot-cyber .row.g-5 { --bs-gutter-x: 1.5rem; --bs-gutter-y: 1.5rem; }
 }

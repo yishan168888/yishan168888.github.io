@@ -845,12 +845,15 @@ body.cyber-page .scroll-top:hover {
   .cyber-statement { grid-column: span 12; }
   .cyber-feature   { grid-column: span 6; }
   .cyber-feature-wide { grid-column: span 12; }
-  .cyber-corner    { display: none; }
   .about-cyber     { padding: 80px 0; }
   .mmt-cyber       { padding: 80px 0; }
   .programs-cyber  { padding: 80px 0; }
   .cyber-section-header { margin-bottom: 40px; }
   .cyber-bento     { gap: 12px; }
+}
+@media (max-width: 768px) {
+  /* 768px 以下才隱藏角落裝飾，避免極窄螢幕溢出 */
+  .cyber-corner    { display: none; }
 }
 @media (max-width: 576px) {
   .cyber-feature   { grid-column: span 12; }
@@ -868,6 +871,15 @@ body.cyber-page .scroll-top:hover {
   .value-cyber-card { padding: 22px; }
   .program-cyber-card .program-content { padding: 16px; }
   .cyber-bento     { gap: 10px; }
+  /* A. 巫師 hover zone 和 CTA 576px 以下隱藏，避免定位浮在頁面上 */
+  .wizard-hover-zone--left, .cyber-cta--wizard { display: none; }
+  /* B. 觸控按鈕尺寸補足 44px 最低高度 */
+  .btn-cyber-primary { min-height: 44px; }
+  .program-btn { font-size: 0.8rem; padding: 8px 16px; }
+  /* C. 方案卡片圖片高度縮小 */
+  .program-image-wrapper { min-height: 150px !important; }
+  /* D. 頂部跑馬燈縮小字體與字距 */
+  .header-marquee-track { font-size: 0.5rem; letter-spacing: 0.12em; }
 }
 
 /* ── 手機效能優化：關閉高消耗動畫 ─────────────────────────── */
@@ -878,6 +890,14 @@ body.cyber-page .scroll-top:hover {
   body.cyber-page::before { display: none; }
   /* 魔法師只留左側一個（.mirror），其他隱藏 */
   .pixel-wizard:not(.mirror) { display: none; }
+  /* Aurora：3 個大型 blur texture 同時 transform 動畫 = GPU 過載 */
+  .aurora-1, .aurora-2, .aurora-3 { animation: none; filter: none; transform: none; }
+  /* cyber-name：background-position 動畫 = 每幀 repaint */
+  .cyber-name { animation: none; background-position: 0% center; filter: none; }
+  /* mirror wizard：box-shadow 像素藝術浮動動畫 */
+  .pixel-wizard.mirror { animation: none !important; }
+  /* 魔法粒子：8–10 個並發 transform 動畫，GPU 負擔疊加 */
+  .mp { animation: none; opacity: 0.28; transform: none; }
 }
 
 /* ── Iconic Magic Nav (ref: Iconic-Magic-Tab-Bar) ──────────── */
