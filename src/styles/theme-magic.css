@@ -776,6 +776,8 @@ body.cyber-page .scroll-top:hover {
   body.cyber-page::after { animation: none; }
   /* 格線 texture 也關掉一層 */
   body.cyber-page::before { display: none; }
+  /* 魔法師只留左側一個（.mirror），其他隱藏 */
+  .pixel-wizard:not(.mirror) { display: none; }
 }
 
 /* ── Iconic Magic Nav (ref: Iconic-Magic-Tab-Bar) ──────────── */
