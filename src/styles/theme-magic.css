@@ -608,9 +608,21 @@ body.cyber-page.mobile-nav-active .header {
   .mmt-cyber .image-stack { height: 220px; margin-top: 2rem; }
   .mmt-cyber .image-stack .image-stack-item { width: 60%; }
 }
-@media (max-width: 576px) {
-  .mmt-cyber .image-stack { height: 170px; }
-  .mmt-cyber .image-stack .image-stack-item { width: 66%; }
+@media (max-width: 768px) {
+  /* 手機板改 flex 垂直堆疊，避免 absolute 圖片溢出蓋住下方卡片 */
+  .mmt-cyber .image-stack {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .mmt-cyber .image-stack .image-stack-item {
+    position: static;
+    width: 80%;
+  }
+  .mmt-cyber .image-stack .image-stack-item:hover { transform: none; }
 }
 
 .mmt-cyber-eyebrow {
