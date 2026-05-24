@@ -414,7 +414,7 @@ body.cyber-page.mobile-nav-active .header {
 .about-cyber { padding: 100px 0; background: #ede4d5; position: relative; overflow: hidden; }
 
 /* Cyber bento grid */
-.cyber-bento { display: grid; grid-template-columns: repeat(12, 1fr); gap: 10px; }
+.cyber-bento { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
 .cyber-tile {
   border-radius: 2px; overflow: hidden;
   background: rgba(242,234,220,0.92);
@@ -492,7 +492,7 @@ body.cyber-page.mobile-nav-active .header {
 .cyber-feature-wide { grid-column: span 6; display: flex; flex-direction: column; gap: 10px; }
 .cyber-feature-icon { font-size: 1.6rem; line-height: 1; }
 .cyber-feature h4, .cyber-feature-wide h4 {
-  font-size: 0.9rem; font-weight: 700; color: #3e2d1c; margin: 0;
+  font-size: 1.02rem; font-weight: 700; color: #3e2d1c; margin: 0;
   letter-spacing: 0.04em; text-shadow: 0 0 16px rgba(140,110,80,0.2);
 }
 .cyber-feature p, .cyber-feature-wide p {
@@ -607,7 +607,7 @@ body.cyber-page.mobile-nav-active .header {
   box-shadow: 0 0 16px rgba(140,110,80,0.12);
 }
 .value-cyber-card h3 {
-  font-size: 0.88rem; font-weight: 700; color: #3e2d1c; margin-bottom: 10px; letter-spacing: 0.03em;
+  font-size: 1.02rem; font-weight: 700; color: #3e2d1c; margin-bottom: 12px; letter-spacing: 0.03em;
 }
 .value-cyber-card p { font-size: 0.845rem; color: rgba(44,26,8,0.52); line-height: 1.78; margin: 0; }
 
@@ -673,7 +673,7 @@ body.cyber-page.mobile-nav-active .header {
 }
 .program-cyber-card .program-content { padding: 18px 18px 22px; }
 .program-cyber-card .program-content h3 {
-  font-size: 0.9rem; font-weight: 700; color: #3e2d1c; margin-bottom: 8px;
+  font-size: 1rem; font-weight: 700; color: #3e2d1c; margin-bottom: 10px;
 }
 .program-cyber-card .program-highlights { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
 .program-cyber-card .program-highlights span {
@@ -742,6 +742,11 @@ body.cyber-page .scroll-top:hover {
   .cyber-feature   { grid-column: span 6; }
   .cyber-feature-wide { grid-column: span 12; }
   .cyber-corner    { display: none; }
+  .about-cyber     { padding: 80px 0; }
+  .mmt-cyber       { padding: 80px 0; }
+  .programs-cyber  { padding: 80px 0; }
+  .cyber-section-header { margin-bottom: 40px; }
+  .cyber-bento     { gap: 12px; }
 }
 @media (max-width: 576px) {
   .cyber-feature   { grid-column: span 12; }
@@ -750,6 +755,15 @@ body.cyber-page .scroll-top:hover {
   .cyber-cta       { flex-direction: column; align-items: center; }
   .cyber-stats-hud { clip-path: none; }
   .hero-cyber-inner { padding: 40px 16px 60px; }
+  .about-cyber     { padding: 60px 0; }
+  .mmt-cyber       { padding: 60px 0; }
+  .programs-cyber  { padding: 60px 0; }
+  .cyber-section-header { margin-bottom: 28px; }
+  .cyber-tile      { padding: 20px; }
+  .cyber-statement { padding: 24px; }
+  .value-cyber-card { padding: 22px; }
+  .program-cyber-card .program-content { padding: 16px; }
+  .cyber-bento     { gap: 10px; }
 }
 
 /* ── Iconic Magic Nav (ref: Iconic-Magic-Tab-Bar) ──────────── */
