@@ -37,6 +37,11 @@
   text-transform: uppercase;
 }
 
+/* 手機版：關閉符文環（節省 GPU） */
+@media (pointer: coarse) {
+  .rune-ring-wrap { display: none; }
+}
+
 @keyframes rr-cw  {
   from { transform: translate(-50%, -50%) rotate(0deg);    }
   to   { transform: translate(-50%, -50%) rotate(360deg);  }

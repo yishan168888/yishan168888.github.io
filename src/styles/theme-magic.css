@@ -770,6 +770,14 @@ body.cyber-page .scroll-top:hover {
   .cyber-bento     { gap: 10px; }
 }
 
+/* ── 手機效能優化：關閉高消耗動畫 ─────────────────────────── */
+@media (pointer: coarse) {
+  /* star-drift 每幀改 background-position → 全頁 repaint，手機最重 */
+  body.cyber-page::after { animation: none; }
+  /* 格線 texture 也關掉一層 */
+  body.cyber-page::before { display: none; }
+}
+
 /* ── Iconic Magic Nav (ref: Iconic-Magic-Tab-Bar) ──────────── */
 .iconic-nav {
   position: relative;
