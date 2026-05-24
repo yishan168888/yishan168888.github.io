@@ -121,3 +121,23 @@
 
   </div>
 </section>
+
+<script>
+(function () {
+  const circle = document.querySelector('.magic-circle');
+  const ring4  = document.querySelector('.mc-ring-4');
+  if (!circle || !ring4) return;
+
+  // ring-4 半徑 390px，觸發區間：320–450px（在第三圈外到最外圈外緣）
+  const INNER = 320;
+  const OUTER = 450;
+
+  document.addEventListener('mousemove', function (e) {
+    const r = circle.getBoundingClientRect();
+    const dx = e.clientX - r.left;
+    const dy = e.clientY - r.top;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+    ring4.classList.toggle('mc-ring-4--active', dist >= INNER && dist <= OUTER);
+  });
+})();
+</script>
