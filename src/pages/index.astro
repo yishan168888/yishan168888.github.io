@@ -6,6 +6,7 @@ import HeroSection from '../components/HeroSection.astro';
 import AboutMeSection from '../components/AboutMeSection.astro';
 import MMTSection from '../components/MMTSection.astro';
 import FeaturedProgramsSection from '../components/FeaturedProgramsSection.astro';
+import TarotSection from '../components/TarotSection.astro';
 ---
 <MainLayout title="LuLu | Personal Advisor for Life & Soul" bodyClass="index-page cyber-page">
   <Header />
@@ -38,6 +39,15 @@ import FeaturedProgramsSection from '../components/FeaturedProgramsSection.astro
     </div>
 
     <FeaturedProgramsSection />
+
+    <div class="magic-divider on-dark" aria-hidden="true">
+      <div class="magic-divider-line"></div>
+      <div class="magic-divider-symbols">
+        <span>☽</span><span>✦</span><span>★</span><span>✦</span><span>☽</span>
+      </div>
+    </div>
+
+    <TarotSection />
   </main>
   <Footer />
 </MainLayout>

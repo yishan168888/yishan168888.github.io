@@ -1,0 +1,525 @@
+/* ============================================================
+   TAROT ELECTRIC — 塔羅電氣卡片 & 裝飾樣式
+   Amber: #c87a30  Deep: #1a1008  Cream: #f7f2ea
+   ============================================================ */
+
+/* == 塔羅色彩變數 == */
+:root {
+  --tarot-amber:   #c87a30;
+  --tarot-amber-2: #e8943a;
+  --tarot-deep:    #1a1008;
+  --tarot-cream:   #f7f2ea;
+  --tarot-glow:    rgba(200, 122, 48, 0.55);
+  --tarot-glow-soft: rgba(200, 122, 48, 0.18);
+}
+
+/* ── 塔羅 Section 基底 ──────────────────────────────── */
+.tarot-cyber {
+  padding: 100px 0;
+  background: #1a1008;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 深色底的 aurora */
+.tarot-cyber .aurora-overlay {
+  position: absolute; inset: 0; pointer-events: none; z-index: 0;
+}
+.tarot-cyber .aurora-1 {
+  position: absolute;
+  width: 70%; height: 55%;
+  top: -10%; left: -10%;
+  background: radial-gradient(ellipse, rgba(200,122,48,0.08) 0%, transparent 70%);
+  animation: aurora-drift 18s ease-in-out infinite alternate;
+}
+.tarot-cyber .aurora-2 {
+  position: absolute;
+  width: 60%; height: 65%;
+  bottom: -15%; right: -5%;
+  background: radial-gradient(ellipse, rgba(100,65,35,0.12) 0%, transparent 68%);
+  animation: aurora-drift 24s ease-in-out infinite alternate-reverse;
+}
+
+/* 月相 + 星粒子 */
+.tarot-mp {
+  position: absolute;
+  pointer-events: none;
+  font-size: var(--sz, 1rem);
+  color: var(--tarot-amber);
+  opacity: var(--op, 0.4);
+  animation: float-mp var(--d, 10s) ease-in-out var(--dl, 0s) infinite alternate;
+  z-index: 1;
+  filter: drop-shadow(0 0 6px var(--tarot-glow));
+}
+@keyframes float-mp {
+  0%   { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-18px) rotate(12deg); }
+}
+
+/* ── 電氣卡片 ────────────────────────────────────────── */
+.tarot-electric-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.tarot-electric-card {
+  --ec-border: #c87a30;
+  --ec-gradient: rgba(200, 122, 48, 0.28);
+  --ec-bg: #1a1008;
+  position: relative;
+  padding: 2px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 380px;
+  background:
+    linear-gradient(-30deg, var(--ec-gradient), transparent, var(--ec-gradient)),
+    linear-gradient(to bottom, var(--ec-bg), var(--ec-bg));
+}
+
+.tarot-electric-inner {
+  position: relative;
+  border-radius: 18px;
+  overflow: visible;
+}
+
+.tarot-electric-border {
+  border: 1.5px solid rgba(200, 122, 48, 0.45);
+  border-radius: 18px;
+  padding-right: 4px;
+  padding-bottom: 4px;
+}
+
+.tarot-electric-main {
+  width: 100%;
+  aspect-ratio: 7 / 10;
+  border-radius: 18px;
+  border: 2px solid var(--ec-border);
+  margin-top: -4px;
+  margin-left: -4px;
+  background: linear-gradient(160deg, #261608 0%, #1a1008 50%, #200e04 100%);
+  filter: url(#tarot-turbulent-displace);
+  position: relative;
+}
+
+/* 橘色 glow 層 */
+.tarot-glow-1 {
+  border: 2px solid rgba(232, 148, 58, 0.5);
+  border-radius: 18px;
+  position: absolute; inset: 0;
+  filter: blur(1px);
+  pointer-events: none;
+}
+.tarot-glow-2 {
+  border: 2px solid var(--ec-border);
+  border-radius: 18px;
+  position: absolute; inset: 0;
+  filter: blur(5px);
+  pointer-events: none;
+}
+
+/* overlay 光線掃過 */
+.tarot-overlay-1 {
+  position: absolute; inset: 0;
+  border-radius: 18px;
+  opacity: 0.7;
+  mix-blend-mode: overlay;
+  transform: scale(1.08);
+  filter: blur(14px);
+  background: linear-gradient(-30deg, rgba(255,220,150,0.6), transparent 35%, transparent 65%, rgba(255,220,150,0.6));
+  pointer-events: none;
+}
+.tarot-overlay-2 {
+  position: absolute; inset: 0;
+  border-radius: 18px;
+  opacity: 0.35;
+  mix-blend-mode: overlay;
+  transform: scale(1.08);
+  filter: blur(14px);
+  background: linear-gradient(-30deg, white, transparent 35%, transparent 65%, white);
+  pointer-events: none;
+}
+
+/* 背後光暈 */
+.tarot-bg-glow {
+  position: absolute; inset: 0;
+  border-radius: 20px;
+  filter: blur(36px);
+  transform: scale(1.15);
+  opacity: 0.35;
+  z-index: -1;
+  background: linear-gradient(-30deg, var(--ec-border), transparent, #8a4010);
+  pointer-events: none;
+}
+
+/* 卡片內容 */
+.tarot-card-content {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  padding: 32px 28px;
+  color: var(--tarot-cream);
+  z-index: 2;
+}
+
+.tarot-card-label {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(200, 122, 48, 0.15);
+  border: 1px solid rgba(200, 122, 48, 0.4);
+  border-radius: 10px;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--tarot-amber-2);
+  width: fit-content;
+  margin-bottom: auto;
+}
+
+.tarot-card-symbol {
+  font-size: 2.8rem;
+  line-height: 1;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 0 12px var(--tarot-glow));
+}
+
+.tarot-card-title {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--tarot-cream);
+  line-height: 1.2;
+  margin-bottom: 10px;
+  text-shadow: 0 0 20px var(--tarot-glow);
+}
+
+.tarot-card-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(200,122,48,0.5), transparent);
+  margin: 12px 0;
+}
+
+.tarot-card-body {
+  font-size: 0.8rem;
+  color: rgba(247, 242, 234, 0.62);
+  line-height: 1.75;
+}
+
+/* ── 塔羅 Section 左欄文字 ─────────────────────────── */
+.tarot-eyebrow {
+  font-size: 0.63rem; letter-spacing: 0.28em;
+  color: var(--tarot-amber); text-transform: uppercase;
+  display: block; margin-bottom: 14px;
+}
+.tarot-eyebrow::before { content: '[ '; }
+.tarot-eyebrow::after  { content: ' ]'; }
+
+.tarot-title {
+  font-size: clamp(1.6rem, 3.8vw, 2.6rem);
+  font-weight: 700;
+  color: var(--tarot-cream);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+.tarot-title em {
+  font-style: normal;
+  color: var(--tarot-amber-2);
+  text-shadow: 0 0 24px var(--tarot-glow);
+}
+
+.tarot-body {
+  font-size: 0.94rem;
+  color: rgba(247, 242, 234, 0.6);
+  line-height: 2;
+  margin-bottom: 32px;
+  padding-left: 16px;
+  border-left: 2px solid rgba(200, 122, 48, 0.4);
+}
+
+/* CTA 按鈕列 */
+.tarot-cta-row {
+  display: flex; gap: 14px; flex-wrap: wrap;
+}
+
+.btn-tarot-line {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 28px;
+  background: #00B900;
+  border: none;
+  color: #fff !important;
+  font-size: 0.88rem; font-weight: 700;
+  letter-spacing: 0.05em;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.25s;
+  box-shadow: 0 4px 18px rgba(0,185,0,0.3);
+}
+.btn-tarot-line:hover {
+  background: #00d400;
+  color: #fff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,185,0,0.4);
+}
+
+.btn-tarot-ig {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 28px;
+  background: linear-gradient(135deg, #833AB4, #C13584, #E1306C, #F77737);
+  border: none;
+  color: #fff !important;
+  font-size: 0.88rem; font-weight: 700;
+  letter-spacing: 0.05em;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.25s;
+  box-shadow: 0 4px 18px rgba(225,48,108,0.3);
+}
+.btn-tarot-ig:hover {
+  opacity: 0.9;
+  color: #fff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(225,48,108,0.4);
+}
+
+/* ── 三張主題卡片 ──────────────────────────────────── */
+.tarot-theme-card {
+  background: rgba(247, 242, 234, 0.05);
+  border: 1px solid rgba(200, 122, 48, 0.2);
+  border-radius: 12px;
+  padding: 28px 24px;
+  position: relative; overflow: hidden;
+  transition: all 0.38s cubic-bezier(0.34, 1.56, 0.64, 1);
+  height: 100%;
+}
+.tarot-theme-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0;
+  width: 40%; height: 1px;
+  background: linear-gradient(to right, var(--tarot-amber), transparent);
+  box-shadow: 0 0 10px var(--tarot-glow);
+  opacity: 0; transition: opacity 0.3s, width 0.4s;
+}
+.tarot-theme-card:hover {
+  background: rgba(247, 242, 234, 0.08);
+  border-color: rgba(200, 122, 48, 0.45);
+  transform: translateY(-5px);
+  box-shadow: 0 0 36px rgba(200, 122, 48, 0.12);
+}
+.tarot-theme-card:hover::before { opacity: 1; width: 65%; }
+
+.tarot-theme-icon {
+  font-size: 2rem; margin-bottom: 14px;
+  filter: drop-shadow(0 0 8px var(--tarot-glow));
+}
+.tarot-theme-card h4 {
+  font-size: 1.02rem; font-weight: 700;
+  color: var(--tarot-cream); margin-bottom: 10px;
+  text-shadow: 0 0 14px var(--tarot-glow-soft);
+}
+.tarot-theme-card p {
+  font-size: 0.84rem;
+  color: rgba(247, 242, 234, 0.52);
+  line-height: 1.8; margin: 0;
+}
+
+/* Section header 深色版 */
+.tarot-section-header { margin-bottom: 52px; }
+.tarot-section-tag {
+  display: inline-block; font-size: 0.65rem;
+  letter-spacing: 0.28em; color: var(--tarot-amber);
+  text-transform: uppercase; margin-bottom: 14px; opacity: 0.85;
+}
+.tarot-section-tag::before { content: '[ '; }
+.tarot-section-tag::after  { content: ' ]'; }
+.tarot-section-title {
+  font-size: clamp(1.8rem, 4.5vw, 3rem); font-weight: 700;
+  color: var(--tarot-cream); margin: 0; line-height: 1.1;
+}
+.tarot-section-title em {
+  font-style: normal; color: var(--tarot-amber-2);
+  text-shadow: 0 0 28px var(--tarot-glow);
+}
+.tarot-section-title::after {
+  content: '';
+  display: block; margin-top: 14px;
+  width: 80px; height: 2px;
+  background: linear-gradient(to right, var(--tarot-amber), rgba(200,122,48,0.3), transparent);
+  box-shadow: 0 0 10px var(--tarot-glow-soft);
+}
+
+/* ── /tarot 頁面專用 ───────────────────────────────── */
+.tarot-page-hero {
+  min-height: 80vh;
+  background: #1a1008;
+  display: flex; align-items: center;
+  position: relative; overflow: hidden;
+  padding: 120px 0 80px;
+}
+
+.tarot-hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 22px;
+  border: 1px solid rgba(200,122,48,0.42);
+  color: var(--tarot-amber-2);
+  font-size: 0.68rem; letter-spacing: 0.22em;
+  text-transform: uppercase;
+  background: rgba(200,122,48,0.08);
+  clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+  margin-bottom: 32px;
+}
+.tarot-hero-badge::before { content: '☽ '; }
+
+.tarot-hero-name {
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
+  font-weight: 800; color: var(--tarot-cream);
+  line-height: 1.05; margin-bottom: 8px;
+  text-shadow: 0 0 40px rgba(200,122,48,0.3);
+}
+.tarot-hero-sub {
+  font-size: clamp(0.85rem, 1.8vw, 1.05rem);
+  color: var(--tarot-amber); letter-spacing: 0.14em;
+  margin-bottom: 28px;
+}
+
+.tarot-page-intro {
+  padding: 100px 0;
+  background: #ede4d5;
+  position: relative;
+}
+
+.tarot-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.tarot-intro-img {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid rgba(200,122,48,0.2);
+  box-shadow: 0 0 60px rgba(200,122,48,0.08);
+}
+.tarot-intro-img img { width: 100%; display: block; }
+
+.tarot-intro-text .tarot-eyebrow { color: #c87a30; }
+
+.tarot-intro-title {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 700; color: #2c1a08;
+  margin-bottom: 20px; line-height: 1.25;
+}
+
+.tarot-intro-body {
+  font-size: 0.94rem;
+  color: rgba(44,26,8,0.6);
+  line-height: 2; margin-bottom: 28px;
+}
+
+/* Rider-Waite 說明 Section */
+.tarot-rw-section {
+  padding: 100px 0;
+  background: #1a1008;
+  position: relative; overflow: hidden;
+}
+
+.tarot-arcana-card {
+  background: rgba(247,242,234,0.04);
+  border: 1px solid rgba(200,122,48,0.18);
+  border-radius: 12px;
+  padding: 28px;
+  height: 100%;
+  transition: all 0.35s;
+}
+.tarot-arcana-card:hover {
+  border-color: rgba(200,122,48,0.4);
+  background: rgba(247,242,234,0.07);
+  transform: translateY(-4px);
+  box-shadow: 0 0 30px rgba(200,122,48,0.1);
+}
+.tarot-arcana-icon {
+  font-size: 2.4rem; margin-bottom: 16px;
+  filter: drop-shadow(0 0 10px rgba(200,122,48,0.5));
+}
+.tarot-arcana-card h4 {
+  font-size: 1.02rem; font-weight: 700;
+  color: var(--tarot-cream); margin-bottom: 12px;
+}
+.tarot-arcana-card p {
+  font-size: 0.84rem; color: rgba(247,242,234,0.5);
+  line-height: 1.8; margin: 0;
+}
+
+/* 四元素卡片 */
+.tarot-suit-card {
+  text-align: center;
+  padding: 24px 16px;
+  background: rgba(247,242,234,0.04);
+  border: 1px solid rgba(200,122,48,0.15);
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+.tarot-suit-card:hover {
+  border-color: rgba(200,122,48,0.35);
+  background: rgba(247,242,234,0.07);
+}
+.tarot-suit-icon { font-size: 2rem; margin-bottom: 10px; }
+.tarot-suit-card h5 {
+  font-size: 0.92rem; font-weight: 700;
+  color: var(--tarot-amber-2); margin-bottom: 6px;
+}
+.tarot-suit-card p {
+  font-size: 0.78rem;
+  color: rgba(247,242,234,0.48); margin: 0; line-height: 1.7;
+}
+
+/* 預約 Section */
+.tarot-booking-section {
+  padding: 100px 0;
+  background: #ede4d5;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.tarot-booking-title {
+  font-size: clamp(1.6rem, 4vw, 2.8rem);
+  font-weight: 800; color: #2c1a08;
+  margin-bottom: 16px;
+}
+.tarot-booking-sub {
+  font-size: 0.96rem;
+  color: rgba(44,26,8,0.52);
+  margin-bottom: 44px;
+  line-height: 1.9;
+}
+.tarot-booking-btns {
+  display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+}
+/* 預約頁的 LINE / IG 按鈕更大 */
+.tarot-booking-btns .btn-tarot-line,
+.tarot-booking-btns .btn-tarot-ig {
+  padding: 16px 40px; font-size: 0.96rem;
+  border-radius: 8px;
+}
+
+/* ── Responsive ─────────────────────────────────────── */
+@media (max-width: 992px) {
+  .tarot-cyber        { padding: 80px 0; }
+  .tarot-page-hero    { padding: 100px 0 60px; }
+  .tarot-page-intro   { padding: 80px 0; }
+  .tarot-rw-section   { padding: 80px 0; }
+  .tarot-booking-section { padding: 80px 0; }
+  .tarot-intro-grid   { grid-template-columns: 1fr; gap: 32px; }
+  .tarot-electric-card { max-width: 340px; }
+  .tarot-section-header { margin-bottom: 40px; }
+}
+@media (max-width: 576px) {
+  .tarot-cyber        { padding: 60px 0; }
+  .tarot-page-intro   { padding: 60px 0; }
+  .tarot-rw-section   { padding: 60px 0; }
+  .tarot-booking-section { padding: 60px 0; }
+  .tarot-theme-card   { padding: 22px 18px; }
+  .tarot-cta-row      { flex-direction: column; }
+  .tarot-booking-btns { flex-direction: column; align-items: center; }
+  .tarot-electric-card { max-width: 100%; }
+  .tarot-section-header { margin-bottom: 28px; }
+  .tarot-booking-btns .btn-tarot-line,
+  .tarot-booking-btns .btn-tarot-ig { width: 100%; justify-content: center; }
+}

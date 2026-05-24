@@ -37,9 +37,12 @@ Astro 5（`output: 'static'`）。開發：`npm run dev`，建置：`npm run bui
 ## 顏色系統
 
 ```
-Base:   #ede4d5   背景
-Stone:  #8a6e56   強調
-Ink:    #3e2d1c   文字 / 深色元素
+Base:   #ede4d5   背景（暖米）
+Cream:  #f7f2ea   淺米白（比 Base 更亮，用於卡片高光、懸浮層）
+Stone:  #8a6e56   中性棕（強調、線條）
+Ink:    #3e2d1c   深褐（主文字、深色元素）
+Amber:  #c87a30   橘棕（行動按鈕、高對比強調、塔羅主題色）
+Deep:   #1a1008   近黑（深色背景層、夜色元素、文字最深層）
 ```
 
 ## 部署
