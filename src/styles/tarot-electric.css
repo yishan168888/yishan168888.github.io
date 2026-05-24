@@ -571,6 +571,16 @@
 .tarot-glow-2      { filter: none; }
 .tarot-electric-main { filter: none; }
 
+/* ── 手機效能：修正 specificity 漏洞，確保 aurora 和粒子真正被關閉 */
+@media (pointer: coarse) {
+  /* .tarot-cyber .aurora-1/2 的 specificity (0,2,0) 比原本的 override (0,1,0) 高，
+     導致塔羅區 aurora 動畫在手機上仍然運行，必須用更高 specificity 覆寫 */
+  .tarot-cyber .aurora-1,
+  .tarot-cyber .aurora-2 { animation: none; }
+  /* tarot-mp 有 filter:drop-shadow 動畫，每幀 repaint */
+  .tarot-mp { animation: none; filter: none; }
+}
+
 /* ── Responsive ─────────────────────────────────────── */
 @media (max-width: 992px) {
   .tarot-cyber        { padding: 80px 0; }
