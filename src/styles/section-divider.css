@@ -19,12 +19,12 @@
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(118, 84, 42, 0.12)  10%,
-    rgba(118, 84, 42, 0.50)  50%,
-    rgba(118, 84, 42, 0.12)  90%,
+    rgba(26, 16, 8, 0.12)  10%,
+    rgba(26, 16, 8, 0.45)  50%,
+    rgba(26, 16, 8, 0.12)  90%,
     transparent 100%
   );
-  box-shadow: 0 0 10px rgba(118, 84, 42, 0.18);
+  box-shadow: 0 0 10px rgba(26, 16, 8, 0.14);
 }
 
 .magic-divider-symbols {
@@ -36,7 +36,7 @@
   padding: 0 2rem;
   /* 用背景色遮住線，讓符號「浮在」線上 */
   background: var(--background-color, #ede4d5);
-  color: rgba(108, 76, 36, 0.72);
+  color: rgba(26, 16, 8, 0.55);
   font-size: 0.9rem;
 }
 
