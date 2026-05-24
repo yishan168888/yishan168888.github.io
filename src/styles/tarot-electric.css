@@ -16,7 +16,7 @@
 /* ── 塔羅 Section 基底 ──────────────────────────────── */
 .tarot-cyber {
   padding: 100px 0;
-  background: #1a1008;
+  background: #ddd4c2;
   position: relative;
   overflow: hidden;
 }
@@ -500,6 +500,68 @@
   padding: 16px 40px; font-size: 0.96rem;
   border-radius: 8px;
 }
+
+/* ── 首頁 .tarot-cyber 淺色底覆寫（不影響 /tarot 頁）── */
+
+.tarot-cyber .aurora-1 {
+  background: radial-gradient(ellipse, rgba(26,16,8,0.04) 0%, transparent 70%);
+}
+.tarot-cyber .aurora-2 {
+  background: radial-gradient(ellipse, rgba(26,16,8,0.06) 0%, transparent 68%);
+}
+
+/* Section 標題文字 */
+.tarot-cyber .tarot-section-title { color: #2c1a08; }
+.tarot-cyber .tarot-title          { color: #1a1008; }
+.tarot-cyber .tarot-title em       { text-shadow: 0 0 20px rgba(160,92,20,0.3); }
+.tarot-cyber .tarot-body {
+  color: rgba(26,16,8,0.72);
+  border-left-color: rgba(160,92,20,0.4);
+}
+
+/* 三張主題卡片 */
+.tarot-cyber .tarot-theme-card {
+  background: rgba(242,234,220,0.92);
+  border-color: rgba(26,16,8,0.14);
+}
+.tarot-cyber .tarot-theme-card:hover {
+  background: rgba(242,234,220,1);
+  border-color: rgba(26,16,8,0.28);
+  box-shadow: 0 0 36px rgba(26,16,8,0.08);
+}
+.tarot-cyber .tarot-theme-card h4 { color: #2c1a08; text-shadow: none; }
+.tarot-cyber .tarot-theme-card p  { color: rgba(26,16,8,0.65); }
+.tarot-cyber .tarot-theme-icon    { filter: drop-shadow(0 0 8px rgba(160,92,20,0.35)); }
+
+/* 電氣卡片 — 黑色主題 on 淺色卡背 */
+.tarot-cyber .tarot-electric-card {
+  --ec-border: #1a1008;
+  background: linear-gradient(160deg, #f0ebe0 0%, #f7f2ea 55%, #ede4d5 100%);
+}
+.tarot-cyber .tarot-electric-border { border-color: rgba(26,16,8,0.35); }
+.tarot-cyber .tarot-glow-1          { border-color: rgba(26,16,8,0.55); }
+.tarot-cyber .tarot-glow-2          { border-color: rgba(26,16,8,0.85); }
+.tarot-cyber .tarot-overlay-1 {
+  background: linear-gradient(-30deg, rgba(26,16,8,0.18), transparent 35%, transparent 65%, rgba(26,16,8,0.18));
+}
+.tarot-cyber .tarot-overlay-2 {
+  background: linear-gradient(-30deg, rgba(26,16,8,0.06), transparent 35%, transparent 65%, rgba(26,16,8,0.06));
+}
+.tarot-cyber .tarot-bg-glow {
+  background: linear-gradient(-30deg, rgba(26,16,8,0.38), transparent, rgba(26,16,8,0.18));
+}
+.tarot-cyber .tarot-card-content   { color: #1a1008; }
+.tarot-cyber .tarot-card-label {
+  background: rgba(26,16,8,0.07);
+  border-color: rgba(26,16,8,0.22);
+  color: #3e2d1c;
+}
+.tarot-cyber .tarot-card-symbol    { filter: drop-shadow(0 0 10px rgba(26,16,8,0.3)); }
+.tarot-cyber .tarot-card-title     { color: #1a1008; text-shadow: none; }
+.tarot-cyber .tarot-card-divider   {
+  background: linear-gradient(to right, transparent, rgba(26,16,8,0.35), transparent);
+}
+.tarot-cyber .tarot-card-body      { color: rgba(26,16,8,0.62); }
 
 /* ── Responsive ─────────────────────────────────────── */
 @media (max-width: 992px) {
