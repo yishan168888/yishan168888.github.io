@@ -72,9 +72,8 @@
   border-radius: 20px;
   width: 100%;
   max-width: 380px;
-  background:
-    linear-gradient(-30deg, var(--ec-gradient), transparent, var(--ec-gradient)),
-    linear-gradient(to bottom, var(--ec-bg), var(--ec-bg));
+  /* solid dark background so displaced border glows against it */
+  background: linear-gradient(160deg, #261608 0%, #1a1008 55%, #1e0d04 100%);
 }
 
 .tarot-electric-inner {
@@ -97,7 +96,7 @@
   border: 2px solid var(--ec-border);
   margin-top: -4px;
   margin-left: -4px;
-  background: linear-gradient(160deg, #261608 0%, #1a1008 50%, #200e04 100%);
+  background: transparent;
   filter: url(#tarot-turbulent-displace);
   position: relative;
 }
@@ -242,41 +241,43 @@
 .btn-tarot-line {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 13px 28px;
-  background: #00B900;
-  border: none;
-  color: #fff !important;
+  background: #c87a30;
+  border: 2px solid #c87a30;
+  color: #f7f2ea !important;
   font-size: 0.88rem; font-weight: 700;
   letter-spacing: 0.05em;
   border-radius: 6px;
   text-decoration: none;
   transition: all 0.25s;
-  box-shadow: 0 4px 18px rgba(0,185,0,0.3);
+  box-shadow: 0 4px 18px rgba(200,122,48,0.35);
 }
 .btn-tarot-line:hover {
-  background: #00d400;
+  background: #e8943a;
+  border-color: #e8943a;
   color: #fff !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(0,185,0,0.4);
+  box-shadow: 0 6px 28px rgba(200,122,48,0.5);
 }
 
 .btn-tarot-ig {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 13px 28px;
-  background: linear-gradient(135deg, #833AB4, #C13584, #E1306C, #F77737);
-  border: none;
-  color: #fff !important;
+  background: #1a1008;
+  border: 2px solid rgba(200,122,48,0.5);
+  color: #f7f2ea !important;
   font-size: 0.88rem; font-weight: 700;
   letter-spacing: 0.05em;
   border-radius: 6px;
   text-decoration: none;
   transition: all 0.25s;
-  box-shadow: 0 4px 18px rgba(225,48,108,0.3);
+  box-shadow: 0 4px 18px rgba(26,16,8,0.4);
 }
 .btn-tarot-ig:hover {
-  opacity: 0.9;
-  color: #fff !important;
+  border-color: #c87a30;
+  background: #2c1a08;
+  color: #f7f2ea !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(225,48,108,0.4);
+  box-shadow: 0 6px 24px rgba(200,122,48,0.3);
 }
 
 /* ── 三張主題卡片 ──────────────────────────────────── */
