@@ -157,7 +157,7 @@ body.cyber-page.mobile-nav-active .header {
 .hero-cyber-inner {
   position: relative; z-index: 2;
   text-align: center;
-  padding: 40px 24px 80px;
+  padding: 40px 24px 0;
   max-width: 880px; width: 100%;
 }
 
@@ -168,7 +168,7 @@ body.cyber-page.mobile-nav-active .header {
   border: 1px solid rgba(160,92,20,0.5);
   color: #a05c14; font-size: 0.68rem;
   letter-spacing: 0.24em; text-transform: uppercase;
-  margin-bottom: 44px;
+  margin-bottom: 20px;
   background: rgba(160,92,20,0.07);
   box-shadow: 0 0 20px rgba(160,92,20,0.15), inset 0 0 20px rgba(160,92,20,0.04);
   clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
@@ -203,7 +203,7 @@ body.cyber-page.mobile-nav-active .header {
   display: block;
   font-size: clamp(0.82rem, 1.8vw, 1.1rem);
   color: rgba(100,65,35,0.62);
-  letter-spacing: 0.7em; margin-bottom: 44px;
+  letter-spacing: 0.7em; margin-bottom: 0;
   -webkit-text-fill-color: rgba(100,65,35,0.62);
   text-shadow: 0 0 20px rgba(140,110,80,0.25);
 }

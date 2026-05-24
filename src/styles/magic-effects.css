@@ -1,7 +1,7 @@
 /* ── Magic Circle ────────────────────────────────────────── */
 .magic-circle {
   position: absolute;
-  top: 46%;
+  top: 50%;
   left: 50%;
   width: 0;
   height: 0;
@@ -38,8 +38,8 @@
 
 .mc-ring-4 {
   width: 780px; height: 780px;
-  border: 5px solid rgba(160, 92, 20, 0.28);
-  box-shadow: 0 0 40px rgba(200,122,48,0.18), inset 0 0 30px rgba(200,122,48,0.06);
+  border: 5px solid rgba(26, 16, 8, 0.55);
+  box-shadow: 0 0 44px rgba(26,16,8,0.30), inset 0 0 32px rgba(26,16,8,0.12);
   animation: mc-ccw 130s linear infinite;
 }
 
