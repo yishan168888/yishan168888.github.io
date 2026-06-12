@@ -27,6 +27,44 @@ const { title = 'LuLu | Personal Advisor for Life & Soul', bodyClass = 'index-pa
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
+    <!-- 進站 loader 的關鍵樣式（inline 於 head，先於 bundle CSS 套用，避免閃爍） -->
+    <style>
+      #magic-loader {
+        position: fixed; inset: 0; z-index: 9999;
+        display: flex; align-items: center; justify-content: center;
+        background: #ede4d5;
+        transition: opacity 0.55s ease, visibility 0.55s ease;
+      }
+      #magic-loader.is-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+      .ml-stage { position: relative; width: 170px; height: 170px; display: flex; align-items: center; justify-content: center; }
+      .ml-ring-outer, .ml-hex { position: absolute; top: 50%; left: 50%; }
+      .ml-ring-outer {
+        width: 160px; height: 160px; border-radius: 50%;
+        border: 3px solid rgba(26, 16, 8, 0.55);
+        box-shadow: 0 0 34px rgba(26,16,8,0.22), inset 0 0 22px rgba(26,16,8,0.12);
+        animation: ml-spin 7s linear infinite;
+      }
+      .ml-hex { width: 96px; height: 96px; animation: ml-spin-rev 5s linear infinite; }
+      .ml-hex polygon { fill: none; stroke: rgba(160,92,20,0.6); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+      .ml-hex circle { fill: rgba(160,92,20,0.7); }
+      .ml-name {
+        position: relative; z-index: 1;
+        font-family: 'Raleway', sans-serif; font-weight: 600;
+        letter-spacing: 0.22em; text-indent: 0.22em;
+        font-size: 1.05rem; color: #3e2d1c;
+        animation: ml-breathe 1.8s ease-in-out infinite;
+      }
+      @keyframes ml-spin     { to { transform: translate(-50%,-50%) rotate(360deg);  } }
+      @keyframes ml-spin-rev { to { transform: translate(-50%,-50%) rotate(-360deg); } }
+      @keyframes ml-breathe  { 0%,100% { opacity: 0.55; } 50% { opacity: 1; } }
+      @media (prefers-reduced-motion: reduce) {
+        .ml-ring-outer, .ml-hex, .ml-name { animation: none; }
+        #magic-loader { transition: none; }
+      }
+    </style>
+    <!-- 停用 JS 時直接隱藏 loader（魔法陣以靜態呈現，內容照常可讀） -->
+    <noscript><style>#magic-loader { display: none !important; }</style></noscript>
+
     <!-- Favicons -->
     <link href="/img/favicon.png" rel="icon" />
     <link href="/img/apple-touch-icon.png" rel="apple-touch-icon" />
@@ -34,8 +72,9 @@ const { title = 'LuLu | Personal Advisor for Life & Soul', bodyClass = 'index-pa
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <!-- 只載實際用到的字重（400-900，無斜體、無 100/200/300），大幅縮減首屏字體下載 -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&family=Raleway:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
 
@@ -60,6 +99,67 @@ const { title = 'LuLu | Personal Advisor for Life & Soul', bodyClass = 'index-pa
   </head>
 
   <body class={bodyClass}>
+
+    <!-- 進站 loader：魔法陣旋轉 → 就緒後淡出（同 session 只第一次顯示） -->
+    <div id="magic-loader" aria-hidden="true">
+      <div class="ml-stage">
+        <div class="ml-ring-outer"></div>
+        <svg class="ml-hex" viewBox="-1.1 -1.1 2.2 2.2">
+          <polygon points="0,-1 0.866,0.5 -0.866,0.5"/>
+          <polygon points="0,1 0.866,-0.5 -0.866,-0.5"/>
+          <circle cx="0"      cy="-1"   r="0.07"/>
+          <circle cx="0.866"  cy="0.5"  r="0.07"/>
+          <circle cx="-0.866" cy="0.5"  r="0.07"/>
+          <circle cx="0"      cy="1"    r="0.07"/>
+          <circle cx="0.866"  cy="-0.5" r="0.07"/>
+          <circle cx="-0.866" cy="-0.5" r="0.07"/>
+        </svg>
+        <span class="ml-name">LuLu</span>
+      </div>
+    </div>
+    <script is:inline>
+      (function () {
+        var loader = document.getElementById('magic-loader');
+        var KEY = 'lulu_loader_seen';
+
+        function reveal() {
+          document.body.classList.add('fx-ready');        // 揭曉後才啟動所有裝飾動畫
+          if (!loader) return;
+          loader.classList.add('is-hidden');
+          setTimeout(function () {
+            if (loader && loader.parentNode) loader.parentNode.removeChild(loader);
+          }, 650);
+        }
+
+        // 同 session 已看過 → 不顯示 loader，動畫立即啟動
+        var seen = false;
+        try { seen = !!sessionStorage.getItem(KEY); } catch (e) {}
+        if (seen) {
+          if (loader && loader.parentNode) loader.parentNode.removeChild(loader);
+          document.body.classList.add('fx-ready');
+          return;
+        }
+
+        // 首次進站：顯示 loader，等就緒 + 最短 600ms，最長 2500ms 護欄
+        var MIN = 600, MAX = 2500, done = false;
+        var hasPerf = !!(window.performance && performance.now);
+        var t0 = hasPerf ? performance.now() : 0;
+
+        function finish() {
+          if (done) return; done = true;
+          try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
+          reveal();
+        }
+        function onReady() {
+          var elapsed = (hasPerf ? performance.now() : MIN) - t0;
+          setTimeout(finish, Math.max(0, MIN - elapsed));
+        }
+
+        if (document.readyState === 'complete') onReady();
+        else window.addEventListener('load', onReady);
+        setTimeout(finish, MAX);                            // 硬上限：避免 load 卡住時 loader 賴著不走
+      })();
+    </script>
 
     <!-- 全域流星（fixed，捲動整個網站都看得到） -->
     <div class="shooting-stars shooting-stars--global" aria-hidden="true">

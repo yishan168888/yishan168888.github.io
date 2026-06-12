@@ -116,12 +116,20 @@
   // ring-4 半徑 190px，進入圓圈範圍內即亮起
   const OUTER = 200;
 
+  // rAF 節流：每幀最多算一次，避免 mousemove 高頻觸發 getBoundingClientRect 造成 reflow
+  let mx = 0, my = 0, ticking = false;
   document.addEventListener('mousemove', function (e) {
-    const r = circle.getBoundingClientRect();
-    const dx = e.clientX - r.left;
-    const dy = e.clientY - r.top;
-    const dist = Math.sqrt(dx * dx + dy * dy);
-    ring4.classList.toggle('mc-ring-4--active', dist <= OUTER);
-  });
+    mx = e.clientX; my = e.clientY;
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      ticking = false;
+      const r = circle.getBoundingClientRect();
+      const dx = mx - r.left;
+      const dy = my - r.top;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      ring4.classList.toggle('mc-ring-4--active', dist <= OUTER);
+    });
+  }, { passive: true });
 })();
 </script>
