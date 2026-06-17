@@ -208,3 +208,22 @@ const { contact } = site;
   });
 })();
 </script>
+
+<script>
+(function () {
+  // 隱藏後台入口：在首頁連點 logo 5 下（2 秒內）→ 進入 /admin/
+  // 安全性由 GitHub 登入＋repo 權限把關，此處僅為「不顯眼」的便捷入口。
+  const logo = document.querySelector('#header .logo');
+  if (!logo) return;
+  const onHome = location.pathname === '/' || location.pathname === '/index.html';
+  let count = 0, timer;
+  logo.addEventListener('click', function (e) {
+    if (!onHome) return;            // 其他頁面：logo 維持正常導回首頁
+    e.preventDefault();             // 首頁：攔截點擊（已在首頁，原本就不需跳轉）
+    count++;
+    clearTimeout(timer);
+    timer = setTimeout(function () { count = 0; }, 1500);
+    if (count >= 5) { count = 0; window.location.href = '/admin/'; }
+  });
+})();
+</script>
