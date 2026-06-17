@@ -1,0 +1,24 @@
+---
+// 膠捲齒孔分隔線（沿用首頁樣式，樣式定義於 styles/section-divider.css）
+// 用法：<SectionDivider />、<SectionDivider variant={1} />、<SectionDivider dark />
+interface Props {
+  variant?: number;
+  dark?: boolean;
+}
+const sets = [
+  ['✦', 'ᚠ', '✸', 'ᛏ', '✦', 'ᚢ', '✸'],
+  ['✧', 'ᛟ', '✦', 'ᚱ', '✧', 'ᛞ', '✦'],
+  ['✸', 'ᛁ', '✦', 'ᚺ', '✸', 'ᛈ', '✦'],
+  ['☽', '✦', '★', '✦', '☽'],
+];
+const { variant = 0, dark = false } = Astro.props;
+const symbols = sets[variant % sets.length];
+---
+<div class={`magic-divider${dark ? ' on-dark' : ''}`} aria-hidden="true">
+  <div class="film-strip-row film-strip-row--top"></div>
+  <div class="magic-divider-line"></div>
+  <div class="magic-divider-symbols">
+    {symbols.map((s) => <span>{s}</span>)}
+  </div>
+  <div class="film-strip-row film-strip-row--bottom"></div>
+</div>

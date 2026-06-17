@@ -1,5 +1,6 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
+import SectionDivider from '../components/SectionDivider.astro';
 import site from '../data/site.json';
 const { contact, booking } = site;
 ---
@@ -120,6 +121,8 @@ const { contact, booking } = site;
     </section>
 
     <!-- ── 關於塔羅師 ──────────────────────────────────── -->
+    <SectionDivider variant={1} />
+
     <section class="tarot-page-intro">
       <div class="container">
         <div class="tarot-section-header" style="color:#2c1a08;" data-aos="fade-up">
@@ -162,6 +165,8 @@ const { contact, booking } = site;
     </section>
 
     <!-- ── 偉特塔羅介紹 ─────────────────────────────────── -->
+    <SectionDivider variant={2} />
+
     <section class="tarot-rw-section">
 
       <!-- 粒子 -->
@@ -244,6 +249,8 @@ const { contact, booking } = site;
     </section>
 
     <!-- ── 預約 CTA ────────────────────────────────────── -->
+    <SectionDivider variant={3} />
+
     <section class="tarot-booking-section">
 
       <!-- 粒子 -->

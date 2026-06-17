@@ -114,14 +114,16 @@
   const topItem = document.querySelector('.image-stack-item-top');
   const bottomItem = document.querySelector('.image-stack-item-bottom');
 
-  [topItem, bottomItem].forEach((item) => {
-    item.addEventListener('mouseenter', () => {
-      // 滑鼠靠近時：自己變上層，對方變下層
-      item.style.zIndex = 2;
-      const other = item === topItem ? bottomItem : topItem;
-      other.style.zIndex = 1;
+  if (topItem && bottomItem) {
+    [topItem, bottomItem].forEach((item) => {
+      item.addEventListener('mouseenter', () => {
+        // 滑鼠靠近時：自己變上層，對方變下層
+        item.style.zIndex = 2;
+        const other = item === topItem ? bottomItem : topItem;
+        other.style.zIndex = 1;
+      });
     });
-  });
+  }
 
   /////////////////////////////////////////////////////////////
 
