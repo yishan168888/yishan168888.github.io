@@ -4,19 +4,31 @@ LuLu 個人品牌網站，Astro 5 靜態生成，MUJI 自然風 + 科幻魔法�
 
 ## 框架
 
-Astro 5（`output: 'static'`）。開發：`npm run dev`，建置：`npm run build`。
+Astro 5（`output: 'static'`）。**所有指令一律在 `Client/` 目錄內執行**：
+`cd Client` 後 `npm run dev`（開發）、`npm run build`（建置）。
 
 ## 目錄
 
+頂層採前後端分離（monorepo）：
+
 | 路徑 | 內容 |
 |------|------|
-| `src/pages/` | 頁面（index.astro 首頁、insurance.astro 保險頁） |
-| `src/components/` | Header、HeroSection、AboutMeSection、MMTSection、FeaturedProgramsSection、Footer |
-| `src/layouts/MainLayout.astro` | 共用 HTML 骨架，匯入所有 CSS 和 vendor JS |
-| `src/styles/` | 見下方 CSS 說明 |
-| `public/img/` | 圖片（lulu/、mmt/、person/ 等子目錄） |
-| `public/js/` | main.js（Bootstrap 初始化）、cursor-trail.js（滑鼠粒子） |
-| `public/vendor/` | 第三方庫（Bootstrap、AOS、Swiper、GLightbox 等），不要修改 |
+| `Client/` | 前端網站本體（Astro 專案，整站都在這），build 後部署上線 |
+| `Server/Admin/` | 後端：Sveltia CMS 的 OAuth 門鎖原始碼，部署到 Cloudflare（**不經 GitHub Pages**） |
+| `.github/workflows/deploy.yml` | GitHub Actions：在 `Client/` build 並發布 `Client/dist`（**必須留在根目錄**） |
+
+`Client/` 內部：
+
+| 路徑 | 內容 |
+|------|------|
+| `Client/src/pages/` | 頁面（index.astro 首頁、tarot.astro 塔羅頁、insurance.astro 保險頁） |
+| `Client/src/components/` | Header、HeroSection、HexagramSVG、AboutMeSection、MMTSection、FeaturedProgramsSection、TarotSection、Footer |
+| `Client/src/layouts/MainLayout.astro` | 共用 HTML 骨架，匯入所有 CSS 和 vendor JS |
+| `Client/src/styles/` | 見下方 CSS 說明 |
+| `Client/public/img/` | 圖片（lulu/、mmt/、person/ 等子目錄） |
+| `Client/public/js/` | main.js（Bootstrap 初始化）、cursor-trail.js（滑鼠粒子） |
+| `Client/public/admin/` | （規劃中）Sveltia CMS 後台網頁，上線後於 `/admin/` 開啟 |
+| `Client/public/vendor/` | 第三方庫（Bootstrap、AOS、Swiper、GLightbox 等），不要修改 |
 
 ## CSS 檔案
 
@@ -47,7 +59,10 @@ Deep:   #1a1008   近黑（深色背景層、夜色元素、文字最深層）
 
 ## 部署
 
-GitHub Pages，repository：`yishan168888/yishan168888.github.io`，推 `main` 自動上線。
+GitHub Pages，repository：`yishan168888/yishan168888.github.io`。
+推 `main` 觸發 GitHub Actions：在 `Client/` 跑 `npm ci && npm run build`，
+發布 `Client/dist` → 自動上線。資料夾結構可自由調整，因為是 Actions build，
+不是「直接供應某資料夾」。
 
 ## 網頁排版四大黃金原則（所有 UI 修改必須遵守）
 
