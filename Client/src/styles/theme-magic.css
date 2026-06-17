@@ -455,7 +455,12 @@ body.cyber-page.mobile-nav-active .header {
 .about-cyber::after,
 .mmt-cyber::after,
 .programs-cyber::after,
-.tarot-cyber::after {
+.tarot-cyber::after,
+.ins-cyber::after,
+.tarot-page-hero::after,
+.tarot-page-intro::after,
+.tarot-rw-section::after,
+.tarot-booking-section::after {
   content: '';
   position: absolute;
   inset: 0;
