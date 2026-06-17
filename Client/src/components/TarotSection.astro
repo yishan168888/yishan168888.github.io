@@ -1,6 +1,6 @@
 ---
 import site from '../data/site.json';
-const { contact } = site;
+const { contact, booking } = site;
 ---
 
 <!-- SVG Turbulent Filter（電氣邊框動效） -->
@@ -87,6 +87,9 @@ const { contact } = site;
           感情、事業、靈性探索——你的每一個問題，都值得被好好看見。
         </p>
         <div class="tarot-cta-row">
+          <a href={booking.appointment} target="_blank" class="btn-tarot-line">
+            <i class="bi bi-calendar-check"></i> 線上預約時段
+          </a>
           <a href={contact.line} target="_blank" class="btn-tarot-line">
             <i class="bi bi-chat-fill"></i> LINE 預約諮詢
           </a>

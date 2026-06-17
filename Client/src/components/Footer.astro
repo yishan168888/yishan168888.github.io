@@ -1,6 +1,6 @@
 ---
 import site from '../data/site.json';
-const { contact } = site;
+const { contact, booking } = site;
 ---
 <footer id="footer" class="footer position-relative dark-background">
   <div class="container footer-top">
@@ -43,6 +43,12 @@ const { contact } = site;
       <div class="col-lg-2 col-md-3 footer-links">
         <h4>聯絡我</h4>
         <ul>
+          <li>
+            <a href={booking.appointment} target="_blank"><i class="bi bi-calendar-check"></i> 線上預約</a>
+          </li>
+          <li>
+            <a href={booking.form} target="_blank"><i class="bi bi-pencil-square"></i> 諮詢表單</a>
+          </li>
           <li>
             <a href={contact.line}><i class="bi bi-linkedin"></i> LinkedIn</a>
           </li>

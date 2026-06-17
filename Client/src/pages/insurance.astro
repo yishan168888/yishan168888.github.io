@@ -4,7 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { getCollection } from 'astro:content';
 import site from '../data/site.json';
-const { contact } = site;
+const { contact, booking } = site;
 const insuranceProducts = (await getCollection('insuranceProducts')).sort((a, b) => a.data.order - b.data.order);
 const testimonials = (await getCollection('testimonials')).sort((a, b) => a.data.order - b.data.order);
 ---
@@ -42,6 +42,7 @@ const testimonials = (await getCollection('testimonials')).sort((a, b) => a.data
           <p class="ins-hero-sub">用護理人的溫柔，為你的未來<br />量身打造最適合的保障藍圖</p>
           <div class="ins-hero-btns">
             <a href={contact.line} target="_blank" class="ins-btn-primary">✦ 立即預約諮詢</a>
+            <a href={booking.appointment} target="_blank" class="ins-btn-outline">📅 線上預約時段</a>
             <a href="#ins-products" class="ins-btn-outline">了解商品 ↓</a>
           </div>
           <div class="ins-hero-stats">
@@ -276,6 +277,7 @@ const testimonials = (await getCollection('testimonials')).sort((a, b) => a.data
           <p class="ins-cta-sub">現在預約免費諮詢，讓魯魯陪你找到最適合的保障</p>
           <div class="ins-cta-btns">
             <a href={contact.line} target="_blank" class="ins-btn-primary">✦ Line 預約諮詢</a>
+            <a href={booking.appointment} target="_blank" class="ins-btn-primary">📅 線上預約時段</a>
             <a href={contact.instagram} target="_blank" class="ins-btn-outline">Instagram 聯絡</a>
           </div>
         </div>

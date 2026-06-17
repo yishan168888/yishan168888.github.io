@@ -9,6 +9,10 @@
     "mmtHome": "https://one-mercury.com/",
     "mmtConsult": "https://one-mercury.com/%e5%8d%94%e6%9c%83%e8%aa%8d%e8%ad%89%e5%b8%ab%e8%b3%87/?team_category=&team_gender=&searchName=%E9%AD%AF%E9%AD%AF"
   },
+  "booking": {
+    "appointment": "https://calendar.app.google/PLGxcz8tbWbRhRrG7",
+    "form": "https://docs.google.com/forms/d/e/1FAIpQLSclUctKIImY9iQA4pieF30tR1WUxLk2FRWA4lxFUxPLTcNN_A/viewform"
+  },
   "stats": {
     "mmt": [
       { "num": 5, "suffix": "+", "label": "探索年資" },

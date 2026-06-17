@@ -110,6 +110,12 @@ collections:
               - { name: phone, label: 電話, widget: string }
               - { name: mmtHome, label: MMT 官網, widget: string }
               - { name: mmtConsult, label: MMT 一對一諮詢連結, widget: string }
+          - name: booking
+            label: 預約 / 表單
+            widget: object
+            fields:
+              - { name: appointment, label: Google 預約頁連結, widget: string }
+              - { name: form, label: Google 諮詢表單連結, widget: string }
           - name: stats
             label: 統計數字
             widget: object
