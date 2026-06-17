@@ -7,9 +7,8 @@ backend:
   name: github
   repo: yishan168888/yishan168888.github.io
   branch: main
-  # ⚠️ TODO：部署 Cloudflare OAuth 門鎖後，把網址填到這裡
-  #    例如 https://lulu-cms-auth.你的子網域.workers.dev
-  base_url: https://lulu-cms-auth.CHANGE-ME.workers.dev
+  # Cloudflare OAuth 門鎖
+  base_url: https://lulu-cms-auth.chien00507.workers.dev
 
 # 圖片：媒體庫顯示 /img 下所有現有圖，新上傳也放這
 media_folder: "Client/public/img"
@@ -17,9 +16,6 @@ public_folder: "/img"
 
 # 後台介面語言
 locale: zh-TW
-
-# 直接發布（不走審稿流程，最單純）
-publish_mode: simple
 
 collections:
   # ── MMT 服務卡（首頁「專業整合」區）──
