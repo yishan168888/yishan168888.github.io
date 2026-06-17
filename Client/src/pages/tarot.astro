@@ -2,6 +2,8 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import site from '../data/site.json';
+const { contact } = site;
 ---
 
 <MainLayout title="塔羅解讀 | LuLu 魯魯" bodyClass="index-page cyber-page">
@@ -67,10 +69,10 @@ import Footer from '../components/Footer.astro';
               以直覺與象徵語言為媒介，我陪你穿越迷霧，看清當下真正的能量與方向。
             </p>
             <div class="tarot-cta-row">
-              <a href="https://line.me/ti/p/w7U_i0Dc0k" target="_blank" class="btn-tarot-line">
+              <a href={contact.line} target="_blank" class="btn-tarot-line">
                 <i class="bi bi-chat-fill"></i> LINE 預約解牌
               </a>
-              <a href="https://www.instagram.com/yishan168/" target="_blank" class="btn-tarot-ig">
+              <a href={contact.instagram} target="_blank" class="btn-tarot-ig">
                 <i class="bi bi-instagram"></i> IG 追蹤
               </a>
             </div>
@@ -141,10 +143,10 @@ import Footer from '../components/Footer.astro';
               結合 MMT 天賦系統的人格分析能力與高敏感特質，每一次解牌對我而言都是一場深度對話。我不套用制式牌義，而是跟著你的故事，讓牌說出最貼近你此刻狀態的答案。
             </p>
             <div class="tarot-cta-row mt-4">
-              <a href="https://line.me/ti/p/w7U_i0Dc0k" target="_blank" class="btn-tarot-line">
+              <a href={contact.line} target="_blank" class="btn-tarot-line">
                 <i class="bi bi-chat-fill"></i> LINE 預約
               </a>
-              <a href="https://www.instagram.com/yishan168/" target="_blank" class="btn-tarot-ig">
+              <a href={contact.instagram} target="_blank" class="btn-tarot-ig">
                 <i class="bi bi-instagram"></i> IG 洽詢
               </a>
             </div>
@@ -253,10 +255,10 @@ import Footer from '../components/Footer.astro';
           透過 LINE 或 IG 與我聯繫，預約專屬的塔羅解讀。
         </p>
         <div class="tarot-booking-btns">
-          <a href="https://line.me/ti/p/w7U_i0Dc0k" target="_blank" class="btn-tarot-line">
+          <a href={contact.line} target="_blank" class="btn-tarot-line">
             <i class="bi bi-chat-fill"></i> LINE 預約解牌
           </a>
-          <a href="https://www.instagram.com/yishan168/" target="_blank" class="btn-tarot-ig">
+          <a href={contact.instagram} target="_blank" class="btn-tarot-ig">
             <i class="bi bi-instagram"></i> IG 追蹤 · 洽詢
           </a>
         </div>

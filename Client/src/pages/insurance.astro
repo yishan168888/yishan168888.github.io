@@ -2,6 +2,11 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { getCollection } from 'astro:content';
+import site from '../data/site.json';
+const { contact } = site;
+const insuranceProducts = (await getCollection('insuranceProducts')).sort((a, b) => a.data.order - b.data.order);
+const testimonials = (await getCollection('testimonials')).sort((a, b) => a.data.order - b.data.order);
 ---
 <MainLayout title="富邦保險諮詢 | LuLu" bodyClass="insurance-page">
   <Fragment slot="head">
@@ -31,24 +36,19 @@ import Footer from '../components/Footer.astro';
           <h1 class="ins-hero-title">富邦保險<br /><span>專屬顧問服務</span></h1>
           <p class="ins-hero-sub">用護理人的溫柔，為你的未來<br />量身打造最適合的保障藍圖</p>
           <div class="ins-hero-btns">
-            <a href="https://line.me/ti/p/w7U_i0Dc0k" target="_blank" class="ins-btn-primary">✦ 立即預約諮詢</a>
+            <a href={contact.line} target="_blank" class="ins-btn-primary">✦ 立即預約諮詢</a>
             <a href="#ins-products" class="ins-btn-outline">了解商品 ↓</a>
           </div>
           <div class="ins-hero-stats">
-            <div class="ins-stat">
-              <span class="ins-stat-num">300<span class="ins-stat-plus">+</span></span>
-              <span class="ins-stat-label">服務個案</span>
-            </div>
-            <div class="ins-stat-divider"></div>
-            <div class="ins-stat">
-              <span class="ins-stat-num">5<span class="ins-stat-plus">+</span></span>
-              <span class="ins-stat-label">年資歷</span>
-            </div>
-            <div class="ins-stat-divider"></div>
-            <div class="ins-stat">
-              <span class="ins-stat-num">98<span class="ins-stat-plus">%</span></span>
-              <span class="ins-stat-label">客戶好評</span>
-            </div>
+            {site.stats.insuranceHero.map((s, i) => (
+              <Fragment>
+                {i > 0 && <div class="ins-stat-divider"></div>}
+                <div class="ins-stat">
+                  <span class="ins-stat-num">{s.num}<span class="ins-stat-plus">{s.suffix}</span></span>
+                  <span class="ins-stat-label">{s.label}</span>
+                </div>
+              </Fragment>
+            ))}
           </div>
         </div>
       </div>
@@ -68,90 +68,23 @@ import Footer from '../components/Footer.astro';
 
         <div class="row g-4 mt-2">
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="ins-card">
-              <div class="ins-card-icon">🛡️</div>
-              <div class="ins-card-tag">LIFE</div>
-              <h3 class="ins-card-title">壽險</h3>
-              <p class="ins-card-text">人生中最重要的保障基石。當意外或疾病導致身故或全殘，給付保險金守護摯愛的生活，讓你安心走，讓家人有依靠。</p>
-              <ul class="ins-feature-list">
-                <li>✦ 身故保障</li>
-                <li>✦ 全殘保障</li>
-                <li>✦ 彈性繳費期間</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="ins-card ins-card-featured">
-              <div class="ins-card-featured-badge">推薦</div>
-              <div class="ins-card-icon">🏥</div>
-              <div class="ins-card-tag">MEDICAL</div>
-              <h3 class="ins-card-title">醫療險</h3>
-              <p class="ins-card-text">護理出身的魯魯最了解住院的費用與壓力。醫療險幫你補足健保缺口，讓你專心養病，不必擔心帳單。</p>
-              <ul class="ins-feature-list">
-                <li>✦ 住院日額給付</li>
-                <li>✦ 手術費用補償</li>
-                <li>✦ 雜費實支實付</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="ins-card">
-              <div class="ins-card-icon">⚡</div>
-              <div class="ins-card-tag">ACCIDENT</div>
-              <h3 class="ins-card-title">意外險</h3>
-              <p class="ins-card-text">意外無法預測，但保障可以。從日常通勤到戶外活動，全面守護你的生活每一刻，保費親民、保障實在。</p>
-              <ul class="ins-feature-list">
-                <li>✦ 意外身故保障</li>
-                <li>✦ 意外失能給付</li>
-                <li>✦ 急診醫療補助</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="ins-card">
-              <div class="ins-card-icon">💊</div>
-              <div class="ins-card-tag">CRITICAL</div>
-              <h3 class="ins-card-title">重大疾病險</h3>
-              <p class="ins-card-text">癌症、心肌梗塞、腦中風等重大疾病一旦發生，治療費用往往超乎想像。這份保障讓你專注治療，無後顧之憂。</p>
-              <ul class="ins-feature-list">
-                <li>✦ 七大重症一次給付</li>
-                <li>✦ 癌症分期保障</li>
-                <li>✦ 提前確診給付</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="ins-card">
-              <div class="ins-card-icon">🌙</div>
-              <div class="ins-card-tag">ANNUITY</div>
-              <h3 class="ins-card-title">年金險</h3>
-              <p class="ins-card-text">提早為退休生活做準備，讓自己老有所依。透過定期繳費累積年金，退休後定期領取，成為自己的薪水。</p>
-              <ul class="ins-feature-list">
-                <li>✦ 退休現金流規劃</li>
-                <li>✦ 保本機制</li>
-                <li>✦ 彈性領取方式</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="ins-card">
-              <div class="ins-card-icon">📈</div>
-              <div class="ins-card-tag">INVEST</div>
-              <h3 class="ins-card-title">投資型保單</h3>
-              <p class="ins-card-text">保障與資產增值兼得。透過連結基金帳戶，在擁有人身保障的同時，參與市場成長，讓資產為你工作。</p>
-              <ul class="ins-feature-list">
-                <li>✦ 多元基金連結</li>
-                <li>✦ 保障額度彈性</li>
-                <li>✦ 定期檢視調整</li>
-              </ul>
-            </div>
-          </div>
+          {insuranceProducts.map((entry, i) => {
+            const p = entry.data;
+            return (
+              <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay={100 + (i % 3) * 100}>
+                <div class={`ins-card${p.featured ? ' ins-card-featured' : ''}`}>
+                  {p.featured && <div class="ins-card-featured-badge">{p.featuredBadge}</div>}
+                  <div class="ins-card-icon">{p.icon}</div>
+                  <div class="ins-card-tag">{p.tag}</div>
+                  <h3 class="ins-card-title">{p.title}</h3>
+                  <p class="ins-card-text">{p.description}</p>
+                  <ul class="ins-feature-list">
+                    {p.features.map((f) => <li>✦ {f}</li>)}
+                  </ul>
+                </div>
+              </div>
+            );
+          })}
 
         </div>
       </div>
@@ -300,47 +233,24 @@ import Footer from '../components/Footer.astro';
 
         <div class="row g-4 mt-2">
 
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="ins-testi-card">
-              <div class="ins-testi-stars">✦ ✦ ✦ ✦ ✦</div>
-              <p class="ins-testi-text">「原本對保險一點興趣都沒有，但魯魯用我能理解的方式說明，讓我感覺被聆聽。現在有了醫療險真的安心很多。」</p>
-              <div class="ins-testi-author">
-                <div class="ins-testi-avatar">A</div>
-                <div>
-                  <div class="ins-testi-name">Annie C.</div>
-                  <div class="ins-testi-role">上班族 · 醫療險</div>
+          {testimonials.map((entry, i) => {
+            const t = entry.data;
+            return (
+              <div class="col-lg-4" data-aos="fade-up" data-aos-delay={100 + i * 100}>
+                <div class={`ins-testi-card${t.featured ? ' ins-testi-featured' : ''}`}>
+                  <div class="ins-testi-stars">✦ ✦ ✦ ✦ ✦</div>
+                  <p class="ins-testi-text">{t.quote}</p>
+                  <div class="ins-testi-author">
+                    <div class="ins-testi-avatar">{t.avatar}</div>
+                    <div>
+                      <div class="ins-testi-name">{t.name}</div>
+                      <div class="ins-testi-role">{t.role}</div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="ins-testi-card ins-testi-featured">
-              <div class="ins-testi-stars">✦ ✦ ✦ ✦ ✦</div>
-              <p class="ins-testi-text">「做完 MMT 分析再規劃保單，感覺完全不一樣！魯魯看到我真正在意的東西，幫我找到最適合的組合。」</p>
-              <div class="ins-testi-author">
-                <div class="ins-testi-avatar">M</div>
-                <div>
-                  <div class="ins-testi-name">Mark L.</div>
-                  <div class="ins-testi-role">自由業 · 壽險 + 重疾</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="ins-testi-card">
-              <div class="ins-testi-stars">✦ ✦ ✦ ✦ ✦</div>
-              <p class="ins-testi-text">「媽媽生病後才驚覺保障缺口有多大。魯魯很有耐心地陪我重新規劃，護理背景讓她真的懂我的擔憂。」</p>
-              <div class="ins-testi-author">
-                <div class="ins-testi-avatar">S</div>
-                <div>
-                  <div class="ins-testi-name">Sophia W.</div>
-                  <div class="ins-testi-role">教師 · 全家保障規劃</div>
-                </div>
-              </div>
-            </div>
-          </div>
+            );
+          })}
 
         </div>
       </div>
@@ -360,8 +270,8 @@ import Footer from '../components/Footer.astro';
           <h2 class="ins-cta-title">準備好守護你的未來了嗎？</h2>
           <p class="ins-cta-sub">現在預約免費諮詢，讓魯魯陪你找到最適合的保障</p>
           <div class="ins-cta-btns">
-            <a href="https://line.me/ti/p/w7U_i0Dc0k" target="_blank" class="ins-btn-primary">✦ Line 預約諮詢</a>
-            <a href="https://www.instagram.com/yishan168/" target="_blank" class="ins-btn-outline">Instagram 聯絡</a>
+            <a href={contact.line} target="_blank" class="ins-btn-primary">✦ Line 預約諮詢</a>
+            <a href={contact.instagram} target="_blank" class="ins-btn-outline">Instagram 聯絡</a>
           </div>
         </div>
       </div>

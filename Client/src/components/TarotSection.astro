@@ -1,4 +1,6 @@
 ---
+import site from '../data/site.json';
+const { contact } = site;
 ---
 
 <!-- SVG Turbulent Filter（電氣邊框動效） -->
@@ -85,10 +87,10 @@
           感情、事業、靈性探索——你的每一個問題，都值得被好好看見。
         </p>
         <div class="tarot-cta-row">
-          <a href="https://line.me/ti/p/w7U_i0Dc0k" target="_blank" class="btn-tarot-line">
+          <a href={contact.line} target="_blank" class="btn-tarot-line">
             <i class="bi bi-chat-fill"></i> LINE 預約諮詢
           </a>
-          <a href="https://www.instagram.com/yishan168/" target="_blank" class="btn-tarot-ig">
+          <a href={contact.instagram} target="_blank" class="btn-tarot-ig">
             <i class="bi bi-instagram"></i> IG 追蹤洽詢
           </a>
         </div>

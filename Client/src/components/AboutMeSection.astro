@@ -1,4 +1,6 @@
 ---
+import site from '../data/site.json';
+const { contact } = site;
 ---
 <section id="about-me" class="about-cyber section">
 
@@ -66,7 +68,7 @@
         <div class="cyber-feature-icon">👥</div>
         <h4>個案陪跑</h4>
         <p>從 MMT 天賦系統出發，協助你梳理生命故事，看見內在渴望與卡點，找到真正適合你的節奏與方向。</p>
-        <a href="https://one-mercury.com/" target="_blank">指定我諮詢 →</a>
+        <a href={contact.mmtHome} target="_blank">指定我諮詢 →</a>
       </div>
 
       <!-- 靈性療癒 / 塔羅師 -->
@@ -76,8 +78,8 @@
         <h4>塔羅師 · 靈性療癒</h4>
         <p>使用偉特塔羅，結合精油與意識對話，透過高敏感與直覺力，陪你看見潛藏的能量訊息，回到內在力量。感情、事業、靈性皆可解讀。</p>
         <div style="display:flex;gap:10px;margin-top:auto;flex-wrap:wrap;">
-          <a href="https://line.me/ti/p/w7U_i0Dc0k" target="_blank" style="font-size:0.77rem;color:#c87a30;font-weight:700;text-decoration:none;opacity:0.9;transition:all 0.2s;">LINE 預約 →</a>
-          <a href="https://www.instagram.com/yishan168/" target="_blank" style="font-size:0.77rem;color:#c87a30;font-weight:700;text-decoration:none;opacity:0.9;transition:all 0.2s;">IG 洽詢 →</a>
+          <a href={contact.line} target="_blank" style="font-size:0.77rem;color:#c87a30;font-weight:700;text-decoration:none;opacity:0.9;transition:all 0.2s;">LINE 預約 →</a>
+          <a href={contact.instagram} target="_blank" style="font-size:0.77rem;color:#c87a30;font-weight:700;text-decoration:none;opacity:0.9;transition:all 0.2s;">IG 洽詢 →</a>
         </div>
       </div>
 

@@ -1,5 +1,7 @@
 ---
 import HexagramSVG from './HexagramSVG.astro';
+import site from '../data/site.json';
+const { contact } = site;
 ---
 <section id="hero" class="hero section hero-cyber">
 
@@ -77,7 +79,7 @@ import HexagramSVG from './HexagramSVG.astro';
         <i class="bi bi-chat-dots-fill"></i> MMT 諮詢
       </span>
       <a
-        href="https://one-mercury.com/%e5%8d%94%e6%9c%83%e8%aa%8d%e8%ad%89%e5%b8%ab%e8%b3%87/?team_category=&team_gender=&searchName=%E9%AD%AF%E9%AD%AF"
+        href={contact.mmtConsult}
         target="_blank"
         class="btn-cyber-primary cta-full-btn"
       >MMT 預約一對一諮詢</a>

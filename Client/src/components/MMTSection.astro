@@ -1,4 +1,5 @@
 ---
+import site from '../data/site.json';
 ---
 <!-- Header -->
 <div class="container" data-aos="fade-up"></div>
@@ -56,24 +57,14 @@
 
         <!-- Stats -->
         <div class="mmt-cyber-stats">
-          <div class="mmt-cyber-stat">
-            <span class="mmt-cyber-stat-num">
-              <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="purecounter"></span>+
-            </span>
-            <span class="mmt-cyber-stat-label">探索年資</span>
-          </div>
-          <div class="mmt-cyber-stat">
-            <span class="mmt-cyber-stat-num">
-              <span data-purecounter-start="0" data-purecounter-end="300" data-purecounter-duration="1" class="purecounter"></span>+
-            </span>
-            <span class="mmt-cyber-stat-label">陪跑個案</span>
-          </div>
-          <div class="mmt-cyber-stat">
-            <span class="mmt-cyber-stat-num">
-              <span data-purecounter-start="0" data-purecounter-end="50" data-purecounter-duration="1" class="purecounter"></span>+
-            </span>
-            <span class="mmt-cyber-stat-label">講座 / 分析</span>
-          </div>
+          {site.stats.mmt.map((s) => (
+            <div class="mmt-cyber-stat">
+              <span class="mmt-cyber-stat-num">
+                <span data-purecounter-start="0" data-purecounter-end={s.num} data-purecounter-duration="1" class="purecounter"></span>{s.suffix}
+              </span>
+              <span class="mmt-cyber-stat-label">{s.label}</span>
+            </div>
+          ))}
         </div>
 
         <!-- Signature -->

@@ -1,4 +1,6 @@
 ---
+import { getCollection } from 'astro:content';
+const programs = (await getCollection('programs')).sort((a, b) => a.data.order - b.data.order);
 ---
 <section id="featured-programs" class="programs-cyber section" style="position:relative;overflow:hidden;">
   <!-- Corner Ornament -->
@@ -49,145 +51,37 @@
 
       <div class="row g-3 isotope-container">
 
-        <!-- 天賦11 -->
-        <div class="col-lg-6 isotope-item filter-bachelor" data-aos="zoom-in" data-aos-delay="100">
-          <div class="program-cyber-card">
-            <div class="card-shimmer"></div>
-            <div class="program-badge">MMT</div>
-            <div class="row g-0">
-              <div class="col-md-4">
-                <div class="program-image-wrapper" style="min-height:200px;">
-                  <a href="/img/mmt/mmt11.png" class="glightbox" data-gallery="mmt">
-                    <img src="/img/mmt/mmt11.png" class="img-fluid" alt="天賦11" />
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-8">
-                <div class="program-content">
-                  <h3>【天賦11｜權威者】</h3>
-                  <div class="program-highlights">
-                    <span><i class="bi bi-stars"></i> 天秤座</span>
-                    <span><i class="bi bi-person-fill"></i> 雅典娜型</span>
+        {programs.map((program, i) => {
+          const p = program.data;
+          return (
+            <div class={`col-lg-6 isotope-item ${p.filter}`} data-aos="zoom-in" data-aos-delay={100 + (i % 3) * 80}>
+              <div class="program-cyber-card">
+                <div class="card-shimmer"></div>
+                <div class="program-badge">{p.badge}</div>
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <div class="program-image-wrapper" style="min-height:200px;">
+                      <a href={p.image} class="glightbox" data-gallery="mmt">
+                        <img src={p.image} class="img-fluid" alt={p.title} />
+                      </a>
+                    </div>
                   </div>
-                  <p>對知識有高度渴望，崇尚公平與正義，擅長中立判斷。條理清晰、擅長資訊整合與專業輸出，注重制度與秩序。</p>
-                  <a href="#" class="program-btn"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
+                  <div class="col-md-8">
+                    <div class="program-content">
+                      <h3>{p.title}</h3>
+                      <div class="program-highlights">
+                        <span><i class="bi bi-stars"></i> {p.zodiac}</span>
+                        <span><i class="bi bi-person-fill"></i> {p.type}</span>
+                      </div>
+                      <p>{p.description}</p>
+                      <a href={p.link} class="program-btn"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-
-        <!-- 天賦17 -->
-        <div class="col-lg-6 isotope-item filter-bachelor" data-aos="zoom-in" data-aos-delay="180">
-          <div class="program-cyber-card">
-            <div class="card-shimmer"></div>
-            <div class="program-badge">MMT</div>
-            <div class="row g-0">
-              <div class="col-md-4">
-                <div class="program-image-wrapper" style="min-height:200px;">
-                  <a href="/img/mmt/mmt17.png" class="glightbox" data-gallery="mmt">
-                    <img src="/img/mmt/mmt17.png" class="img-fluid" alt="天賦17" />
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-8">
-                <div class="program-content">
-                  <h3>【天賦17｜理想家】</h3>
-                  <div class="program-highlights">
-                    <span><i class="bi bi-stars"></i> 水瓶座</span>
-                    <span><i class="bi bi-person-fill"></i> 澤菲羅斯型</span>
-                  </div>
-                  <p>求知慾旺盛、好奇心強，崇尚自由與創意，時常走在時代前端。具備「臨門一腳」的媒合智慧，喜歡成就他人。</p>
-                  <a href="#" class="program-btn"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 天賦2 -->
-        <div class="col-lg-6 isotope-item filter-bachelor" data-aos="zoom-in" data-aos-delay="260">
-          <div class="program-cyber-card">
-            <div class="card-shimmer"></div>
-            <div class="program-badge">MMT</div>
-            <div class="row g-0">
-              <div class="col-md-4">
-                <div class="program-image-wrapper" style="min-height:200px;">
-                  <a href="/img/mmt/mmt2.png" class="glightbox" data-gallery="mmt">
-                    <img src="/img/mmt/mmt2.png" class="img-fluid" alt="天賦2" />
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-8">
-                <div class="program-content">
-                  <h3>【天賦2｜敏銳者】</h3>
-                  <div class="program-highlights">
-                    <span><i class="bi bi-stars"></i> 巨蟹座</span>
-                    <span><i class="bi bi-person-fill"></i> 赫拉型</span>
-                  </div>
-                  <p>情感細膩、具高度共感能力，善於傾聽，能接住他人的情緒。重視親密關係中的安全感與承諾，具有溫柔而堅定的情緒支撐力量。</p>
-                  <a href="#" class="program-btn"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 天賦19 -->
-        <div class="col-lg-6 isotope-item filter-bachelor" data-aos="zoom-in" data-aos-delay="260">
-          <div class="program-cyber-card">
-            <div class="card-shimmer"></div>
-            <div class="program-badge">MMT</div>
-            <div class="row g-0">
-              <div class="col-md-4">
-                <div class="program-image-wrapper" style="min-height:200px;">
-                  <a href="/img/mmt/mmt19.png" class="glightbox" data-gallery="mmt">
-                    <img src="/img/mmt/mmt19.png" class="img-fluid" alt="天賦19" />
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-8">
-                <div class="program-content">
-                  <h3>【天賦19｜光之子】</h3>
-                  <div class="program-highlights">
-                    <span><i class="bi bi-stars"></i> 獅子座</span>
-                    <span><i class="bi bi-person-fill"></i> 阿波羅型</span>
-                  </div>
-                  <p>散發光芒，擁有強烈的自我意識與影響力。極具目標感與行動力，天生具備領袖氣質，善於感召與鼓舞。本質溫暖、正向，有療癒感染他人的力量。</p>
-                  <a href="#" class="program-btn"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 天賦6 -->
-        <div class="col-lg-6 isotope-item filter-bachelor" data-aos="zoom-in" data-aos-delay="260">
-          <div class="program-cyber-card">
-            <div class="card-shimmer"></div>
-            <div class="program-badge">MMT</div>
-            <div class="row g-0">
-              <div class="col-md-4">
-                <div class="program-image-wrapper" style="min-height:200px;">
-                  <a href="/img/mmt/mmt6.png" class="glightbox" data-gallery="mmt">
-                    <img src="/img/mmt/mmt6.png" class="img-fluid" alt="天賦6" />
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-8">
-                <div class="program-content">
-                  <h3>【天賦6｜演譯家】</h3>
-                  <div class="program-highlights">
-                    <span><i class="bi bi-stars"></i> 雙子座</span>
-                    <span><i class="bi bi-person-fill"></i> 邱比特型</span>
-                  </div>
-                  <p>情感細膩、觀察入微，是天生的情緒翻譯者。能讀懂他人未說出口的情緒，在關係中渴望深度連結，遊走於理性感知與感性覺察之間。</p>
-                  <a href="#" class="program-btn"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+          );
+        })}
 
       </div>
     </div>

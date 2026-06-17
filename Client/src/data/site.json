@@ -1,0 +1,23 @@
+{
+  "sitename": "LuLuBOSS",
+  "contact": {
+    "line": "https://line.me/ti/p/w7U_i0Dc0k",
+    "instagram": "https://www.instagram.com/yishan168/",
+    "email": "aa0120love@gmail.com",
+    "phone": "09xx-873-xxx",
+    "mmtHome": "https://one-mercury.com/",
+    "mmtConsult": "https://one-mercury.com/%e5%8d%94%e6%9c%83%e8%aa%8d%e8%ad%89%e5%b8%ab%e8%b3%87/?team_category=&team_gender=&searchName=%E9%AD%AF%E9%AD%AF"
+  },
+  "stats": {
+    "mmt": [
+      { "num": 5, "suffix": "+", "label": "探索年資" },
+      { "num": 300, "suffix": "+", "label": "陪跑個案" },
+      { "num": 50, "suffix": "+", "label": "講座 / 分析" }
+    ],
+    "insuranceHero": [
+      { "num": 300, "suffix": "+", "label": "服務個案" },
+      { "num": 5, "suffix": "+", "label": "年資歷" },
+      { "num": 98, "suffix": "%", "label": "客戶好評" }
+    ]
+  }
+}
