@@ -62,7 +62,7 @@ const programs = (await getCollection('programs')).sort((a, b) => a.data.order -
                   <div class="col-md-4">
                     <div class="program-image-wrapper" style="min-height:200px;">
                       <a href={p.image} class="glightbox" data-gallery="mmt">
-                        <img src={p.image} class="img-fluid" alt={p.title} />
+                        <img src={p.image} class="img-fluid" alt={p.title} loading="lazy" decoding="async" />
                       </a>
                     </div>
                   </div>

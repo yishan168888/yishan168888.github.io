@@ -8,7 +8,12 @@ const { contact } = site;
 const insuranceProducts = (await getCollection('insuranceProducts')).sort((a, b) => a.data.order - b.data.order);
 const testimonials = (await getCollection('testimonials')).sort((a, b) => a.data.order - b.data.order);
 ---
-<MainLayout title="富邦保險諮詢 | LuLu" bodyClass="insurance-page">
+<MainLayout
+  title="富邦保險諮詢 | LuLu"
+  description="護理背景的富邦保險顧問 LuLu 魯魯：結合 MMT 天賦分析，為你量身規劃壽險、醫療、意外、重疾、年金與投資型保單。免費諮詢預約。"
+  image="/img/lulu/lu01.webp"
+  bodyClass="insurance-page"
+>
   <Fragment slot="head">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
   </Fragment>
@@ -105,7 +110,7 @@ const testimonials = (await getCollection('testimonials')).sort((a, b) => a.data
         <div class="row g-4 mt-2 align-items-center">
           <div class="col-lg-5" data-aos="fade-right">
             <div class="ins-lulu-img-wrap">
-              <img src="/img/lulu/lu01.png" alt="LuLu" class="ins-lulu-img" />
+              <img src="/img/lulu/lu01.webp" alt="LuLu 魯魯" class="ins-lulu-img" loading="lazy" decoding="async" />
               <div class="ins-lulu-badge">
                 <span class="ins-pixel-text">ADVISOR</span>
                 <span>MMT 認證分析師</span>

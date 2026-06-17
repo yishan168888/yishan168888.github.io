@@ -99,6 +99,7 @@ collections:
         file: Client/src/data/site.json
         fields:
           - { name: sitename, label: 站名, widget: string }
+          - { name: gaId, label: "Google Analytics 評估 ID（GA4，如 G-XXXXXXX；留空則不啟用）", widget: string, required: false, default: "" }
           - name: contact
             label: 聯絡資訊
             widget: object

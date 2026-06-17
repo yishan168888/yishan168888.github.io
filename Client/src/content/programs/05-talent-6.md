@@ -2,7 +2,7 @@
 order: 5
 badge: "MMT"
 filter: "filter-bachelor"
-image: "/img/mmt/mmt6.png"
+image: "/img/mmt/mmt6.webp"
 title: "【天賦6｜演譯家】"
 zodiac: "雙子座"
 type: "邱比特型"

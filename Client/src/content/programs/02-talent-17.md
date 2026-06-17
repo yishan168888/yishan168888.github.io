@@ -2,7 +2,7 @@
 order: 2
 badge: "MMT"
 filter: "filter-bachelor"
-image: "/img/mmt/mmt17.png"
+image: "/img/mmt/mmt17.webp"
 title: "【天賦17｜理想家】"
 zodiac: "水瓶座"
 type: "澤菲羅斯型"

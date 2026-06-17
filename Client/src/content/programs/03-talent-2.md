@@ -2,7 +2,7 @@
 order: 3
 badge: "MMT"
 filter: "filter-bachelor"
-image: "/img/mmt/mmt2.png"
+image: "/img/mmt/mmt2.webp"
 title: "【天賦2｜敏銳者】"
 zodiac: "巨蟹座"
 type: "赫拉型"

@@ -11,13 +11,25 @@ import '../styles/card-hover-magic.css';
 import '../styles/cursor-trail.css';
 import '../styles/tarot-electric.css';
 import HexagramSVG from '../components/HexagramSVG.astro';
+import site from '../data/site.json';
 
 interface Props {
   title?: string;
+  description?: string;
+  image?: string;
   bodyClass?: string;
 }
 
-const { title = 'LuLu | Personal Advisor for Life & Soul', bodyClass = 'index-page' } = Astro.props;
+const {
+  title = 'LuLu | Personal Advisor for Life & Soul',
+  description = 'LuLu 魯魯 — 融合 MMT 人際天賦分析、塔羅解讀與富邦保險的全人陪跑顧問。以臨床護理與靈性的溫柔，陪你看見自己、規劃最適合的人生保障。',
+  image = '/img/lulu/lu02.webp',
+  bodyClass = 'index-page',
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL(image, Astro.site).href;
+const gaId = site.gaId;
 ---
 <!DOCTYPE html>
 <html lang="zh-TW">
@@ -25,8 +37,36 @@ const { title = 'LuLu | Personal Advisor for Life & Soul', bodyClass = 'index-pa
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>{title}</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.sitename} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="zh_TW" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Google Analytics 4（填了 site.json 的 gaId 才會載入）-->
+    {gaId && (
+      <Fragment>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+        <script define:vars={{ gaId }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){ dataLayer.push(arguments); }
+          gtag('js', new Date());
+          gtag('config', gaId);
+        </script>
+      </Fragment>
+    )}
 
     <!-- 進站 loader 的關鍵樣式（inline 於 head，先於 bundle CSS 套用，避免閃爍） -->
     <style>
@@ -65,6 +105,18 @@ const { title = 'LuLu | Personal Advisor for Life & Soul', bodyClass = 'index-pa
     </style>
     <!-- 停用 JS 時直接隱藏 loader（魔法陣以靜態呈現，內容照常可讀） -->
     <noscript><style>#magic-loader { display: none !important; }</style></noscript>
+
+    <!-- 結構化資料（個人品牌）-->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "LuLu 魯魯",
+      "alternateName": "邱議萱",
+      "url": "https://yishan168888.github.io",
+      "image": ogImage,
+      "jobTitle": "MMT 人際天賦分析師 / 塔羅師 / 富邦保險顧問",
+      "sameAs": [site.contact.instagram, site.contact.line]
+    })} />
 
     <!-- Favicons -->
     <link href="/img/favicon.png" rel="icon" />

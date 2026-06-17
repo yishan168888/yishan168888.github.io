@@ -2,7 +2,7 @@
 order: 4
 badge: "MMT"
 filter: "filter-bachelor"
-image: "/img/mmt/mmt19.png"
+image: "/img/mmt/mmt19.webp"
 title: "【天賦19｜光之子】"
 zodiac: "獅子座"
 type: "阿波羅型"

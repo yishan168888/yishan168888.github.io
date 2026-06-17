@@ -2,7 +2,7 @@
 order: 1
 badge: "MMT"
 filter: "filter-bachelor"
-image: "/img/mmt/mmt11.png"
+image: "/img/mmt/mmt11.webp"
 title: "【天賦11｜權威者】"
 zodiac: "天秤座"
 type: "雅典娜型"
