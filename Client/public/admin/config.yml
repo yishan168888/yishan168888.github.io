@@ -1,0 +1,133 @@
+# ────────────────────────────────────────────────────────────
+# LuLu 網站後台設定（Sveltia CMS，Decap 相容）
+# 對應 Client/src 的內容資料檔；魯魯在 /admin/ 編輯後直接 commit 回 GitHub。
+# ────────────────────────────────────────────────────────────
+
+backend:
+  name: github
+  repo: yishan168888/yishan168888.github.io
+  branch: main
+  # ⚠️ TODO：部署 Cloudflare OAuth 門鎖後，把網址填到這裡
+  #    例如 https://lulu-cms-auth.你的子網域.workers.dev
+  base_url: https://lulu-cms-auth.CHANGE-ME.workers.dev
+
+# 圖片：媒體庫顯示 /img 下所有現有圖，新上傳也放這
+media_folder: "Client/public/img"
+public_folder: "/img"
+
+# 後台介面語言
+locale: zh-TW
+
+# 直接發布（不走審稿流程，最單純）
+publish_mode: simple
+
+collections:
+  # ── MMT 服務卡（首頁「專業整合」區）──
+  - name: programs
+    label: MMT 服務卡
+    label_singular: 服務卡
+    folder: Client/src/content/programs
+    extension: md
+    format: yaml-frontmatter
+    create: true
+    identifier_field: title
+    summary: "{{fields.order}}｜{{fields.title}}"
+    sortable_fields: [order, title]
+    fields:
+      - { name: order, label: 排序（數字小的在前）, widget: number, value_type: int, default: 1 }
+      - { name: title, label: 標題, widget: string }
+      - { name: image, label: 圖片, widget: image }
+      - { name: zodiac, label: 星座, widget: string }
+      - { name: type, label: 人格類型, widget: string }
+      - { name: description, label: 說明文字, widget: text }
+      - { name: badge, label: 角落標籤, widget: string, default: MMT }
+      - name: filter
+        label: 篩選分類
+        widget: select
+        default: filter-bachelor
+        options:
+          - { label: MMT, value: filter-bachelor }
+          - { label: 護理照護, value: filter-master }
+          - { label: 富邦保險, value: filter-certificate }
+      - { name: link, label: "「Learn More」連結", widget: string, default: "#", required: false }
+
+  # ── 保險商品卡（保險頁）──
+  - name: insuranceProducts
+    label: 保險商品
+    label_singular: 保險商品
+    folder: Client/src/content/insurance-products
+    extension: md
+    format: yaml-frontmatter
+    create: true
+    identifier_field: title
+    summary: "{{fields.order}}｜{{fields.title}}"
+    sortable_fields: [order, title]
+    fields:
+      - { name: order, label: 排序, widget: number, value_type: int, default: 1 }
+      - { name: title, label: 商品名稱, widget: string }
+      - { name: icon, label: 圖示（emoji）, widget: string }
+      - { name: tag, label: 英文標籤, widget: string }
+      - { name: description, label: 說明, widget: text }
+      - name: features
+        label: 特色項目
+        widget: list
+        field: { name: item, label: 項目, widget: string }
+      - { name: featured, label: 設為「推薦」商品, widget: boolean, default: false }
+      - { name: featuredBadge, label: 推薦徽章文字, widget: string, default: 推薦, required: false }
+
+  # ── 客戶見證（保險頁）──
+  - name: testimonials
+    label: 客戶見證
+    label_singular: 見證
+    folder: Client/src/content/testimonials
+    extension: md
+    format: yaml-frontmatter
+    create: true
+    identifier_field: name
+    summary: "{{fields.order}}｜{{fields.name}}"
+    sortable_fields: [order, name]
+    fields:
+      - { name: order, label: 排序, widget: number, value_type: int, default: 1 }
+      - { name: name, label: 姓名, widget: string }
+      - { name: role, label: 身分／類型, widget: string }
+      - { name: avatar, label: 頭像字母, widget: string }
+      - { name: quote, label: 見證內容, widget: text }
+      - { name: featured, label: 設為主打, widget: boolean, default: false }
+
+  # ── 網站設定（聯絡資訊＋統計，全站單一來源）──
+  - name: site
+    label: 網站設定
+    files:
+      - name: settings
+        label: 聯絡資訊與統計
+        file: Client/src/data/site.json
+        fields:
+          - { name: sitename, label: 站名, widget: string }
+          - name: contact
+            label: 聯絡資訊
+            widget: object
+            fields:
+              - { name: line, label: LINE 連結, widget: string }
+              - { name: instagram, label: Instagram 連結, widget: string }
+              - { name: email, label: Email, widget: string }
+              - { name: phone, label: 電話, widget: string }
+              - { name: mmtHome, label: MMT 官網, widget: string }
+              - { name: mmtConsult, label: MMT 一對一諮詢連結, widget: string }
+          - name: stats
+            label: 統計數字
+            widget: object
+            fields:
+              - name: mmt
+                label: 首頁 MMT 統計
+                widget: list
+                fields:
+                  - { name: num, label: 數字, widget: number, value_type: int }
+                  - { name: suffix, label: 後綴（如 + 或 %）, widget: string, default: "+" }
+                  - { name: label, label: 說明, widget: string }
+              - name: insuranceHero
+                label: 保險頁 Hero 統計
+                widget: list
+                fields:
+                  - { name: num, label: 數字, widget: number, value_type: int }
+                  - { name: suffix, label: 後綴（如 + 或 %）, widget: string }
+                  - { name: label, label: 說明, widget: string }

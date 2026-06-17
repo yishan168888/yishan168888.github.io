@@ -1,0 +1,8 @@
+name = "lulu-cms-auth"
+main = "worker.js"
+compatibility_date = "2024-11-01"
+
+# 部署：在此資料夾執行 `npx wrangler deploy`
+# 機密變數（不要寫在這裡，用指令設定）：
+#   npx wrangler secret put GITHUB_CLIENT_ID
+#   npx wrangler secret put GITHUB_CLIENT_SECRET
