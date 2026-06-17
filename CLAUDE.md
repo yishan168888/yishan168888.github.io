@@ -23,7 +23,7 @@ Astro 5（`output: 'static'`）。**所有指令一律在 `Client/` 目錄內執
 |------|------|
 | `Client/src/pages/` | 頁面（index.astro 首頁、tarot.astro 塔羅頁、insurance.astro 保險頁） |
 | `Client/src/components/` | Header、HeroSection、HexagramSVG、AboutMeSection、MMTSection、FeaturedProgramsSection、TarotSection、Footer |
-| `Client/src/layouts/MainLayout.astro` | 共用 HTML 骨架，匯入所有 CSS 和 vendor JS |
+| `Client/src/layouts/MainLayout.astro` | 共用 HTML 骨架（含 `<head>`、loader、**Header + `<main>` + Footer**），匯入所有 CSS 和 vendor JS。頁面只需 `<MainLayout>內容</MainLayout>`，header/footer 自動包；`<slot name="head">` 可插入頁面專屬 `<head>` 內容 |
 | `Client/src/styles/` | 見下方 CSS 說明 |
 | `Client/public/img/` | 圖片（lulu/、mmt/、person/ 等子目錄） |
 | `Client/public/js/` | main.js（Bootstrap 初始化）、cursor-trail.js（滑鼠粒子） |
