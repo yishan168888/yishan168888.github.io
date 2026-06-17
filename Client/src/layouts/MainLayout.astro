@@ -11,6 +11,8 @@ import '../styles/card-hover-magic.css';
 import '../styles/cursor-trail.css';
 import '../styles/tarot-electric.css';
 import HexagramSVG from '../components/HexagramSVG.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 import site from '../data/site.json';
 
 interface Props {
@@ -215,7 +217,11 @@ const gaId = site.gaId;
       <div class="shooting-star" style="--ss-top:87%;--ss-d:29s;--ss-dl:-9s;"></div>
     </div>
 
-    <slot />
+    <Header />
+    <main class="main">
+      <slot />
+    </main>
+    <Footer />
 
     <!-- Vendor JS（body 尾端依序載入，is:inline 防止 Astro 打包） -->
     <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js" is:inline></script>

@@ -1,7 +1,5 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 import site from '../data/site.json';
 const { contact, booking } = site;
 ---
@@ -11,8 +9,6 @@ const { contact, booking } = site;
   description="LuLu 魯魯的偉特塔羅解讀：感情、事業、靈性探索，以直覺與象徵語言陪你看清當下能量與方向。可透過 LINE 或 Instagram 預約。"
   bodyClass="index-page cyber-page"
 >
-  <Header />
-  <main class="main">
 
 <!-- SVG Filter（電氣邊框，/tarot 頁自有一份避免 id 衝突） -->
 <svg style="position:absolute;width:0;height:0;overflow:hidden;" aria-hidden="true">
@@ -277,7 +273,4 @@ const { contact, booking } = site;
         </div>
       </div>
     </section>
-
-  </main>
-  <Footer />
 </MainLayout>

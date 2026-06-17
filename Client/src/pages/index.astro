@@ -1,7 +1,5 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 import HeroSection from '../components/HeroSection.astro';
 import AboutMeSection from '../components/AboutMeSection.astro';
 import MMTSection from '../components/MMTSection.astro';
@@ -9,8 +7,6 @@ import FeaturedProgramsSection from '../components/FeaturedProgramsSection.astro
 import TarotSection from '../components/TarotSection.astro';
 ---
 <MainLayout title="LuLu | Personal Advisor for Life & Soul" bodyClass="index-page cyber-page">
-  <Header />
-  <main class="main">
     <HeroSection />
 
     <div class="magic-divider" aria-hidden="true">
@@ -56,6 +52,4 @@ import TarotSection from '../components/TarotSection.astro';
     </div>
 
     <TarotSection />
-  </main>
-  <Footer />
 </MainLayout>
