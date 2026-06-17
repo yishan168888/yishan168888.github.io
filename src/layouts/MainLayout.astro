@@ -10,6 +10,7 @@ import '../styles/corner-ornament.css';
 import '../styles/card-hover-magic.css';
 import '../styles/cursor-trail.css';
 import '../styles/tarot-electric.css';
+import HexagramSVG from '../components/HexagramSVG.astro';
 
 interface Props {
   title?: string;
@@ -104,16 +105,7 @@ const { title = 'LuLu | Personal Advisor for Life & Soul', bodyClass = 'index-pa
     <div id="magic-loader" aria-hidden="true">
       <div class="ml-stage">
         <div class="ml-ring-outer"></div>
-        <svg class="ml-hex" viewBox="-1.1 -1.1 2.2 2.2">
-          <polygon points="0,-1 0.866,0.5 -0.866,0.5"/>
-          <polygon points="0,1 0.866,-0.5 -0.866,-0.5"/>
-          <circle cx="0"      cy="-1"   r="0.07"/>
-          <circle cx="0.866"  cy="0.5"  r="0.07"/>
-          <circle cx="-0.866" cy="0.5"  r="0.07"/>
-          <circle cx="0"      cy="1"    r="0.07"/>
-          <circle cx="0.866"  cy="-0.5" r="0.07"/>
-          <circle cx="-0.866" cy="-0.5" r="0.07"/>
-        </svg>
+        <HexagramSVG class="ml-hex" />
         <span class="ml-name">LuLu</span>
       </div>
     </div>

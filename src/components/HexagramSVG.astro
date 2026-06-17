@@ -1,0 +1,18 @@
+---
+// 六芒星 SVG：loader（.ml-hex）與 Hero 魔法陣（.mc-hexagram）共用同一份頂點座標。
+// 樣式由傳入的 class 決定，markup 為單一來源。
+interface Props {
+  class?: string;
+}
+const { class: className = '' } = Astro.props;
+---
+<svg class={className} viewBox="-1.1 -1.1 2.2 2.2">
+  <polygon points="0,-1 0.866,0.5 -0.866,0.5"/>
+  <polygon points="0,1 0.866,-0.5 -0.866,-0.5"/>
+  <circle cx="0"      cy="-1"   r="0.07"/>
+  <circle cx="0.866"  cy="0.5"  r="0.07"/>
+  <circle cx="-0.866" cy="0.5"  r="0.07"/>
+  <circle cx="0"      cy="1"    r="0.07"/>
+  <circle cx="0.866"  cy="-0.5" r="0.07"/>
+  <circle cx="-0.866" cy="-0.5" r="0.07"/>
+</svg>

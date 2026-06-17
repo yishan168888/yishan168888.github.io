@@ -145,15 +145,14 @@
    首屏繪製/字體載入時，所有裝飾動畫先暫停，不跟主執行緒搶資源。
    loader 揭曉（或無 loader 時 load 後）由 JS 加 body.fx-ready 才啟動，
    讓「進站那一兩百毫秒」保持安靜、不卡。視覺上 loader 蓋住、肉眼無感。 */
-body:not(.fx-ready) .aurora-1,
-body:not(.fx-ready) .aurora-2,
-body:not(.fx-ready) .aurora-3,
-body:not(.fx-ready) .mc-ring-4,
-body:not(.fx-ready) .mc-hexagram,
-body:not(.fx-ready) .rr-spin-cw,
-body:not(.fx-ready) .shooting-star,
-body:not(.fx-ready) .mp,
-body:not(.fx-ready) .pixel-wizard,
-body:not(.fx-ready) .cyber-name {
+body:not(.fx-ready) :is(
+  .aurora-1, .aurora-2, .aurora-3,
+  .mc-ring-4, .mc-hexagram,
+  .rr-spin-cw,
+  .shooting-star,
+  .mp,
+  .pixel-wizard,
+  .cyber-name
+) {
   animation-play-state: paused !important;
 }
