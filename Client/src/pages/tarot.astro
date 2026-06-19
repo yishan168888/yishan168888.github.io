@@ -1,6 +1,7 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 import SectionDivider from '../components/SectionDivider.astro';
+import TarotElectricFilter from '../components/TarotElectricFilter.astro';
 import site from '../data/site.json';
 const { contact, booking } = site;
 ---
@@ -11,33 +12,7 @@ const { contact, booking } = site;
   bodyClass="index-page cyber-page"
 >
 
-<!-- SVG Filter（電氣邊框，/tarot 頁自有一份避免 id 衝突） -->
-<svg style="position:absolute;width:0;height:0;overflow:hidden;" aria-hidden="true">
-  <defs>
-    <filter id="tarot-turbulent-displace" colorInterpolationFilters="sRGB" x="-20%" y="-20%" width="140%" height="140%">
-      <feTurbulence type="turbulence" baseFrequency="0.018" numOctaves="8" result="noise1" seed="3" />
-      <feOffset in="noise1" dx="0" dy="0" result="offsetNoise1">
-        <animate attributeName="dy" values="600; 0" dur="7s" repeatCount="indefinite" calcMode="linear" />
-      </feOffset>
-      <feTurbulence type="turbulence" baseFrequency="0.018" numOctaves="8" result="noise2" seed="3" />
-      <feOffset in="noise2" dx="0" dy="0" result="offsetNoise2">
-        <animate attributeName="dy" values="0; -600" dur="7s" repeatCount="indefinite" calcMode="linear" />
-      </feOffset>
-      <feTurbulence type="turbulence" baseFrequency="0.018" numOctaves="8" result="noise3" seed="7" />
-      <feOffset in="noise3" dx="0" dy="0" result="offsetNoise3">
-        <animate attributeName="dx" values="420; 0" dur="7s" repeatCount="indefinite" calcMode="linear" />
-      </feOffset>
-      <feTurbulence type="turbulence" baseFrequency="0.018" numOctaves="8" result="noise4" seed="7" />
-      <feOffset in="noise4" dx="0" dy="0" result="offsetNoise4">
-        <animate attributeName="dx" values="0; -420" dur="7s" repeatCount="indefinite" calcMode="linear" />
-      </feOffset>
-      <feComposite in="offsetNoise1" in2="offsetNoise2" result="part1" />
-      <feComposite in="offsetNoise3" in2="offsetNoise4" result="part2" />
-      <feBlend in="part1" in2="part2" mode="color-dodge" result="combinedNoise" />
-      <feDisplacementMap in="SourceGraphic" in2="combinedNoise" scale="60" xChannelSelector="R" yChannelSelector="B" />
-    </filter>
-  </defs>
-</svg>
+<TarotElectricFilter />
 
     <!-- ── Hero ─────────────────────────────────────────── -->
     <section class="tarot-page-hero">
@@ -93,9 +68,6 @@ const { contact, booking } = site;
                   <div class="tarot-glow-1"></div>
                   <div class="tarot-glow-2"></div>
                 </div>
-                <div class="tarot-overlay-1"></div>
-                <div class="tarot-overlay-2"></div>
-                <div class="tarot-bg-glow"></div>
 
                 <div class="tarot-card-content">
                   <span class="tarot-card-label">Rider-Waite Tarot</span>

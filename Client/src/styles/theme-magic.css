@@ -202,26 +202,6 @@ body.cyber-page.mobile-nav-active .header {
   max-width: 880px; width: 100%;
 }
 
-/* System label */
-.cyber-sys-label {
-  display: inline-flex; align-items: center; gap: 10px;
-  padding: 7px 24px;
-  border: 1px solid rgba(160,92,20,0.5);
-  color: #a05c14; font-size: 0.68rem;
-  letter-spacing: 0.24em; text-transform: uppercase;
-  margin-bottom: 20px;
-  background: rgba(160,92,20,0.07);
-  box-shadow: 0 0 20px rgba(160,92,20,0.15), inset 0 0 20px rgba(160,92,20,0.04);
-  clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
-}
-.cyber-sys-label::before {
-  content: '●'; font-size: 0.45rem;
-  animation: blink-dot 2s step-end infinite;
-}
-@keyframes blink-dot {
-  0%,100% { opacity: 1; } 50% { opacity: 0.1; }
-}
-
 /* Giant name */
 .cyber-name {
   display: block;
@@ -247,17 +227,6 @@ body.cyber-page.mobile-nav-active .header {
   letter-spacing: 0.7em; margin-bottom: 0;
   -webkit-text-fill-color: rgba(100,65,35,0.62);
   text-shadow: 0 0 20px rgba(140,110,80,0.25);
-}
-
-/* Description */
-.cyber-desc {
-  font-size: clamp(0.88rem, 1.6vw, 0.98rem);
-  color: rgba(26,16,8,0.72); line-height: 2.1;
-  margin: 0 auto 48px; max-width: 480px;
-  text-align: left;
-  border-left: 2px solid rgba(26,16,8,0.35);
-  padding-left: 20px;
-  box-shadow: -6px 0 20px rgba(140,110,80,0.08);
 }
 
 /* CTA */
@@ -319,13 +288,6 @@ body.cyber-page.mobile-nav-active .header {
   align-items: flex-start;
   margin: 0;
 }
-/* Centered ghost button row (stays inside hero-cyber-inner) */
-.cyber-cta--center {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 0;
-}
-
 /* ── CTA mmt-wrap: mini bubble ↔ full button ──────── */
 .cta-mmt-wrap {
   position: relative;
@@ -401,28 +363,6 @@ body.cyber-page.mobile-nav-active .header {
   transform: scale(1);
   pointer-events: all;
   z-index: 2;
-}
-
-/* Stats HUD */
-.cyber-stats-hud {
-  display: flex; align-items: stretch; justify-content: center;
-  flex-wrap: wrap;
-  border: 1px solid rgba(100,65,35,0.18);
-  background: rgba(100,65,35,0.05);
-  box-shadow: 0 0 40px rgba(140,110,80,0.06), inset 0 0 40px rgba(140,110,80,0.02);
-  max-width: 640px; margin: 0 auto;
-  clip-path: polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
-}
-.cyber-stat-item { flex: 1; min-width: 90px; text-align: center; padding: 18px 12px; }
-.cyber-stat-item + .cyber-stat-item { border-left: 1px solid rgba(100,65,35,0.14); }
-.cyber-stat-num {
-  display: block; font-size: 1.8rem; font-weight: 700; color: #3e2d1c;
-  text-shadow: 0 0 20px rgba(140,110,80,0.4), 0 0 40px rgba(140,110,80,0.18);
-  line-height: 1.2;
-}
-.cyber-stat-label {
-  display: block; font-size: 0.64rem; color: rgba(26,16,8,0.58);
-  letter-spacing: 0.12em; text-transform: uppercase; margin-top: 5px;
 }
 
 /* == SECTION HEADER (shared) == */
@@ -908,7 +848,11 @@ body.cyber-page .scroll-top:hover {
   /* 魔法師只留左側一個（.mirror），其他隱藏 */
   .pixel-wizard:not(.mirror) { display: none; }
   /* Aurora：3 個大型 blur texture 同時 transform 動畫 = GPU 過載 */
-  .aurora-1, .aurora-2, .aurora-3 { animation: none; filter: none; transform: none; }
+  /* .tarot-cyber .aurora-1/2 的 specificity (0,2,0) 比上面的選擇器高，須一併列入才能真正關閉 */
+  .aurora-1, .aurora-2, .aurora-3,
+  .tarot-cyber .aurora-1, .tarot-cyber .aurora-2 { animation: none; filter: none; transform: none; }
+  /* tarot-mp 有 filter:drop-shadow 動畫，每幀 repaint */
+  .tarot-mp { animation: none; filter: none; }
   /* cyber-name：background-position 動畫 = 每幀 repaint */
   .cyber-name { animation: none; background-position: 0% center; filter: none; }
   /* mirror wizard：box-shadow 像素藝術浮動動畫 */

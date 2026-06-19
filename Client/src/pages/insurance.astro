@@ -1,6 +1,7 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 import SectionDivider from '../components/SectionDivider.astro';
+import CornerOrnament from '../components/CornerOrnament.astro';
 import { getCollection } from 'astro:content';
 import site from '../data/site.json';
 const { contact, booking } = site;
@@ -31,14 +32,8 @@ const steps = [
 
   <!-- ═══ HERO ═══ -->
   <section id="ins-hero" class="ins-cyber section" style="position:relative;overflow:hidden;">
-    <div class="corner-ornament corner-ornament--tl" aria-hidden="true">
-      <div class="co-ring co-ring-1"></div><div class="co-ring co-ring-2"></div>
-      <div class="co-ring co-ring-3"></div><div class="co-dot"></div>
-      <div class="co-cross-h"></div><div class="co-cross-v"></div>
-    </div>
-    <div class="corner-ornament corner-ornament--br" aria-hidden="true">
-      <div class="co-ring co-ring-1"></div><div class="co-ring co-ring-2"></div><div class="co-dot"></div>
-    </div>
+    <CornerOrnament corner="tl" />
+    <CornerOrnament corner="br" full={false} />
     <div class="aurora-overlay"><div class="aurora-1"></div><div class="aurora-3"></div></div>
     <div class="magic-particles" aria-hidden="true">
       <span class="mp" style="top:12%;right:6%;--sz:0.85rem;--d:9s;--dl:-1s;--op:0.42;">✦</span>

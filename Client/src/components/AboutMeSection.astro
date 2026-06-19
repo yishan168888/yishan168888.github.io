@@ -1,5 +1,6 @@
 ---
 import site from '../data/site.json';
+import CornerOrnament from './CornerOrnament.astro';
 const { contact } = site;
 ---
 <section id="about-me" class="about-cyber section">
@@ -23,19 +24,8 @@ const { contact } = site;
   </div>
 
   <!-- Corner Ornament -->
-  <div class="corner-ornament corner-ornament--tr" aria-hidden="true">
-    <div class="co-ring co-ring-1"></div>
-    <div class="co-ring co-ring-2"></div>
-    <div class="co-ring co-ring-3"></div>
-    <div class="co-dot"></div>
-    <div class="co-cross-h"></div>
-    <div class="co-cross-v"></div>
-  </div>
-  <div class="corner-ornament corner-ornament--bl" aria-hidden="true">
-    <div class="co-ring co-ring-1"></div>
-    <div class="co-ring co-ring-2"></div>
-    <div class="co-dot"></div>
-  </div>
+  <CornerOrnament corner="tr" />
+  <CornerOrnament corner="bl" full={false} />
 
   <div class="container" style="position:relative;z-index:2;">
 
@@ -78,8 +68,8 @@ const { contact } = site;
         <h4>塔羅師 · 靈性療癒</h4>
         <p>使用偉特塔羅，結合精油與意識對話，透過高敏感與直覺力，陪你看見潛藏的能量訊息，回到內在力量。感情、事業、靈性皆可解讀。</p>
         <div style="display:flex;gap:10px;margin-top:auto;flex-wrap:wrap;">
-          <a href={contact.line} target="_blank" style="font-size:0.77rem;color:#c87a30;font-weight:700;text-decoration:none;opacity:0.9;transition:all 0.2s;">LINE 預約 →</a>
-          <a href={contact.instagram} target="_blank" style="font-size:0.77rem;color:#c87a30;font-weight:700;text-decoration:none;opacity:0.9;transition:all 0.2s;">IG 洽詢 →</a>
+          <a href={contact.line} target="_blank">LINE 預約 →</a>
+          <a href={contact.instagram} target="_blank">IG 洽詢 →</a>
         </div>
       </div>
 

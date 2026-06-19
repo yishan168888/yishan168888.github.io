@@ -5,51 +5,24 @@ import AboutMeSection from '../components/AboutMeSection.astro';
 import MMTSection from '../components/MMTSection.astro';
 import FeaturedProgramsSection from '../components/FeaturedProgramsSection.astro';
 import TarotSection from '../components/TarotSection.astro';
+import SectionDivider from '../components/SectionDivider.astro';
 ---
 <MainLayout title="LuLu | Personal Advisor for Life & Soul" bodyClass="index-page cyber-page">
     <HeroSection />
 
-    <div class="magic-divider" aria-hidden="true">
-      <div class="film-strip-row film-strip-row--top"></div>
-      <div class="magic-divider-line"></div>
-      <div class="magic-divider-symbols">
-        <span>✦</span><span>ᚠ</span><span>✸</span><span>ᛏ</span><span>✦</span><span>ᚢ</span><span>✸</span>
-      </div>
-      <div class="film-strip-row film-strip-row--bottom"></div>
-    </div>
+    <SectionDivider variant={0} />
 
     <AboutMeSection />
 
-    <div class="magic-divider on-dark" aria-hidden="true">
-      <div class="film-strip-row film-strip-row--top"></div>
-      <div class="magic-divider-line"></div>
-      <div class="magic-divider-symbols">
-        <span>✧</span><span>ᛟ</span><span>✦</span><span>ᚱ</span><span>✧</span><span>ᛞ</span><span>✦</span>
-      </div>
-      <div class="film-strip-row film-strip-row--bottom"></div>
-    </div>
+    <SectionDivider variant={1} dark />
 
     <MMTSection />
 
-    <div class="magic-divider" aria-hidden="true">
-      <div class="film-strip-row film-strip-row--top"></div>
-      <div class="magic-divider-line"></div>
-      <div class="magic-divider-symbols">
-        <span>✸</span><span>ᛁ</span><span>✦</span><span>ᚺ</span><span>✸</span><span>ᛈ</span><span>✦</span>
-      </div>
-      <div class="film-strip-row film-strip-row--bottom"></div>
-    </div>
+    <SectionDivider variant={2} />
 
     <FeaturedProgramsSection />
 
-    <div class="magic-divider on-dark" aria-hidden="true">
-      <div class="film-strip-row film-strip-row--top"></div>
-      <div class="magic-divider-line"></div>
-      <div class="magic-divider-symbols">
-        <span>☽</span><span>✦</span><span>★</span><span>✦</span><span>☽</span>
-      </div>
-      <div class="film-strip-row film-strip-row--bottom"></div>
-    </div>
+    <SectionDivider variant={3} dark />
 
     <TarotSection />
 </MainLayout>

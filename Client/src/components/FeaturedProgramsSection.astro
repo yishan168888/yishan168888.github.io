@@ -1,22 +1,12 @@
 ---
 import { getCollection } from 'astro:content';
+import CornerOrnament from './CornerOrnament.astro';
 const programs = (await getCollection('programs')).sort((a, b) => a.data.order - b.data.order);
 ---
 <section id="featured-programs" class="programs-cyber section" style="position:relative;overflow:hidden;">
   <!-- Corner Ornament -->
-  <div class="corner-ornament corner-ornament--tr" aria-hidden="true">
-    <div class="co-ring co-ring-1"></div>
-    <div class="co-ring co-ring-2"></div>
-    <div class="co-ring co-ring-3"></div>
-    <div class="co-dot"></div>
-    <div class="co-cross-h"></div>
-    <div class="co-cross-v"></div>
-  </div>
-  <div class="corner-ornament corner-ornament--bl" aria-hidden="true">
-    <div class="co-ring co-ring-1"></div>
-    <div class="co-ring co-ring-2"></div>
-    <div class="co-dot"></div>
-  </div>
+  <CornerOrnament corner="tr" />
+  <CornerOrnament corner="bl" full={false} />
 
   <!-- Floating particles -->
   <div class="magic-particles" aria-hidden="true">

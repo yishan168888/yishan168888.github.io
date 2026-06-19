@@ -1,6 +1,6 @@
 /* ── Card Hover Magic Glow ───────────────────────────────────
-   覆蓋 theme-magic.css 的 hover box-shadow，
-   加上更強的魔法光暈 + 啟用 .card-shimmer 滑光效果
+   覆蓋 theme-magic.css 的 hover box-shadow，加上更強的魔法光暈。
+   .card-shimmer 滑光效果（含 hover 觸發）定義於 magic-effects.css。
    (須在 theme-magic.css 之後 import 才能正確覆蓋)
 ──────────────────────────────────────────────────────────── */
 
@@ -28,27 +28,4 @@
     0 0 0 1px rgba(138, 110, 86, 0.22),
     0 0 34px rgba(138, 110, 86, 0.14),
     0 0 72px rgba(138, 110, 86, 0.06);
-}
-
-/* Shimmer 滑光 (HTML 需在 card 內加 <div class="card-shimmer"></div>) */
-/* 動畫邏輯定義在 magic-effects.css；此處僅確保優先級正確 */
-.card-shimmer {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    108deg,
-    transparent 20%,
-    rgba(222, 190, 130, 0.18) 50%,
-    transparent 80%
-  );
-  transform: translateX(-130%);
-  transition: transform 0.75s ease;
-  pointer-events: none;
-  z-index: 3;
-}
-
-.cyber-tile:hover .card-shimmer,
-.value-cyber-card:hover .card-shimmer,
-.program-cyber-card:hover .card-shimmer {
-  transform: translateX(130%);
 }

@@ -1,0 +1,23 @@
+---
+// 角落小魔法陣：三層同心環 + 中心點 + 十字線（樣式定義於 styles/corner-ornament.css）。
+// full=false 只留 2 環 + 中心點（無第 3 環、無十字），用於和「full」角落配對的次要角落。
+// amber=true 套用塔羅頁專屬的橘色調（其餘頁面沿用 CSS 預設的 Stone 色）。
+interface Props {
+  corner: 'tl' | 'tr' | 'bl' | 'br';
+  full?: boolean;
+  amber?: boolean;
+}
+const { corner, full = true, amber = false } = Astro.props;
+
+const op = full
+  ? { ring1: 0.35, ring2: 0.2, ring3: 0.1, dot: 0.6, cross: 0.3 }
+  : { ring1: 0.3, ring2: 0.15, ring3: 0, dot: 0.5, cross: 0 };
+---
+<div class={`corner-ornament corner-ornament--${corner}`} aria-hidden="true">
+  <div class="co-ring co-ring-1" style={amber ? `border-color:rgba(200,122,48,${op.ring1});` : undefined}></div>
+  <div class="co-ring co-ring-2" style={amber ? `border-color:rgba(200,122,48,${op.ring2});` : undefined}></div>
+  {full && <div class="co-ring co-ring-3" style={amber ? `border-color:rgba(200,122,48,${op.ring3});` : undefined}></div>}
+  <div class="co-dot" style={amber ? `background:rgba(200,122,48,${op.dot});` : undefined}></div>
+  {full && <div class="co-cross-h" style={amber ? `background:rgba(200,122,48,${op.cross});` : undefined}></div>}
+  {full && <div class="co-cross-v" style={amber ? `background:rgba(200,122,48,${op.cross});` : undefined}></div>}
+</div>

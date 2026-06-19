@@ -1,35 +1,11 @@
 ---
 import site from '../data/site.json';
+import CornerOrnament from './CornerOrnament.astro';
+import TarotElectricFilter from './TarotElectricFilter.astro';
 const { contact, booking } = site;
 ---
 
-<!-- SVG Turbulent Filter（電氣邊框動效） -->
-<svg class="tarot-svg-filter" style="position:absolute;width:0;height:0;overflow:hidden;" aria-hidden="true">
-  <defs>
-    <filter id="tarot-turbulent-displace" colorInterpolationFilters="sRGB" x="-20%" y="-20%" width="140%" height="140%">
-      <feTurbulence type="turbulence" baseFrequency="0.018" numOctaves="8" result="noise1" seed="3" />
-      <feOffset in="noise1" dx="0" dy="0" result="offsetNoise1">
-        <animate attributeName="dy" values="600; 0" dur="7s" repeatCount="indefinite" calcMode="linear" />
-      </feOffset>
-      <feTurbulence type="turbulence" baseFrequency="0.018" numOctaves="8" result="noise2" seed="3" />
-      <feOffset in="noise2" dx="0" dy="0" result="offsetNoise2">
-        <animate attributeName="dy" values="0; -600" dur="7s" repeatCount="indefinite" calcMode="linear" />
-      </feOffset>
-      <feTurbulence type="turbulence" baseFrequency="0.018" numOctaves="8" result="noise3" seed="7" />
-      <feOffset in="noise3" dx="0" dy="0" result="offsetNoise3">
-        <animate attributeName="dx" values="420; 0" dur="7s" repeatCount="indefinite" calcMode="linear" />
-      </feOffset>
-      <feTurbulence type="turbulence" baseFrequency="0.018" numOctaves="8" result="noise4" seed="7" />
-      <feOffset in="noise4" dx="0" dy="0" result="offsetNoise4">
-        <animate attributeName="dx" values="0; -420" dur="7s" repeatCount="indefinite" calcMode="linear" />
-      </feOffset>
-      <feComposite in="offsetNoise1" in2="offsetNoise2" result="part1" />
-      <feComposite in="offsetNoise3" in2="offsetNoise4" result="part2" />
-      <feBlend in="part1" in2="part2" mode="color-dodge" result="combinedNoise" />
-      <feDisplacementMap in="SourceGraphic" in2="combinedNoise" scale="60" xChannelSelector="R" yChannelSelector="B" />
-    </filter>
-  </defs>
-</svg>
+<TarotElectricFilter />
 
 <section id="tarot" class="tarot-cyber section">
 
@@ -52,19 +28,8 @@ const { contact, booking } = site;
   </div>
 
   <!-- Corner Ornament -->
-  <div class="corner-ornament corner-ornament--tr" aria-hidden="true">
-    <div class="co-ring co-ring-1" style="border-color:rgba(200,122,48,0.35);"></div>
-    <div class="co-ring co-ring-2" style="border-color:rgba(200,122,48,0.2);"></div>
-    <div class="co-ring co-ring-3" style="border-color:rgba(200,122,48,0.1);"></div>
-    <div class="co-dot" style="background:rgba(200,122,48,0.6);"></div>
-    <div class="co-cross-h" style="background:rgba(200,122,48,0.3);"></div>
-    <div class="co-cross-v" style="background:rgba(200,122,48,0.3);"></div>
-  </div>
-  <div class="corner-ornament corner-ornament--bl" aria-hidden="true">
-    <div class="co-ring co-ring-1" style="border-color:rgba(200,122,48,0.3);"></div>
-    <div class="co-ring co-ring-2" style="border-color:rgba(200,122,48,0.15);"></div>
-    <div class="co-dot" style="background:rgba(200,122,48,0.5);"></div>
-  </div>
+  <CornerOrnament corner="tr" amber />
+  <CornerOrnament corner="bl" full={false} amber />
 
   <div class="container" style="position:relative;z-index:2;">
 
@@ -110,9 +75,6 @@ const { contact, booking } = site;
               <div class="tarot-glow-1"></div>
               <div class="tarot-glow-2"></div>
             </div>
-            <div class="tarot-overlay-1"></div>
-            <div class="tarot-overlay-2"></div>
-            <div class="tarot-bg-glow"></div>
 
             <div class="tarot-card-content">
               <span class="tarot-card-label">Rider-Waite Tarot</span>
