@@ -7,10 +7,38 @@
     <title>LuLu 網站後台</title>
   </head>
   <body>
-    <!-- 浮動連結：跳轉到塔羅日誌工具（獨立靜態頁，見 /tarot-journal/）-->
-    <a href="/tarot-journal/moon-journal.html" style="position:fixed;top:12px;right:12px;z-index:999999;background:#1a1008;color:#f7f2ea;padding:8px 14px;border-radius:8px;font-family:sans-serif;font-size:13px;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.3);">🌙 塔羅日誌工具</a>
-
     <!-- Sveltia CMS（開源、Decap 相容）。設定讀同目錄的 config.yml -->
     <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
+
+    <script>
+    (function () {
+      // 塔羅日誌工具的浮動連結：只在確認 GitHub OAuth 登入成功後才產生，
+      // 避免尚未登入就能點進去。判斷方式沿用 Server/Admin/worker.js 的
+      // postMessage 協定（authorization:github:success:...），這是我們自己
+      // OAuth 門鎖的既定格式，不依賴 Sveltia CMS 內部實作細節。
+      var AUTHED_KEY = 'lulu-admin-authed';
+
+      function addJournalLink() {
+        if (document.getElementById('journal-link')) return;
+        var a = document.createElement('a');
+        a.id = 'journal-link';
+        a.href = '/tarot-journal/moon-journal.html';
+        a.textContent = '🌙 塔羅日誌工具';
+        a.style.cssText = 'position:fixed;top:12px;right:12px;z-index:999999;background:#1a1008;color:#f7f2ea;padding:8px 14px;border-radius:8px;font-family:sans-serif;font-size:13px;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.3);';
+        document.body.appendChild(a);
+      }
+
+      if (localStorage.getItem(AUTHED_KEY) === '1') {
+        addJournalLink();
+      }
+
+      window.addEventListener('message', function (e) {
+        if (typeof e.data === 'string' && e.data.indexOf('authorization:github:success:') === 0) {
+          localStorage.setItem(AUTHED_KEY, '1');
+          addJournalLink();
+        }
+      });
+    })();
+    </script>
   </body>
 </html>
