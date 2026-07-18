@@ -2,6 +2,7 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import SectionDivider from '../components/SectionDivider.astro';
 import TarotElectricFilter from '../components/TarotElectricFilter.astro';
+import TarotBookingForm from '../components/TarotBookingForm.astro';
 import site from '../data/site.json';
 const { contact, booking } = site;
 ---
@@ -92,15 +93,15 @@ const { contact, booking } = site;
       </div>
     </section>
 
-    <!-- ── 關於塔羅師 ──────────────────────────────────── -->
+    <!-- ── 預約塔羅諮詢 ──────────────────────────────────── -->
     <SectionDivider variant={1} />
 
     <section class="tarot-page-intro">
       <div class="container">
         <div class="tarot-section-header" style="color:#2c1a08;" data-aos="fade-up">
-          <span class="tarot-section-tag" style="color:#c87a30;">ABOUT THE READER</span>
+          <span class="tarot-section-tag" style="color:#c87a30;">BOOK A READING</span>
           <h2 class="tarot-section-title" style="color:#2c1a08;">
-            關於 <em style="color:#c87a30;text-shadow:0 0 20px rgba(200,122,48,0.3);">塔羅師</em> LuLu
+            預約 <em style="color:#c87a30;text-shadow:0 0 20px rgba(200,122,48,0.3);">塔羅諮詢</em>
           </h2>
         </div>
 
@@ -110,28 +111,8 @@ const { contact, booking } = site;
             <img src="/img/lulu/lu02.webp" alt="LuLu 魯魯 塔羅師" loading="lazy" decoding="async" />
           </div>
 
-          <!-- 文字 -->
-          <div class="tarot-intro-text">
-            <span class="tarot-eyebrow">MY STORY</span>
-            <h3 class="tarot-intro-title">從護理到靈性，<br/>一張牌的相遇</h3>
-            <p class="tarot-intro-body">
-              擁有臨床護理背景，我習慣用觀察與傾聽陪伴他人。當我接觸偉特塔羅，才發現牌面的象徵語言正是另一種形式的「診斷工具」——它不診斷身體，而是讀懂靈魂。
-            </p>
-            <p class="tarot-intro-body">
-              結合 MMT 天賦系統的人格分析能力與高敏感特質，每一次解牌對我而言都是一場深度對話。我不套用制式牌義，而是跟著你的故事，讓牌說出最貼近你此刻狀態的答案。
-            </p>
-            <div class="tarot-cta-row mt-4">
-              <a href={booking.appointment} target="_blank" class="btn-tarot-line">
-                <i class="bi bi-calendar-check"></i> 線上預約時段
-              </a>
-              <a href={contact.line} target="_blank" class="btn-tarot-line">
-                <i class="bi bi-chat-fill"></i> LINE 預約
-              </a>
-              <a href={contact.instagram} target="_blank" class="btn-tarot-ig">
-                <i class="bi bi-instagram"></i> IG 洽詢
-              </a>
-            </div>
-          </div>
+          <!-- 預約表單 -->
+          <TarotBookingForm />
         </div>
       </div>
     </section>

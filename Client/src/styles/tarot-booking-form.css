@@ -1,0 +1,118 @@
+/* ============================================================
+   TAROT BOOKING FORM — /tarot 頁「預約塔羅諮詢」表單
+   沿用 tarot-electric.css 的 Amber/Deep/Cream 配色與 section 慣例
+   ============================================================ */
+
+.tarot-booking-form {
+  background: rgba(255, 253, 248, 0.7);
+  border: 1px solid rgba(160, 92, 20, 0.18);
+  border-radius: 14px;
+  padding: 32px;
+  box-shadow: 0 0 40px rgba(160, 92, 20, 0.06);
+}
+
+.tarot-form-intro {
+  margin-bottom: 24px;
+}
+
+.tarot-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.tarot-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.tarot-form-field.full { grid-column: 1 / -1; }
+
+.tarot-form-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  color: #59453a;
+  font-weight: 700;
+}
+.tarot-form-label .req { color: #a05c14; margin-left: 2px; }
+
+.tarot-form-input,
+.tarot-form-select,
+.tarot-form-textarea {
+  border: 1px solid rgba(160, 92, 20, 0.25);
+  background: #fffdf8;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 0.92rem;
+  color: #2c1a08;
+  outline: none;
+  min-height: 44px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.tarot-form-textarea { min-height: 120px; resize: vertical; }
+
+.tarot-form-input:focus,
+.tarot-form-select:focus,
+.tarot-form-textarea:focus {
+  border-color: #a05c14;
+  box-shadow: 0 0 0 3px rgba(160, 92, 20, 0.12);
+}
+
+.tarot-form-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: rgba(44, 26, 8, 0.68);
+  line-height: 1.6;
+  margin: 6px 0 22px;
+  cursor: pointer;
+}
+.tarot-form-consent input {
+  margin-top: 4px;
+  width: 18px;
+  height: 18px;
+  accent-color: #a05c14;
+  flex-shrink: 0;
+}
+
+.tarot-form-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 36px;
+  background: #a05c14;
+  border: 2px solid #a05c14;
+  color: #f7f2ea;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border-radius: 6px;
+  cursor: pointer;
+  min-height: 44px;
+  transition: all 0.25s;
+  box-shadow: 0 4px 18px rgba(160, 92, 20, 0.3);
+}
+.tarot-form-submit:hover:not(:disabled) {
+  background: #c07030;
+  border-color: #c07030;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(160, 92, 20, 0.45);
+}
+.tarot-form-submit:disabled { opacity: 0.6; cursor: default; }
+
+.tarot-form-msg {
+  margin-top: 14px;
+  font-size: 0.85rem;
+  min-height: 1.2em;
+}
+.tarot-form-msg.is-error { color: #a94942; }
+.tarot-form-msg.is-success { color: #5c7a4a; }
+
+@media (max-width: 576px) {
+  .tarot-booking-form { padding: 22px; }
+  .tarot-form-row { grid-template-columns: 1fr; gap: 14px; margin-bottom: 14px; }
+  .tarot-form-submit { width: 100%; }
+}

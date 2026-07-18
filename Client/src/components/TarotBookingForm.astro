@@ -1,0 +1,124 @@
+---
+---
+<div class="tarot-booking-form">
+  <span class="tarot-eyebrow" style="color:#a05c14;">BOOK A READING</span>
+  <h3 class="tarot-intro-title">預約你的 <em style="color:#a05c14;">塔羅時刻</em></h3>
+  <p class="tarot-intro-body tarot-form-intro">
+    填寫下方表單，讓我先認識你此刻的狀態與想探索的方向，我會盡快透過您留下的聯絡方式與您確認時段。
+  </p>
+
+  <form id="tarot-booking-form" novalidate>
+    <div class="tarot-form-row">
+      <div class="tarot-form-field">
+        <label class="tarot-form-label" for="tf-name">姓名 <span class="req">*</span></label>
+        <input class="tarot-form-input" id="tf-name" type="text" required maxlength="60" />
+      </div>
+      <div class="tarot-form-field">
+        <label class="tarot-form-label" for="tf-contact">聯絡方式（LINE ID 或電話）<span class="req">*</span></label>
+        <input class="tarot-form-input" id="tf-contact" type="text" required maxlength="80" />
+      </div>
+    </div>
+
+    <div class="tarot-form-row">
+      <div class="tarot-form-field">
+        <label class="tarot-form-label" for="tf-method">希望的諮詢方式（選填）</label>
+        <select class="tarot-form-select" id="tf-method">
+          <option value="">不指定</option>
+          <option>面對面</option>
+          <option>視訊</option>
+          <option>文字</option>
+        </select>
+      </div>
+      <div class="tarot-form-field">
+        <label class="tarot-form-label" for="tf-topic">想諮詢的主題（選填）</label>
+        <select class="tarot-form-select" id="tf-topic">
+          <option value="">不指定</option>
+          <option>感情</option>
+          <option>工作</option>
+          <option>健康</option>
+          <option>人生方向</option>
+          <option>其他</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="tarot-form-row">
+      <div class="tarot-form-field full">
+        <label class="tarot-form-label" for="tf-message">想說的話 <span class="req">*</span></label>
+        <textarea
+          class="tarot-form-textarea"
+          id="tf-message"
+          required
+          maxlength="1000"
+          placeholder="簡單說說你目前的狀態，或想透過塔羅探索的問題……"
+        ></textarea>
+      </div>
+    </div>
+
+    <label class="tarot-form-consent" for="tf-consent">
+      <input type="checkbox" id="tf-consent" required />
+      <span>我同意本表單所填寫之個人資料，僅用於本次塔羅預約聯繫用途，不會另作他用。</span>
+    </label>
+
+    <button class="tarot-form-submit" type="submit" id="tf-submit">✦ 送出預約 ✦</button>
+    <p class="tarot-form-msg" id="tf-msg" role="status" aria-live="polite"></p>
+  </form>
+</div>
+
+<script>
+(function () {
+  // 待 Server/TarotBooking/Code.gs 部署為 Google Apps Script 網頁應用程式後，
+  // 把下面這個網址換成實際的 Web App URL（結尾是 /exec）。
+  var ENDPOINT_URL = 'REPLACE_WITH_APPS_SCRIPT_WEB_APP_URL';
+
+  var form = document.getElementById('tarot-booking-form');
+  if (!form) return;
+  var submitBtn = document.getElementById('tf-submit');
+  var msgEl = document.getElementById('tf-msg');
+
+  function showMsg(text, isError) {
+    msgEl.textContent = text;
+    msgEl.classList.toggle('is-error', isError);
+    msgEl.classList.toggle('is-success', !isError);
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    if (ENDPOINT_URL.indexOf('REPLACE_WITH') !== -1) {
+      showMsg('表單尚未接上後端，請直接透過 LINE／IG 與我聯繫，謝謝！', true);
+      return;
+    }
+
+    var payload = {
+      name: document.getElementById('tf-name').value.trim(),
+      contact: document.getElementById('tf-contact').value.trim(),
+      method: document.getElementById('tf-method').value,
+      topic: document.getElementById('tf-topic').value,
+      message: document.getElementById('tf-message').value.trim(),
+      consent: document.getElementById('tf-consent').checked,
+    };
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = '送出中…';
+
+    fetch(ENDPOINT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload),
+    })
+      .then(function () {
+        form.reset();
+        showMsg('✦ 已收到您的預約需求，我會盡快與您聯繫 ✦', false);
+      })
+      .catch(function () {
+        showMsg('送出時發生問題，請稍後再試，或直接透過 LINE／IG 與我聯繫。', true);
+      })
+      .finally(function () {
+        submitBtn.disabled = false;
+        submitBtn.textContent = '✦ 送出預約 ✦';
+      });
+  });
+})();
+</script>

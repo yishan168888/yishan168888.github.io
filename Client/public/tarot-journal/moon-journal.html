@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>塔羅諮詢紀錄本</title>
+  <meta name="robots" content="noindex" />
+  <link rel="stylesheet" href="css/moon-journal.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><small>THE MOON JOURNAL</small><h1>塔羅諮詢紀錄本</h1><p>讓每一次相遇，都留下清晰的軌跡。</p></div>
+      <div class="client-head"><span>客人名冊</span><button class="icon-btn" id="addClientBtn" title="新增客人">＋</button></div>
+      <div class="client-list" id="clientList"></div>
+      <div class="privacy-note"><b>◇ 資料只存在本機</b>所有紀錄儲存於此瀏覽器的 localStorage，不會自動上傳。</div>
+    </aside>
+    <main>
+      <div class="topbar"><div><div class="eyebrow">PERSONAL TAROT PRACTICE</div><h2 id="pageTitle">新增諮詢紀錄</h2><p id="pageSubtitle">把直覺、牌面與每一次對話，安放在同一個地方。</p></div><div class="top-actions"><span class="status">● 本機儲存中</span><button class="btn" id="exportBtn">匯出備份</button><button class="btn" id="importBtn">匯入備份</button><input id="importFile" type="file" accept="application/json" hidden></div></div>
+      <nav class="tabs" aria-label="主要功能"><button class="tab active" data-page="new">新增諮詢</button><button class="tab" data-page="history">諮詢歷史</button><button class="tab" data-page="tracking">議題追蹤</button><button class="tab" data-page="notes">私人筆記</button><button class="tab" data-page="finance">收費結算</button></nav>
+
+      <section class="page active" id="page-new"><form id="sessionForm"><input type="hidden" id="sessionId"><div class="grid"><div class="card span-2"><h3 id="sessionFormTitle">記下這次諮詢</h3><div class="form-grid"><div class="field"><label for="sessionClient">客人 *</label><select id="sessionClient" required></select></div><div class="field"><label for="sessionDate">日期 *</label><input id="sessionDate" type="date" required></div><div class="field"><label for="sessionDuration">諮詢時長（分鐘）</label><input id="sessionDuration" type="number" min="0" step="5" placeholder="例如 60"></div><div class="field"><label for="sessionMethod">諮詢方式</label><select id="sessionMethod"><option>面對面</option><option>視訊</option><option>文字</option></select></div><div class="field"><label for="sessionTopic">問題主題分類</label><select id="sessionTopic"><option>感情</option><option>工作</option><option>健康</option><option>人生方向</option><option>其他</option></select></div><div class="field"><label for="sessionSpread">使用牌陣</label><input id="sessionSpread" placeholder="例如：三張牌／凱爾特十字"></div><div class="field full"><label for="sessionCards">抽到的牌組內容</label><textarea id="sessionCards" placeholder="請記下牌名、正逆位與你觀察到的排列…"></textarea></div><div class="field full"><label for="sessionSummary">給客人的解讀摘要</label><textarea id="sessionSummary" placeholder="這段文字可製作成摘要卡交給客人。"></textarea></div></div></div><div class="card private"><div class="section-title"><h3>私人觀察</h3><span class="private-badge">僅自己可見</span></div><p class="hint">這裡的內容不會出現在客人摘要卡，也不會對外顯示。</p><div class="field"><label for="sessionPrivate">你的直覺、觀察與後續提醒</label><textarea id="sessionPrivate" placeholder="寫下只有你需要知道的內容…"></textarea></div></div><div class="card"><h3>本次收費</h3><p class="hint">已帶入客人的預設費用，你仍可依本次狀況調整。</p><div class="field"><label for="sessionFee">收費金額</label><input id="sessionFee" type="number" min="0" step="50" placeholder="0"></div><div class="form-actions"><button type="button" class="btn ghost" id="clearSession">清除</button><button class="btn primary" type="submit">儲存諮詢紀錄</button></div></div></div></form></section>
+
+      <section class="page" id="page-history"><div class="card"><div class="section-title"><h3>所有諮詢紀錄</h3><span class="small-muted" id="historyCount"></span></div><div class="filters"><select id="historyClient"><option value="">所有客人</option></select><input id="historyMonth" type="month"><button class="btn mini" id="resetHistory">清除篩選</button></div><div id="historyList"></div></div></section>
+      <section class="page" id="page-tracking"><div class="card"><div class="section-title"><h3>客人議題追蹤</h3><span class="small-muted">沿著時間，看見議題的變化</span></div><div class="filters"><select id="trackingClient"></select></div><div id="trackingList"></div></div></section>
+      <section class="page" id="page-notes"><div class="private"><div class="section-title"><h3>私人觀察筆記</h3><span class="private-badge">僅自己可見 · 不對外顯示</span></div><p class="hint">這裡只整理每筆諮詢的私人觀察欄位，提醒你這是敏感內容。</p><div id="notesList"></div></div></section>
+      <section class="page" id="page-finance"><div class="grid"><div class="card span-2"><div class="section-title"><h3>收費結算</h3><span class="small-muted">依月份與客人查看</span></div><div class="filters"><input id="financeMonth" type="month"><select id="financeClient"><option value="">所有客人</option></select></div><div id="financeSessions"></div></div><div class="card"><h3>本月總計</h3><div class="small-muted">諮詢收入＋其他收入</div><div class="money-total" id="financeTotal">$0</div><hr style="border:0;border-top:1px solid var(--line);margin:18px 0"><h3>其他收入</h3><div id="incomeRows"></div><button class="btn mini" id="addIncome">＋ 新增項目</button><div class="form-actions"><button class="btn primary" id="saveIncome">儲存收入項目</button></div></div></div></section>
+      <section class="page" id="page-client"><div class="card"><div class="section-title"><h3 id="clientFormTitle">新增客人</h3><button class="btn mini" id="cancelClient">返回</button></div><form id="clientForm"><input type="hidden" id="clientId"><div class="form-grid"><div class="field"><label for="clientName">代號／暱稱 *</label><input id="clientName" required placeholder="例如：月光 01"></div><div class="field"><label for="clientContact">聯絡方式（選填）</label><input id="clientContact" placeholder="電話、Email 或社群帳號"></div><div class="field"><label for="clientFee">預設諮詢費用</label><input id="clientFee" type="number" min="0" step="50" placeholder="0"></div><label><input id="clientHideAmount" type="checkbox"> 隱藏此客人的金額顯示</label></div><div class="form-actions"><button type="button" class="btn ghost" id="cancelClient2">取消</button><button type="button" class="btn danger" id="deleteClientBtn" hidden>刪除客人</button><button class="btn primary">儲存客人</button></div></form></div></section>
+    </main>
+  </div>
+  <div id="toast" style="position:fixed;right:22px;bottom:22px;background:var(--navy);color:white;padding:12px 16px;border-radius:9px;opacity:0;pointer-events:none;transition:.25s;z-index:5"></div>
+  
+  <script src="js/moon-journal.js"></script>
+</body>
+</html>
